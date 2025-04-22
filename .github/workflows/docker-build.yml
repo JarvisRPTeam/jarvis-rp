@@ -61,6 +61,15 @@ jobs:
               && tar -xzf ragemp-srv.tar.gz \
               && rm ragemp-srv.tar.gz
 
+          # Set permission to launch the server
+          RUN chmod +x /ragemp-srv/ragemp-server
+
+          # Launch for the first time to generate the directories
+          RUN /ragemp-srv/ragemp-server
+            # Kill the server process after it generates the necessary files
+            # Use || true to prevent build failure if the process already exited
+          RUN pkill ragemp-server || true
+
           # Copy your Windows setup files
           # Note: These files should be in your repository
           COPY ./client_packages/ /ragemp-srv/client_packages/
@@ -74,10 +83,7 @@ jobs:
           EXPOSE 22005/tcp 22005/udp 22006/tcp 22006/udp
 
           # Start script
-          RUN echo '#!/bin/bash\n\
-          cd /ragemp-server\n\
-          exec ./server\n' > /ragemp-server/start.sh \
-              && chmod +x /ragemp-server/start.sh
+          RUN /ragemp-srv/ragemp-server
 
           CMD ["/ragemp-server/start.sh"]
           EOF
