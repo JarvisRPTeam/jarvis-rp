@@ -1,0 +1,9 @@
+.git
+.github
+.dockerignore
+Dockerfile
+k8s
+*.md
+*.ps1
+*.bat
+*.txt

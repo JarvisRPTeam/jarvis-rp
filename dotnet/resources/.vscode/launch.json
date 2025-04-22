@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "JarvisRP Build",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "compile",
+            "program": "ragemp-server.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}/../../",
+            "stopAtEntry": false,
+            "console": "externalTerminal",
+            "internalConsoleOptions": "neverOpen"
+        }
+
+    ]
+}

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jarvis-rp
+  labels:
+    app: jarvis-rp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jarvis-rp
+  template:
+    metadata:
+      labels:
+        app: jarvis-rp
+    spec:
+      containers:
+      - name: jarvis-rp
+        image: ghcr.io/REPLACEME/jarvis-rp:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 22005
+          protocol: UDP
+          name: game
+        - containerPort: 22005
+          protocol: TCP
+          name: game
+        - containerPort: 22006
+          protocol: TCP
+          name: http
+        resources:
+          limits:
+            cpu: "2"
+            memory: "2Gi"
+          requests:
+            cpu: "1"
+            memory: "1Gi"
+        livenessProbe:
+          tcpSocket:
+            port: 22006
+          initialDelaySeconds: 30
+          periodSeconds: 10
