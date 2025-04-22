@@ -74,7 +74,7 @@ jobs:
           COPY ./maps/ /ragemp-server/maps/
           COPY ./plugins/ /ragemp-server/plugins/
           COPY ./conf.json /ragemp-server/conf.json
-          COPY ./settings.xml /ragemp-server/settings.xml
+          COPY ./settings.xml /ragemp-server/
 
           # Expose necessary ports
           EXPOSE 22005/tcp 22005/udp 22006/tcp 22006/udp
