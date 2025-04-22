@@ -28,13 +28,13 @@ WORKDIR /app
 # Copy server files
 COPY . /app/
 
-# Make sure ragemp-server is executable
-RUN chmod +x /app/ragemp-server
+# Skip chmod if file doesn't exist - prevents build failure
+RUN if [ -f /app/ragemp-server ]; then chmod +x /app/ragemp-server; else echo "Warning: ragemp-server not found"; fi
 
 # Expose the server ports (default: 22005 UDP, 22006 TCP)
 EXPOSE 22005/udp
 EXPOSE 22005/tcp
 EXPOSE 22006/tcp
 
-# Set the entrypoint
+# Set the entrypoint - modify this if your executable has a different name
 ENTRYPOINT ["/app/ragemp-server"]
