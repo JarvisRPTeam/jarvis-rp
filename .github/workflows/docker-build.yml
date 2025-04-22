@@ -27,6 +27,67 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Create Dockerfile
+        run: |
+          cat > Dockerfile << 'EOF'
+          FROM ubuntu:20.04
+
+          # Prevent interactive prompts during package installation
+          ENV DEBIAN_FRONTEND=noninteractive
+          ENV TZ=UTC
+
+          # Install dependencies
+          RUN apt-get update && apt-get install -y \
+              wget \
+              unzip \
+              libatomic1 \
+              xz-utils \
+              apt-transport-https \
+              nano \
+              && rm -rf /var/lib/apt/lists/*
+
+          # Install .NET runtime
+          RUN wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+              && dpkg -i packages-microsoft-prod.deb \
+              && apt-get update \
+              && apt-get install -y dotnet-runtime-6.0 \
+              && rm -rf /var/lib/apt/lists/*
+
+          # Create directory for the server
+          WORKDIR /ragemp-server
+
+          # Download and extract RAGE MP server
+          RUN wget https://cdn.rage.mp/lin/ragemp-srv.tar.gz \
+              && tar -xzf ragemp-srv.tar.gz \
+              && rm ragemp-srv.tar.gz
+
+          # Create directories for resources, packages, and other data
+          RUN mkdir -p /ragemp-server/client_packages \
+              && mkdir -p /ragemp-server/packages \
+              && mkdir -p /ragemp-server/maps \
+              && mkdir -p /ragemp-server/plugins
+
+          # Copy your Windows setup files
+          # Note: These files should be in your repository
+          COPY ./client_packages/ /ragemp-server/client_packages/
+          COPY ./packages/ /ragemp-server/packages/
+          COPY ./maps/ /ragemp-server/maps/
+          COPY ./plugins/ /ragemp-server/plugins/
+          COPY ./conf.json /ragemp-server/conf.json
+          COPY ./settings.xml /ragemp-server/settings.xml
+
+          # Expose necessary ports
+          EXPOSE 22005/tcp 22005/udp 22006/tcp 22006/udp
+
+          # Start script
+          RUN echo '#!/bin/bash\n\
+          cd /ragemp-server\n\
+          exec ./server\n' > /ragemp-server/start.sh \
+              && chmod +x /ragemp-server/start.sh
+
+          CMD ["/ragemp-server/start.sh"]
+          EOF
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
