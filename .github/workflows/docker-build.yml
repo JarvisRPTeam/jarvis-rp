@@ -106,6 +106,17 @@ jobs:
           CMD ["/ragemp-srv/start.sh"]
           EOF
 
+      - name: Create empty directories if missing
+        run: |
+          mkdir -p client_packages
+          mkdir -p packages
+          mkdir -p maps
+          mkdir -p plugins
+          mkdir -p dotnet
+          touch conf.json
+          echo "Created missing directories and files"
+          ls -la
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
