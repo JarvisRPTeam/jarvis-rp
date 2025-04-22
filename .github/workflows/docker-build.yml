@@ -13,6 +13,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Debug - List repository contents
+        run: |
+          echo "Repository root contents:"
+          ls -la
+          echo "--------------------------------------"
+          echo "Checking for specific directories:"
+          echo "client_packages exists: $([[ -d client_packages ]] && echo 'Yes' || echo 'No')"
+          echo "packages exists: $([[ -d packages ]] && echo 'Yes' || echo 'No')"
+          echo "maps exists: $([[ -d maps ]] && echo 'Yes' || echo 'No')"
+          echo "plugins exists: $([[ -d plugins ]] && echo 'Yes' || echo 'No')"
+          echo "dotnet exists: $([[ -d dotnet ]] && echo 'Yes' || echo 'No')"
+          echo "conf.json exists: $([[ -f conf.json ]] && echo 'Yes' || echo 'No')"
+          echo "--------------------------------------"
+          echo "Current working directory: $(pwd)"
+
       - name: Set lowercase owner name
         id: lowercase_owner
         run: echo "owner=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
@@ -64,6 +79,9 @@ jobs:
               && /ragemp-srv/ragemp-server \
               && pkill ragemp-server || true
 
+          # Debug - Show contents before copying
+          RUN find / -name "client_packages" -o -name "packages" -o -name "maps" -o -name "plugins" -o -name "dotnet" | sort
+
           # Copy your server files
           COPY client_packages/ /ragemp-srv/client_packages/
           COPY packages/ /ragemp-srv/packages/
@@ -71,6 +89,9 @@ jobs:
           COPY plugins/ /ragemp-srv/plugins/
           COPY conf.json /ragemp-srv/conf.json
           COPY dotnet/ /ragemp-srv/dotnet/
+
+          # Debug - Show contents after copying
+          RUN ls -la /ragemp-srv/
 
           # Expose necessary ports
           EXPOSE 22005/tcp 22005/udp 22006/tcp 22006/udp
