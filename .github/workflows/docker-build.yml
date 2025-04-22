@@ -61,20 +61,14 @@ jobs:
               && tar -xzf ragemp-srv.tar.gz \
               && rm ragemp-srv.tar.gz
 
-          # Create directories for resources, packages, and other data
-          RUN mkdir -p /ragemp-server/client_packages \
-              && mkdir -p /ragemp-server/packages \
-              && mkdir -p /ragemp-server/maps \
-              && mkdir -p /ragemp-server/plugins
-
           # Copy your Windows setup files
           # Note: These files should be in your repository
-          COPY ./client_packages/ /ragemp-server/client_packages/
-          COPY ./packages/ /ragemp-server/packages/
-          COPY ./maps/ /ragemp-server/maps/
-          COPY ./plugins/ /ragemp-server/plugins/
-          COPY ./conf.json /ragemp-server/conf.json
-          COPY ./dotnet/ /ragemp-server/dotnet/
+          COPY ./client_packages/ /ragemp-srv/client_packages/
+          COPY ./packages/ /ragemp-srv/packages/
+          COPY ./maps/ /ragemp-srv/maps/
+          COPY ./plugins/ /ragemp-srv/plugins/
+          COPY ./conf.json /ragemp-srv/conf.json
+          COPY ./dotnet/ /ragemp-srv/dotnet/
 
           # Expose necessary ports
           EXPOSE 22005/tcp 22005/udp 22006/tcp 22006/udp
