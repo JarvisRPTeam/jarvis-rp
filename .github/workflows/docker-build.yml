@@ -64,22 +64,25 @@ jobs:
               && /ragemp-srv/ragemp-server \
               && pkill ragemp-server || true
 
-          # Copy your Windows setup files
-          # Note: These files should be in your repository
-          COPY ./client_packages/ /ragemp-srv/client_packages/
-          COPY ./packages/ /ragemp-srv/packages/
-          COPY ./maps/ /ragemp-srv/maps/
-          COPY ./plugins/ /ragemp-srv/plugins/
-          COPY ./conf.json /ragemp-srv/conf.json
-          COPY ./dotnet/ /ragemp-srv/dotnet/
+          # Copy your server files
+          COPY client_packages/ /ragemp-srv/client_packages/
+          COPY packages/ /ragemp-srv/packages/
+          COPY maps/ /ragemp-srv/maps/
+          COPY plugins/ /ragemp-srv/plugins/
+          COPY conf.json /ragemp-srv/conf.json
+          COPY dotnet/ /ragemp-srv/dotnet/
 
           # Expose necessary ports
           EXPOSE 22005/tcp 22005/udp 22006/tcp 22006/udp
 
-          # Start script
-          RUN /ragemp-srv/ragemp-server
+          # Set working directory to the server location
+          WORKDIR /ragemp-srv
 
-          CMD ["/ragemp-server/start.sh"]
+          # Create a start script
+          RUN echo '#!/bin/bash\n/ragemp-srv/ragemp-server' > /ragemp-srv/start.sh \
+              && chmod +x /ragemp-srv/start.sh
+
+          CMD ["/ragemp-srv/start.sh"]
           EOF
 
       - name: Build and push
