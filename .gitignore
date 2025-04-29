@@ -1,3 +1,5 @@
 dotnet/runtime
 **/bin/
 **/obj/
+*.exe
+*.tar.gz
