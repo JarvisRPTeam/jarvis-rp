@@ -61,7 +61,7 @@ namespace GameDb.Repository
                 .HasForeignKey<InventoryEntity>(i => i.PlayerId)
                 .IsRequired();
 
-            // Explicite primary keys for safety
+            // Explicit primary keys for safety
             modelBuilder.Entity<PlayerEntity>().HasKey(p => p.Id);
             modelBuilder.Entity<VehicleEntity>().HasKey(v => v.Id);
             modelBuilder.Entity<RealEstateEntity>().HasKey(re => re.Id);
