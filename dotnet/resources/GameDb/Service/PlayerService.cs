@@ -1,5 +1,6 @@
 using GameDb.Repository;
-using GameDb.Domain;
+using GameDb.Domain.Entities;
+using GameDb.Domain.Models;
 using System.Threading.Tasks;
 
 namespace GameDb.Service
@@ -16,7 +17,10 @@ namespace GameDb.Service
                 // Id is not set, assuming auto-increment by DB
                 Nickname = playerModel.Nickname,
                 Password = playerModel.Password,
-                Cash = 0
+                Cash = 0,
+                HP = 100,
+                Hunger = 100,
+                Thirst = 100
             };
 
             var addResult = await _playerRepository.AddAsync(playerEntity);

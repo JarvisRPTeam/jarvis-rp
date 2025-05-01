@@ -1,4 +1,4 @@
-namespace GameDb.Domain
+namespace GameDb.Domain.Entities
 {
     public class RealEstateEntity
     {
@@ -7,6 +7,10 @@ namespace GameDb.Domain
         public ulong? OwnerId { get; set; } // Foreign key to Player
         public ulong AddressId { get; set; } // Foreign key to Address
         public uint PermittedVehicleCount { get; set; } // Number of vehicles allowed on the property
+
+        // Navigation properties
+        public virtual PlayerEntity Owner { get; set; } 
+        public virtual AddressEntity Address { get; set; }
     }
 
     public enum RealEstateType

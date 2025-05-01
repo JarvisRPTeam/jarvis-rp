@@ -1,5 +1,6 @@
 using GameDb.Repository;
-using GameDb.Domain;
+using GameDb.Domain.Entities;
+using GameDb.Domain.Models;
 using System;
 using System.Threading.Tasks;
 
@@ -55,6 +56,46 @@ namespace GameDb.Service {
                 await transaction.RollbackAsync();
                 return new DbQueryResult<VehicleEntity>(DbResultType.Error, $"Error creating vehicle: {ex.Message}");
             }
+        }
+
+        public async Task<DbQueryResult<VehicleEntity>> CreateVehicleAsync(VehicleCreateModel vehicleModel, PlayerEntity player) {
+            return await CreateVehicleAsync(vehicleModel, player.Id);
+        }
+
+        public async Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(VehicleEntity vehicleEntity, ulong playerId) {
+            vehicleEntity.OwnerId = playerId;
+            var updateResult = await _vehicleRepository.SaveChangesAsync();
+            if (!updateResult) {
+                return new DbQueryResult<VehicleEntity>(DbResultType.Error, "Failed to assign owner to vehicle.");
+            }
+            return new DbQueryResult<VehicleEntity>(DbResultType.Success, "Owner assigned successfully.", vehicleEntity);
+        }
+
+        public async Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(ulong vehicleId, ulong playerId) {
+            var vehicleResult = await _vehicleRepository.GetByIdAsync(vehicleId);
+            if (vehicleResult.ResultType != DbResultType.Success) {
+                return vehicleResult;
+            }
+
+            var assignResult = await AssignOwnerAsync(vehicleResult.ReturnValue, playerId);
+            return assignResult;
+        }
+
+        public async Task<DbQueryResult<VehicleEntity>> RemoveOwnerAsync(ulong vehicleId) {
+            var vehicleResult = await _vehicleRepository.GetByIdAsync(vehicleId);
+            if (vehicleResult.ResultType != DbResultType.Success) {
+                return vehicleResult;
+            }
+
+            var vehicleEntity = vehicleResult.ReturnValue;
+            vehicleEntity.OwnerId = null; // Remove owner
+
+            var updateResult = await _vehicleRepository.SaveChangesAsync();
+            if (!updateResult) {
+                return new DbQueryResult<VehicleEntity>(DbResultType.Error, "Failed to remove owner from vehicle.");
+            }
+
+            return new DbQueryResult<VehicleEntity>(DbResultType.Success, "Owner removed successfully.", vehicleEntity);
         }
 
         private string GenerateNumberPlate(ulong id) {

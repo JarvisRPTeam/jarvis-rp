@@ -1,4 +1,4 @@
-namespace GameDb.Domain
+namespace GameDb.Domain.Entities
 {
     public class AddressEntity {
         public ulong Id { get; set; }
