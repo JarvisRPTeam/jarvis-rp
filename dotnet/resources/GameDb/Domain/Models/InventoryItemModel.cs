@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
 
-namespace GameDb.Domain.Entities {
-    public class InventoryItem {
+namespace GameDb.Domain.Models {
+    public class InventoryItemModel {
         [JsonPropertyName("itemId")]
         public ulong ItemId { get; set; }
         [JsonPropertyName("quantity")]
