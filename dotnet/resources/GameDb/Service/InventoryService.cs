@@ -63,23 +63,23 @@ namespace GameDb.Service {
             return await AddItemAsync(player.Id, item);
         }
 
-        public async Task<DbQueryResult<InventoryItemModel>> AddItemAsync(ulong playerId, List<InventoryItemModel> items) {
+        public async Task<DbQueryResult<List<InventoryItemModel>>> AddItemAsync(ulong playerId, List<InventoryItemModel> items) {
             var searchResult = await _inventoryRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType == DbResultType.Error || searchResult.ReturnValue == null) {
-                return new DbQueryResult<InventoryItemModel>(DbResultType.Error, "Inventory not found.");
+                return new DbQueryResult<List<InventoryItemModel>>(DbResultType.Error, "Inventory not found.");
             }
 
             var inventory = searchResult.ReturnValue;
             inventory.Items.AddRange(items);
             var saveResult = await _inventoryRepository.SaveChangesAsync();
             if (!saveResult) {
-                return new DbQueryResult<InventoryItemModel>(DbResultType.Error, "Failed to save inventory.");
+                return new DbQueryResult<List<InventoryItemModel>>(DbResultType.Error, "Failed to save inventory.");
             }
 
-            return new DbQueryResult<InventoryItemModel>(DbResultType.Success, "Items added successfully.", items[0]);
+            return new DbQueryResult<List<InventoryItemModel>>(DbResultType.Success, "Items added successfully.", items);
         }
 
-        public async Task<DbQueryResult<InventoryItemModel>> AddItemAsync(PlayerEntity player, List<InventoryItemModel> items) {
+        public async Task<DbQueryResult<List<InventoryItemModel>>> AddItemAsync(PlayerEntity player, List<InventoryItemModel> items) {
             return await AddItemAsync(player.Id, items);
         }
 
