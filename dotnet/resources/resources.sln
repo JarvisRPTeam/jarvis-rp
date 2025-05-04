@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDb.Repository", "GameDb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDb.Service", "GameDb\Service\GameDb.Service.csproj", "{FE3EDA4C-C197-4AE2-9AD4-27C195848079}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameManager", "GameManager\GameManager.csproj", "{965C5D17-5B96-4B1B-9E98-2DF83BAB7C5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,10 @@ Global
 		{FE3EDA4C-C197-4AE2-9AD4-27C195848079}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE3EDA4C-C197-4AE2-9AD4-27C195848079}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE3EDA4C-C197-4AE2-9AD4-27C195848079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{965C5D17-5B96-4B1B-9E98-2DF83BAB7C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{965C5D17-5B96-4B1B-9E98-2DF83BAB7C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{965C5D17-5B96-4B1B-9E98-2DF83BAB7C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{965C5D17-5B96-4B1B-9E98-2DF83BAB7C5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
