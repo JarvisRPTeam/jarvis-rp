@@ -5,6 +5,14 @@ using System;
 using System.Threading.Tasks;
 
 namespace GameDb.Service {
+    public interface IVehicleService {
+        Task<DbQueryResult<VehicleEntity>> CreateVehicleAsync(VehicleCreateModel vehicleModel, ulong? playerId = null);
+        Task<DbQueryResult<VehicleEntity>> CreateVehicleAsync(VehicleCreateModel vehicleModel, PlayerEntity player);
+        Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(VehicleEntity vehicleEntity, ulong playerId);
+        Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(ulong vehicleId, ulong playerId);
+        Task<DbQueryResult<VehicleEntity>> RemoveOwnerAsync(ulong vehicleId);
+    }
+    
     public class VehicleService {
         private readonly IGameDbRepository<VehicleEntity> _vehicleRepository;
         private readonly GameDbContext _context;
