@@ -10,8 +10,8 @@ namespace GameDb.Service {
         Task<DbQueryResult<List<InventoryItemModel>>> GetAllItemsAsync(PlayerEntity player);
         Task<DbQueryResult<InventoryItemModel>> AddItemAsync(ulong playerId, InventoryItemModel item);
         Task<DbQueryResult<InventoryItemModel>> AddItemAsync(PlayerEntity player, InventoryItemModel item);
-        Task<DbQueryResult<InventoryItemModel>> AddItemAsync(ulong playerId, List<InventoryItemModel> items);
-        Task<DbQueryResult<InventoryItemModel>> AddItemAsync(PlayerEntity player, List<InventoryItemModel> items);
+        Task<DbQueryResult<List<InventoryItemModel>>> AddItemAsync(ulong playerId, List<InventoryItemModel> items);
+        Task<DbQueryResult<List<InventoryItemModel>>> AddItemAsync(PlayerEntity player, List<InventoryItemModel> items);
         Task<DbQueryResult<InventoryItemModel>> RemoveItemAsync(ulong playerId, byte slotIndex);
         Task<DbQueryResult<InventoryItemModel>> RemoveItemAsync(PlayerEntity player, byte slotIndex);
         Task<DbQueryResult<InventoryItemModel>> ChangeItemSlotAsync(ulong playerId, byte oldSlotIndex, byte newSlotIndex);
