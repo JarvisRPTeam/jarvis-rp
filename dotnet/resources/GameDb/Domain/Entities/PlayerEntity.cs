@@ -9,5 +9,13 @@ namespace GameDb.Domain.Entities
         public byte HP { get; set; }
         public byte Hunger { get; set; }
         public byte Thirst { get; set; }
+        public byte Stamina { get; set; }
+        public ulong? SocialClubId { get; set; } // Foreign key to SocialClub
+        public int PositionX { get; set; }
+        public int PositionY { get; set; } 
+        public int PositionZ { get; set; } 
+
+        // Navigation properties
+        public virtual SocialClubEntity SocialClub { get; set; }
     }
 }

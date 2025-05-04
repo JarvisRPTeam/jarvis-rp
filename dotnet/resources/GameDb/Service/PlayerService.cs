@@ -12,15 +12,20 @@ namespace GameDb.Service
             _playerRepository = playerRepository;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> CreatePlayerAsync(PlayerCreateModel playerModel) {
+        public async Task<DbQueryResult<PlayerEntity>> RegisterPlayerAsync(PlayerCreateModel playerModel) {
             var playerEntity = new PlayerEntity {
                 // Id is not set, assuming auto-increment by DB
                 Nickname = playerModel.Nickname,
                 Password = playerModel.Password,
-                Cash = 0,
+                Cash = 2000,
                 HP = 100,
                 Hunger = 100,
-                Thirst = 100
+                Thirst = 100,
+                Stamina = 100,
+                SocialClubId = null,
+                PositionX = 0,
+                PositionY = 0,
+                PositionZ = 0
             };
 
             var addResult = await _playerRepository.AddAsync(playerEntity);
