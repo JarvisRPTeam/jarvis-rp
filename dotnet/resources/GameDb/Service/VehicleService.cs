@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace GameDb.Service {
     public interface IVehicleService {
-        Task<DbQueryResult<VehicleEntity>> CreateVehicleAsync(VehicleCreateModel vehicleModel, ulong? playerId = null);
+        Task<DbQueryResult<VehicleEntity>> CreateVehicleAsync(VehicleCreateModel vehicleModel, long? playerId = null);
         Task<DbQueryResult<VehicleEntity>> CreateVehicleAsync(VehicleCreateModel vehicleModel, PlayerEntity player);
-        Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(VehicleEntity vehicleEntity, ulong playerId);
-        Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(ulong vehicleId, ulong playerId);
-        Task<DbQueryResult<VehicleEntity>> RemoveOwnerAsync(ulong vehicleId);
+        Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(VehicleEntity vehicleEntity, long playerId);
+        Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(long vehicleId, long playerId);
+        Task<DbQueryResult<VehicleEntity>> RemoveOwnerAsync(long vehicleId);
     }
     
-    public class VehicleService {
+    public class VehicleService: IVehicleService {
         private readonly IGameDbRepository<VehicleEntity> _vehicleRepository;
         private readonly GameDbContext _context;
         
@@ -22,7 +22,7 @@ namespace GameDb.Service {
             _context = context;
         }
 
-        public async Task<DbQueryResult<VehicleEntity>> CreateVehicleAsync(VehicleCreateModel vehicleModel, ulong? playerId = null) {
+        public async Task<DbQueryResult<VehicleEntity>> CreateVehicleAsync(VehicleCreateModel vehicleModel, long? playerId = null) {
             using var transaction = await _context.Database.BeginTransactionAsync();
             
             try {
@@ -70,7 +70,7 @@ namespace GameDb.Service {
             return await CreateVehicleAsync(vehicleModel, player.Id);
         }
 
-        public async Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(VehicleEntity vehicleEntity, ulong playerId) {
+        public async Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(VehicleEntity vehicleEntity, long playerId) {
             vehicleEntity.OwnerId = playerId;
             var updateResult = await _vehicleRepository.SaveChangesAsync();
             if (!updateResult) {
@@ -79,7 +79,7 @@ namespace GameDb.Service {
             return new DbQueryResult<VehicleEntity>(DbResultType.Success, "Owner assigned successfully.", vehicleEntity);
         }
 
-        public async Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(ulong vehicleId, ulong playerId) {
+        public async Task<DbQueryResult<VehicleEntity>> AssignOwnerAsync(long vehicleId, long playerId) {
             var vehicleResult = await _vehicleRepository.GetByIdAsync(vehicleId);
             if (vehicleResult.ResultType != DbResultType.Success) {
                 return vehicleResult;
@@ -89,7 +89,7 @@ namespace GameDb.Service {
             return assignResult;
         }
 
-        public async Task<DbQueryResult<VehicleEntity>> RemoveOwnerAsync(ulong vehicleId) {
+        public async Task<DbQueryResult<VehicleEntity>> RemoveOwnerAsync(long vehicleId) {
             var vehicleResult = await _vehicleRepository.GetByIdAsync(vehicleId);
             if (vehicleResult.ResultType != DbResultType.Success) {
                 return vehicleResult;
@@ -106,7 +106,7 @@ namespace GameDb.Service {
             return new DbQueryResult<VehicleEntity>(DbResultType.Success, "Owner removed successfully.", vehicleEntity);
         }
 
-        private string GenerateNumberPlate(ulong id) {
+        private string GenerateNumberPlate(long id) {
             if (id > 6759326) {
                 throw new ArgumentOutOfRangeException(nameof(id), "ID exceeds the maximum value for number plate generation.");
             }

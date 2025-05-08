@@ -3,3 +3,4 @@ dotnet/runtime
 **/obj/
 *.exe
 *.tar.gz
+**/appsettings.json

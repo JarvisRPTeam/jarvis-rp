@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using GameDb.Domain.Entities;
+using Microsoft.Extensions.Configuration;
+using System;
 
 namespace GameDb.Repository
 {
@@ -16,8 +18,17 @@ namespace GameDb.Repository
         public DbSet<InfrastructureBuildingEntity> InfrastructureBuildings { get; set; }
         public DbSet<SocialClubEntity> SocialClubs { get; set; }
 
-        public GameDbContext(string connectionString) {
-            _connectionString = connectionString;
+        public GameDbContext() {
+            IConfiguration configuration = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .Build();
+
+            _connectionString = configuration.GetConnectionString("PostgresConnection");
+
+            if (string.IsNullOrEmpty(_connectionString)) {
+                throw new InvalidOperationException("Connection string 'PostgresConnection' not found in appsettings.json.");
+            }
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
@@ -101,14 +112,35 @@ namespace GameDb.Repository
 
             // Explicit primary keys for safety
             modelBuilder.Entity<PlayerEntity>().HasKey(p => p.Id);
+            modelBuilder.Entity<PlayerEntity>()
+                .Property(p => p.Id)
+                .ValueGeneratedOnAdd();
             modelBuilder.Entity<VehicleEntity>().HasKey(v => v.Id);
+            modelBuilder.Entity<VehicleEntity>()
+                .Property(v => v.Id)
+                .ValueGeneratedOnAdd();
             modelBuilder.Entity<RealEstateEntity>().HasKey(re => re.Id);
+            modelBuilder.Entity<RealEstateEntity>()
+                .Property(re => re.Id)
+                .ValueGeneratedOnAdd();
             modelBuilder.Entity<AddressEntity>().HasKey(a => a.Id);
+            modelBuilder.Entity<AddressEntity>()
+                .Property(a => a.Id)
+                .ValueGeneratedOnAdd();
             modelBuilder.Entity<ItemEntity>().HasKey(i => i.Id);
+            modelBuilder.Entity<ItemEntity>()
+                .Property(i => i.Id)
+                .ValueGeneratedOnAdd();
             modelBuilder.Entity<InventoryEntity>().HasKey(i => i.PlayerId);
             modelBuilder.Entity<ResidenceEntity>().HasKey(r => new { r.PlayerId, r.RealEstateId });
             modelBuilder.Entity<InfrastructureBuildingEntity>().HasKey(b => b.Id);
+            modelBuilder.Entity<InfrastructureBuildingEntity>()
+                .Property(b => b.Id)
+                .ValueGeneratedOnAdd();
             modelBuilder.Entity<SocialClubEntity>().HasKey(s => s.Id);
+            modelBuilder.Entity<SocialClubEntity>()
+                .Property(s => s.Id)
+                .ValueGeneratedOnAdd();
         }
     }
 }
