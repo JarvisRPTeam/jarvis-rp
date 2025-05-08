@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GameDb.Repository {
     public interface IGameDbRepository<TEntity> where TEntity : class {
-        Task<DbQueryResult<TEntity>> GetByIdAsync(ulong id);
+        Task<DbQueryResult<TEntity>> GetByIdAsync(long id);
         Task<DbQueryResult<IEnumerable<TEntity>>> GetAllAsync();
         Task<DbQueryResult<TEntity>> AddAsync(TEntity entity);
-        Task<DbQueryResult<TEntity>> DeleteByIdAsync(ulong id);
+        Task<DbQueryResult<TEntity>> DeleteByIdAsync(long id);
         Task<bool> SaveChangesAsync();
     }
 
@@ -22,7 +22,7 @@ namespace GameDb.Repository {
             _dbSet = context.Set<TEntity>();
         }
 
-        public async Task<DbQueryResult<TEntity>> GetByIdAsync(ulong id) {
+        public async Task<DbQueryResult<TEntity>> GetByIdAsync(long id) {
             try {
                 var entity = await _dbSet.FindAsync(id);
                 if (entity == null) {
@@ -52,7 +52,7 @@ namespace GameDb.Repository {
             }
         }
 
-        public async Task<DbQueryResult<TEntity>> DeleteByIdAsync(ulong id) {
+        public async Task<DbQueryResult<TEntity>> DeleteByIdAsync(long id) {
             var searchResult = await GetByIdAsync(id);
             if (searchResult.ReturnValue == null) {
                 return new DbQueryResult<TEntity>(DbResultType.Error, searchResult.Message);
