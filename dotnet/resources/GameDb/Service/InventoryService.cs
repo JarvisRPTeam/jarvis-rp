@@ -6,17 +6,17 @@ using GameDb.Repository;
 
 namespace GameDb.Service {
     public interface IInventoryService {
-        Task<DbQueryResult<List<InventoryItemModel>>> GetAllItemsAsync(ulong playerId);
+        Task<DbQueryResult<List<InventoryItemModel>>> GetAllItemsAsync(long playerId);
         Task<DbQueryResult<List<InventoryItemModel>>> GetAllItemsAsync(PlayerEntity player);
-        Task<DbQueryResult<InventoryItemModel>> AddItemAsync(ulong playerId, InventoryItemModel item);
+        Task<DbQueryResult<InventoryItemModel>> AddItemAsync(long playerId, InventoryItemModel item);
         Task<DbQueryResult<InventoryItemModel>> AddItemAsync(PlayerEntity player, InventoryItemModel item);
-        Task<DbQueryResult<InventoryItemModel>> AddItemAsync(ulong playerId, List<InventoryItemModel> items);
-        Task<DbQueryResult<InventoryItemModel>> AddItemAsync(PlayerEntity player, List<InventoryItemModel> items);
-        Task<DbQueryResult<InventoryItemModel>> RemoveItemAsync(ulong playerId, byte slotIndex);
+        Task<DbQueryResult<List<InventoryItemModel>>> AddItemAsync(long playerId, List<InventoryItemModel> items);
+        Task<DbQueryResult<List<InventoryItemModel>>> AddItemAsync(PlayerEntity player, List<InventoryItemModel> items);
+        Task<DbQueryResult<InventoryItemModel>> RemoveItemAsync(long playerId, byte slotIndex);
         Task<DbQueryResult<InventoryItemModel>> RemoveItemAsync(PlayerEntity player, byte slotIndex);
-        Task<DbQueryResult<InventoryItemModel>> ChangeItemSlotAsync(ulong playerId, byte oldSlotIndex, byte newSlotIndex);
+        Task<DbQueryResult<InventoryItemModel>> ChangeItemSlotAsync(long playerId, byte oldSlotIndex, byte newSlotIndex);
         Task<DbQueryResult<InventoryItemModel>> ChangeItemSlotAsync(PlayerEntity player, byte oldSlotIndex, byte newSlotIndex);
-        Task<DbQueryResult<List<InventoryItemModel>>> ClearInventoryAsync(ulong playerId);
+        Task<DbQueryResult<List<InventoryItemModel>>> ClearInventoryAsync(long playerId);
         Task<DbQueryResult<List<InventoryItemModel>>> ClearInventoryAsync(PlayerEntity player);
     }
 
@@ -29,7 +29,7 @@ namespace GameDb.Service {
             _context = context;
         }
 
-        public async Task<DbQueryResult<List<InventoryItemModel>>> GetAllItemsAsync(ulong playerId) {
+        public async Task<DbQueryResult<List<InventoryItemModel>>> GetAllItemsAsync(long playerId) {
             var searchResult = await _inventoryRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType == DbResultType.Error || searchResult.ReturnValue == null) {
                 return new DbQueryResult<List<InventoryItemModel>>(DbResultType.Error, "Inventory not found.");
@@ -43,7 +43,7 @@ namespace GameDb.Service {
             return await GetAllItemsAsync(player.Id);
         }
 
-        public async Task<DbQueryResult<InventoryItemModel>> AddItemAsync(ulong playerId, InventoryItemModel item) {
+        public async Task<DbQueryResult<InventoryItemModel>> AddItemAsync(long playerId, InventoryItemModel item) {
             var searchResult = await _inventoryRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType == DbResultType.Error || searchResult.ReturnValue == null) {
                 return new DbQueryResult<InventoryItemModel>(DbResultType.Error, "Inventory not found.");
@@ -63,7 +63,7 @@ namespace GameDb.Service {
             return await AddItemAsync(player.Id, item);
         }
 
-        public async Task<DbQueryResult<List<InventoryItemModel>>> AddItemAsync(ulong playerId, List<InventoryItemModel> items) {
+        public async Task<DbQueryResult<List<InventoryItemModel>>> AddItemAsync(long playerId, List<InventoryItemModel> items) {
             var searchResult = await _inventoryRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType == DbResultType.Error || searchResult.ReturnValue == null) {
                 return new DbQueryResult<List<InventoryItemModel>>(DbResultType.Error, "Inventory not found.");
@@ -83,7 +83,7 @@ namespace GameDb.Service {
             return await AddItemAsync(player.Id, items);
         }
 
-        public async Task<DbQueryResult<InventoryItemModel>> RemoveItemAsync(ulong playerId, byte slotIndex) {
+        public async Task<DbQueryResult<InventoryItemModel>> RemoveItemAsync(long playerId, byte slotIndex) {
             var searchResult = await _inventoryRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType == DbResultType.Error || searchResult.ReturnValue == null) {
                 return new DbQueryResult<InventoryItemModel>(DbResultType.Error, "Inventory not found.");
@@ -108,7 +108,7 @@ namespace GameDb.Service {
             return await RemoveItemAsync(player.Id, slotIndex);
         }
 
-        public async Task<DbQueryResult<InventoryItemModel>> ChangeItemSlotAsync(ulong playerId, byte oldSlotIndex, byte newSlotIndex) {
+        public async Task<DbQueryResult<InventoryItemModel>> ChangeItemSlotAsync(long playerId, byte oldSlotIndex, byte newSlotIndex) {
             var searchResult = await _inventoryRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType == DbResultType.Error || searchResult.ReturnValue == null) {
                 return new DbQueryResult<InventoryItemModel>(DbResultType.Error, "Inventory not found.");
@@ -134,7 +134,7 @@ namespace GameDb.Service {
             return await ChangeItemSlotAsync(player.Id, oldSlotIndex, newSlotIndex);
         }
 
-        public async Task<DbQueryResult<List<InventoryItemModel>>> ClearInventoryAsync(ulong playerId) {
+        public async Task<DbQueryResult<List<InventoryItemModel>>> ClearInventoryAsync(long playerId) {
             var searchResult = await _inventoryRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType == DbResultType.Error || searchResult.ReturnValue == null) {
                 return new DbQueryResult<List<InventoryItemModel>>(DbResultType.Error, "Inventory not found.");

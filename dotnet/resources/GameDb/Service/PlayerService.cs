@@ -9,27 +9,27 @@ namespace GameDb.Service
     public interface IPlayerService {
         Task<DbQueryResult<PlayerEntity>> RegisterPlayerAsync(PlayerCreateModel playerModel);
         Task<DbQueryResult<PlayerEntity>> DealCashAsync(PlayerEntity player, long amount);
-        Task<DbQueryResult<PlayerEntity>> DealCashAsync(ulong playerId, long amount);
+        Task<DbQueryResult<PlayerEntity>> DealCashAsync(long playerId, long amount);
         Task<DbQueryResult<PlayerEntity>> DealHPAsync(PlayerEntity player, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealHPAsync(ulong playerId, byte amount);
+        Task<DbQueryResult<PlayerEntity>> DealHPAsync(long playerId, byte amount);
         Task<DbQueryResult<PlayerEntity>> DealHungerAsync(PlayerEntity player, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealHungerAsync(ulong playerId, byte amount);
+        Task<DbQueryResult<PlayerEntity>> DealHungerAsync(long playerId, byte amount);
         Task<DbQueryResult<PlayerEntity>> DealThirstAsync(PlayerEntity player, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealThirstAsync(ulong playerId, byte amount);
+        Task<DbQueryResult<PlayerEntity>> DealThirstAsync(long playerId, byte amount);
         Task<DbQueryResult<PlayerEntity>> DealStaminaAsync(PlayerEntity player, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealStaminaAsync(ulong playerId, byte amount);
+        Task<DbQueryResult<PlayerEntity>> DealStaminaAsync(long playerId, byte amount);
         Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(PlayerEntity player, SocialClubEntity? socialClub);
-        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(ulong playerId, ulong socialClubId);
-        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(ulong playerId, SocialClubEntity? socialClub);
-        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(PlayerEntity player, ulong socialClubId);
+        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(long playerId, long socialClubId);
+        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(long playerId, SocialClubEntity? socialClub);
+        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(PlayerEntity player, long socialClubId);
         Task<DbQueryResult<PlayerEntity>> SetPositionAsync(PlayerEntity player, float x, float y, float z);
-        Task<DbQueryResult<PlayerEntity>> SetPositionAsync(ulong playerId, float x, float y, float z);
-        Task<DbQueryResult<PlayerEntity>> SetPositionAsync(ulong playerId, PositionModel position);
+        Task<DbQueryResult<PlayerEntity>> SetPositionAsync(long playerId, float x, float y, float z);
+        Task<DbQueryResult<PlayerEntity>> SetPositionAsync(long playerId, PositionModel position);
         Task<DbQueryResult<PositionModel>> GetPositionAsync(PlayerEntity player);
-        Task<DbQueryResult<PositionModel>> GetPositionAsync(ulong playerId);
+        Task<DbQueryResult<PositionModel>> GetPositionAsync(long playerId);
     }
     
-    public class PlayerService {
+    public class PlayerService: IPlayerService {
         private readonly IGameDbRepository<PlayerEntity> _playerRepository;
         private readonly IGameDbRepository<SocialClubEntity> _socialClubRepository;
         
@@ -83,7 +83,7 @@ namespace GameDb.Service
             return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player cash updated successfully.", player);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealCashAsync(ulong playerId, long amount) {
+        public async Task<DbQueryResult<PlayerEntity>> DealCashAsync(long playerId, long amount) {
             var searchResult = await _playerRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
                 return searchResult;
@@ -107,7 +107,7 @@ namespace GameDb.Service
             return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player HP updated successfully.", player);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealHPAsync(ulong playerId, byte amount) {
+        public async Task<DbQueryResult<PlayerEntity>> DealHPAsync(long playerId, byte amount) {
             var searchResult = await _playerRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
                 return searchResult;
@@ -131,7 +131,7 @@ namespace GameDb.Service
             return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player hunger updated successfully.", player);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealHungerAsync(ulong playerId, byte amount) {
+        public async Task<DbQueryResult<PlayerEntity>> DealHungerAsync(long playerId, byte amount) {
             var searchResult = await _playerRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
                 return searchResult;
@@ -155,7 +155,7 @@ namespace GameDb.Service
             return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player thirst updated successfully.", player);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealThirstAsync(ulong playerId, byte amount) {
+        public async Task<DbQueryResult<PlayerEntity>> DealThirstAsync(long playerId, byte amount) {
             var searchResult = await _playerRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
                 return searchResult;
@@ -179,7 +179,7 @@ namespace GameDb.Service
             return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player stamina updated successfully.", player);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealStaminaAsync(ulong playerId, byte amount) {
+        public async Task<DbQueryResult<PlayerEntity>> DealStaminaAsync(long playerId, byte amount) {
             var searchResult = await _playerRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
                 return searchResult;
@@ -203,7 +203,7 @@ namespace GameDb.Service
             return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Social club assigned successfully.", player);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(ulong playerId, ulong socialClubId) {
+        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(long playerId, long socialClubId) {
             var searchResult = await _playerRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
                 return searchResult;
@@ -219,7 +219,7 @@ namespace GameDb.Service
             return await AssignSocialClubAsync(player, socialClub);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(ulong playerId, SocialClubEntity? socialClub) {
+        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(long playerId, SocialClubEntity? socialClub) {
             var searchResult = await _playerRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
                 return searchResult;
@@ -229,7 +229,7 @@ namespace GameDb.Service
             return await AssignSocialClubAsync(player, socialClub);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(PlayerEntity player, ulong socialClubId) {
+        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(PlayerEntity player, long socialClubId) {
             var socialClubResult = await _socialClubRepository.GetByIdAsync(socialClubId);
             if (socialClubResult.ResultType != DbResultType.Success || socialClubResult.ReturnValue == null) {
                 return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Social club not found.");
@@ -255,7 +255,7 @@ namespace GameDb.Service
             return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player position updated successfully.", player);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> SetPositionAsync(ulong playerId, float x, float y, float z) {
+        public async Task<DbQueryResult<PlayerEntity>> SetPositionAsync(long playerId, float x, float y, float z) {
             var searchResult = await _playerRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
                 return searchResult;
@@ -265,7 +265,7 @@ namespace GameDb.Service
             return await SetPositionAsync(player, x, y, z);
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> SetPositionAsync(ulong playerId, PositionModel position) {
+        public async Task<DbQueryResult<PlayerEntity>> SetPositionAsync(long playerId, PositionModel position) {
             return await SetPositionAsync(playerId, position.X, position.Y, position.Z);
         }
 
@@ -283,7 +283,7 @@ namespace GameDb.Service
             return Task.FromResult(new DbQueryResult<PositionModel>(DbResultType.Success, "Player position retrieved successfully.", positionModel));
         }
 
-        public async Task<DbQueryResult<PositionModel>> GetPositionAsync(ulong playerId) {
+        public async Task<DbQueryResult<PositionModel>> GetPositionAsync(long playerId) {
             var searchResult = await _playerRepository.GetByIdAsync(playerId);
             if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
                 return new DbQueryResult<PositionModel>(DbResultType.Error, "Player not found.");

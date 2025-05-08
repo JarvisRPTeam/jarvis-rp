@@ -2,7 +2,7 @@ namespace GameDb.Domain.Entities
 {
     public class PlayerEntity
     {
-        public ulong Id { get; set; }
+        public long Id { get; set; }
         public string Nickname { get; set; }
         public string Password { get; set; }
         public long Cash { get; set; }
@@ -10,7 +10,7 @@ namespace GameDb.Domain.Entities
         public byte Hunger { get; set; }
         public byte Thirst { get; set; }
         public byte Stamina { get; set; }
-        public ulong? SocialClubId { get; set; } // Foreign key to SocialClub
+        public long? SocialClubId { get; set; } // Foreign key to SocialClub
         public float PositionX { get; set; }
         public float PositionY { get; set; } 
         public float PositionZ { get; set; } 
