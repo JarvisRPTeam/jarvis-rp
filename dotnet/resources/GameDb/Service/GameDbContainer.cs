@@ -1,3 +1,4 @@
+using System;
 using GameDb.Domain.Entities;
 using GameDb.Repository;
 
@@ -19,21 +20,27 @@ namespace GameDb.Service {
         public static IInventoryService InventoryService { get; }
 
         static GameDbContainer() {
-            _context = new GameDbContext();
+            try {
+                _context = new GameDbContext();
 
-            _socialClubRepository = new GameDbRepository<SocialClubEntity>(_context);
-            _playerRepository = new GameDbRepository<PlayerEntity>(_context);
-            _vehicleRepository = new GameDbRepository<VehicleEntity>(_context);
-            _realEstateRepository = new GameDbRepository<RealEstateEntity>(_context);
-            _itemRepository = new GameDbRepository<ItemEntity>(_context);
-            _inventoryRepository = new GameDbRepository<InventoryEntity>(_context);
-            _addressRepository = new GameDbRepository<AddressEntity>(_context);
-            _infrastructureBuildingRepository = new GameDbRepository<InfrastructureBuildingEntity>(_context);
-            _residenceRepository = new GameDbRepository<ResidenceEntity>(_context);
+                _socialClubRepository = new GameDbRepository<SocialClubEntity>(_context);
+                _playerRepository = new GameDbRepository<PlayerEntity>(_context);
+                _vehicleRepository = new GameDbRepository<VehicleEntity>(_context);
+                _realEstateRepository = new GameDbRepository<RealEstateEntity>(_context);
+                _itemRepository = new GameDbRepository<ItemEntity>(_context);
+                _inventoryRepository = new GameDbRepository<InventoryEntity>(_context);
+                _addressRepository = new GameDbRepository<AddressEntity>(_context);
+                _infrastructureBuildingRepository = new GameDbRepository<InfrastructureBuildingEntity>(_context);
+                _residenceRepository = new GameDbRepository<ResidenceEntity>(_context);
 
-            PlayerService = new PlayerService(_playerRepository, _socialClubRepository);
-            VehicleService = new VehicleService(_vehicleRepository, _context);
-            InventoryService = new InventoryService(_inventoryRepository, _context);
+                PlayerService = new PlayerService(_playerRepository, _socialClubRepository);
+                VehicleService = new VehicleService(_vehicleRepository, _context);
+                InventoryService = new InventoryService(_inventoryRepository, _context);
+            } catch (Exception ex) {
+                Console.WriteLine($"Error initializing GameDbContainer: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                throw new InvalidOperationException("GameDbContainer initialization failed.", ex);
+            }
         }
 
         public static bool IsReady() {
