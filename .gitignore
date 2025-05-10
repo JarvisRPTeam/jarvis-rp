@@ -1,4 +1,6 @@
 dotnet/runtime
+dotnet/resources/.vscode
+client_packages/.listcache
 **/bin/
 **/obj/
 *.exe
