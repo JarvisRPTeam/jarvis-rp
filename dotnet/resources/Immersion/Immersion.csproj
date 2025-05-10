@@ -4,4 +4,15 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Bootstrapper">
+      <HintPath>..\..\runtime\Bootstrapper.dll</HintPath>
+      <Private Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup> 
+    <ProjectReference Include="..\GameDb\Service\GameDb.Service.csproj" />
+  </ItemGroup>
+
 </Project>
