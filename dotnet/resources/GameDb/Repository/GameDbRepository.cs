@@ -14,8 +14,8 @@ namespace GameDb.Repository {
     }
 
     public class GameDbRepository<TEntity> : IGameDbRepository<TEntity> where TEntity : class {
-        private readonly GameDbContext _context;
-        private readonly DbSet<TEntity> _dbSet;
+        protected readonly GameDbContext _context;
+        protected readonly DbSet<TEntity> _dbSet;
 
         public GameDbRepository(GameDbContext context) {
             _context = context;
@@ -26,7 +26,7 @@ namespace GameDb.Repository {
             try {
                 var entity = await _dbSet.FindAsync(id);
                 if (entity == null) {
-                    return new DbQueryResult<TEntity>(DbResultType.Error, "Entity not found.");
+                    return new DbQueryResult<TEntity>(DbResultType.Warning, "Entity not found.");
                 }
                 return new DbQueryResult<TEntity>(DbResultType.Success, "Entity found.", entity);
             } catch (Exception ex) {
@@ -55,7 +55,7 @@ namespace GameDb.Repository {
         public async Task<DbQueryResult<TEntity>> DeleteByIdAsync(long id) {
             var searchResult = await GetByIdAsync(id);
             if (searchResult.ReturnValue == null) {
-                return new DbQueryResult<TEntity>(DbResultType.Error, searchResult.Message);
+                return new DbQueryResult<TEntity>(DbResultType.Warning, searchResult.Message);
             }
             if (searchResult.ResultType == DbResultType.Error) {
                 return searchResult;

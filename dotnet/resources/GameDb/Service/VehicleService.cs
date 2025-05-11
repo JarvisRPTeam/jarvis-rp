@@ -14,10 +14,10 @@ namespace GameDb.Service {
     }
     
     public class VehicleService: IVehicleService {
-        private readonly IGameDbRepository<VehicleEntity> _vehicleRepository;
+        private readonly IVehicleRepository _vehicleRepository;
         private readonly GameDbContext _context;
         
-        public VehicleService(IGameDbRepository<VehicleEntity> vehicleRepository, GameDbContext context) {
+        public VehicleService(IVehicleRepository vehicleRepository, GameDbContext context) {
             _vehicleRepository = vehicleRepository;
             _context = context;
         }

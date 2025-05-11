@@ -30,12 +30,12 @@ namespace GameDb.Service
     }
     
     public class PlayerService: IPlayerService {
-        private readonly IGameDbRepository<PlayerEntity> _playerRepository;
-        private readonly IGameDbRepository<SocialClubEntity> _socialClubRepository;
+        private readonly IPlayerRepository _playerRepository;
+        private readonly ISocialClubRepository _socialClubRepository;
         
         public PlayerService(
-            IGameDbRepository<PlayerEntity> playerRepository, 
-            IGameDbRepository<SocialClubEntity> socialClubRepository) {
+            IPlayerRepository playerRepository, 
+            ISocialClubRepository socialClubRepository) {
             _socialClubRepository = socialClubRepository;
             _playerRepository = playerRepository;
         }
