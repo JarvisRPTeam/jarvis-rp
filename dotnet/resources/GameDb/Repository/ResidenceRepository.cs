@@ -9,6 +9,9 @@ namespace GameDb.Repository {
     public interface IResidenceRepository: IGameDbRepository<ResidenceEntity> {
         Task<DbQueryResult<IEnumerable<ResidenceEntity>>> GetByPlayerIdAsync(long playerId);
         Task<DbQueryResult<IEnumerable<ResidenceEntity>>> GetByRealEstateIdAsync(long realEstateId);
+
+        Task<DbQueryResult<ResidenceEntity>> GetByIdAsync(long playerId, long realEstateId);
+        Task<DbQueryResult<ResidenceEntity>> DeleteByIdAsync(long playerId, long realEstateId);
     }
 
     public class ResidenceRepository: GameDbRepository<ResidenceEntity>, IResidenceRepository {
@@ -42,5 +45,42 @@ namespace GameDb.Repository {
                 return new DbQueryResult<IEnumerable<ResidenceEntity>>(DbResultType.Error, $"Exception: {ex.Message}");
             }
         }
+
+        public async Task<DbQueryResult<ResidenceEntity>> GetByIdAsync(long playerId, long realEstateId) {
+            try {
+                var entity = await _dbSet.FindAsync(playerId, realEstateId);
+                if (entity == null) {
+                    return new DbQueryResult<ResidenceEntity>(DbResultType.Warning, "Residence not found.");
+                }
+                return new DbQueryResult<ResidenceEntity>(DbResultType.Success, "Residence found.", entity);
+            } catch (Exception ex) {
+                return new DbQueryResult<ResidenceEntity>(DbResultType.Error, $"Error retrieving residence: {ex.Message}");
+            }
+        }
+
+        public async Task<DbQueryResult<ResidenceEntity>> DeleteByIdAsync(long playerId, long realEstateId) {
+            var searchResult = await GetByIdAsync(playerId, realEstateId);
+            if (searchResult.ResultType == DbResultType.Error) {
+                return searchResult;
+            }
+            if (searchResult.ReturnValue == null)
+            {
+                return new DbQueryResult<ResidenceEntity>(DbResultType.Warning, searchResult.Message);
+            }
+
+            var entity = searchResult.ReturnValue;
+            try {
+                _dbSet.Remove(entity);
+                return new DbQueryResult<ResidenceEntity>(DbResultType.Success, "Residence deleted successfully.");
+            } catch (Exception ex) {
+                return new DbQueryResult<ResidenceEntity>(DbResultType.Error, $"Error deleting residence: {ex.Message}");
+            }
+        }
+
+        public override Task<DbQueryResult<ResidenceEntity>> GetByIdAsync(long id) =>
+            throw new NotSupportedException("Use GetByIdAsync(long playerId, long realEstateId) for ResidenceEntity.");
+
+        public override Task<DbQueryResult<ResidenceEntity>> DeleteByIdAsync(long id) =>
+            throw new NotSupportedException("Use DeleteByIdAsync(long playerId, long realEstateId) for ResidenceEntity.");
     }
 }

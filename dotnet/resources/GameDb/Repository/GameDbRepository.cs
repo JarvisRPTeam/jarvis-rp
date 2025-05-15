@@ -22,7 +22,7 @@ namespace GameDb.Repository {
             _dbSet = context.Set<TEntity>();
         }
 
-        public async Task<DbQueryResult<TEntity>> GetByIdAsync(long id) {
+        public virtual async Task<DbQueryResult<TEntity>> GetByIdAsync(long id) {
             try {
                 var entity = await _dbSet.FindAsync(id);
                 if (entity == null) {
@@ -52,7 +52,7 @@ namespace GameDb.Repository {
             }
         }
 
-        public async Task<DbQueryResult<TEntity>> DeleteByIdAsync(long id) {
+        public virtual async Task<DbQueryResult<TEntity>> DeleteByIdAsync(long id) {
             var searchResult = await GetByIdAsync(id);
             if (searchResult.ReturnValue == null) {
                 return new DbQueryResult<TEntity>(DbResultType.Warning, searchResult.Message);

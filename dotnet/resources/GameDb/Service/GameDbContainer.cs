@@ -18,9 +18,12 @@ namespace GameDb.Service {
         public static IPlayerService PlayerService { get; }
         public static IVehicleService VehicleService { get; }
         public static IInventoryService InventoryService { get; }
+        public static IRealEstateService RealEstateService { get; }
 
-        static GameDbContainer() {
-            try {
+        static GameDbContainer()
+        {
+            try
+            {
                 _context = new GameDbContext();
 
                 _socialClubRepository = new SocialClubRepository(_context);
@@ -36,7 +39,10 @@ namespace GameDb.Service {
                 PlayerService = new PlayerService(_playerRepository, _socialClubRepository);
                 VehicleService = new VehicleService(_vehicleRepository, _context);
                 InventoryService = new InventoryService(_inventoryRepository, _context);
-            } catch (Exception ex) {
+                RealEstateService = new RealEstateService(_realEstateRepository, _residenceRepository, _addressRepository, _infrastructureBuildingRepository);
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine($"Error initializing GameDbContainer: {ex.Message}");
                 Console.WriteLine($"Stack Trace: {ex.StackTrace}");
                 throw new InvalidOperationException("GameDbContainer initialization failed.", ex);
