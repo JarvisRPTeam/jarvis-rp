@@ -14,7 +14,7 @@ namespace GameMechanics
             }
 
             player.Position = position;
-            NAPI.Chat.SendChatMessageToPlayer(player, $"Your position has been set to {position}.");
+            Console.WriteLine($"Player {player.Name} position set to {position}.");
         }
     }
 }
