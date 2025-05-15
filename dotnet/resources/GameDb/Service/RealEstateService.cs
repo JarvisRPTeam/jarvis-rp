@@ -84,13 +84,19 @@ namespace GameDb.Service {
             => _residenceRepository.GetByRealEstateIdAsync(realEstateId);
 
         public async Task<DbQueryResult<ResidenceEntity>> RemoveResidenceAsync(long playerId, long realEstateId) {
-            var entity = await _residenceRepository.GetByPlayerIdAsync(playerId);
-            var found = entity.ReturnValue?.FirstOrDefault(r => r.RealEstateId == realEstateId);
-            if (found == null) return new DbQueryResult<ResidenceEntity>(DbResultType.Warning, "Residence not found.");
-            await _residenceRepository.DeleteByIdAsync(playerId, realEstateId);
+            var entity = await _residenceRepository.GetByIdAsync(playerId, realEstateId);
+            if (entity.ResultType != DbResultType.Success || entity.ReturnValue == null)
+            {
+                return new DbQueryResult<ResidenceEntity>(DbResultType.Warning, "Residence not found.");
+            } 
+            var deleteResult = await _residenceRepository.DeleteByIdAsync(playerId, realEstateId);
+            if (deleteResult.ResultType != DbResultType.Success)
+            {
+                return new DbQueryResult<ResidenceEntity>(DbResultType.Error, "Failed to remove residence.");
+            }
             var saved = await _residenceRepository.SaveChangesAsync();
-            if (!saved) return new DbQueryResult<ResidenceEntity>(DbResultType.Error, "Failed to remove residence.");
-            return new DbQueryResult<ResidenceEntity>(DbResultType.Success, "Residence removed.", found);
+            if (!saved) return new DbQueryResult<ResidenceEntity>(DbResultType.Error, "Failed to save changes.");
+            return new DbQueryResult<ResidenceEntity>(DbResultType.Success, "Residence removed.", entity.ReturnValue);
         }
 
         // Address

@@ -44,7 +44,7 @@ namespace GameDb.Service
         public async Task<DbQueryResult<PlayerEntity>> GetPlayerByNicknameAsync(string nickname) {
             var result = await _playerRepository.GetByNicknameAsync(nickname);
             if (result.ResultType != DbResultType.Success || result.ReturnValue == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+                return new DbQueryResult<PlayerEntity>(DbResultType.Warning, "Player not found.");
             }
             return result;
         }

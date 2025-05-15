@@ -60,11 +60,12 @@ namespace GameDb.Repository {
 
         public async Task<DbQueryResult<ResidenceEntity>> DeleteByIdAsync(long playerId, long realEstateId) {
             var searchResult = await GetByIdAsync(playerId, realEstateId);
-            if (searchResult.ReturnValue == null) {
-                return new DbQueryResult<ResidenceEntity>(DbResultType.Warning, searchResult.Message);
-            }
             if (searchResult.ResultType == DbResultType.Error) {
                 return searchResult;
+            }
+            if (searchResult.ReturnValue == null)
+            {
+                return new DbQueryResult<ResidenceEntity>(DbResultType.Warning, searchResult.Message);
             }
 
             var entity = searchResult.ReturnValue;
