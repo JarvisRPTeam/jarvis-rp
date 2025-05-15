@@ -10,9 +10,4 @@
       <Private Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">False</Private>
     </Reference>
   </ItemGroup>
-
-  <ItemGroup> 
-    <ProjectReference Include="..\GameDb\Service\GameDb.Service.csproj" />
-  </ItemGroup>
-
 </Project>
