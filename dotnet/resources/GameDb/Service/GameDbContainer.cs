@@ -5,38 +5,44 @@ using GameDb.Repository;
 namespace GameDb.Service {
     public static class GameDbContainer {
         private static readonly GameDbContext _context;
-        private static readonly IGameDbRepository<PlayerEntity> _playerRepository;
-        private static readonly IGameDbRepository<VehicleEntity> _vehicleRepository;
-        private static readonly IGameDbRepository<SocialClubEntity> _socialClubRepository;
-        private static readonly IGameDbRepository<RealEstateEntity> _realEstateRepository;
-        private static readonly IGameDbRepository<ItemEntity> _itemRepository;
+        private static readonly IPlayerRepository _playerRepository;
+        private static readonly IVehicleRepository _vehicleRepository;
+        private static readonly ISocialClubRepository _socialClubRepository;
+        private static readonly IRealEstateRepository _realEstateRepository;
+        private static readonly IItemRepository _itemRepository;
         private static readonly IGameDbRepository<InventoryEntity> _inventoryRepository;
-        private static readonly IGameDbRepository<AddressEntity> _addressRepository;
-        private static readonly IGameDbRepository<InfrastructureBuildingEntity> _infrastructureBuildingRepository;
-        private static readonly IGameDbRepository<ResidenceEntity> _residenceRepository;
+        private static readonly IAddressRepository _addressRepository;
+        private static readonly IInfrastructureBuildingRepository _infrastructureBuildingRepository;
+        private static readonly IResidenceRepository _residenceRepository;
 
         public static IPlayerService PlayerService { get; }
         public static IVehicleService VehicleService { get; }
         public static IInventoryService InventoryService { get; }
+        public static IRealEstateService RealEstateService { get; }
 
-        static GameDbContainer() {
-            try {
+        static GameDbContainer()
+        {
+            try
+            {
                 _context = new GameDbContext();
 
-                _socialClubRepository = new GameDbRepository<SocialClubEntity>(_context);
-                _playerRepository = new GameDbRepository<PlayerEntity>(_context);
-                _vehicleRepository = new GameDbRepository<VehicleEntity>(_context);
-                _realEstateRepository = new GameDbRepository<RealEstateEntity>(_context);
-                _itemRepository = new GameDbRepository<ItemEntity>(_context);
+                _socialClubRepository = new SocialClubRepository(_context);
+                _playerRepository = new PlayerRepository(_context);
+                _vehicleRepository = new VehicleRepository(_context);
+                _realEstateRepository = new RealEstateRepository(_context);
+                _itemRepository = new ItemRepository(_context);
                 _inventoryRepository = new GameDbRepository<InventoryEntity>(_context);
-                _addressRepository = new GameDbRepository<AddressEntity>(_context);
-                _infrastructureBuildingRepository = new GameDbRepository<InfrastructureBuildingEntity>(_context);
-                _residenceRepository = new GameDbRepository<ResidenceEntity>(_context);
+                _addressRepository = new AddressRepository(_context);
+                _infrastructureBuildingRepository = new InfrastructureBuildingRepository(_context);
+                _residenceRepository = new ResidenceRepository(_context);
 
                 PlayerService = new PlayerService(_playerRepository, _socialClubRepository);
                 VehicleService = new VehicleService(_vehicleRepository, _context);
                 InventoryService = new InventoryService(_inventoryRepository, _context);
-            } catch (Exception ex) {
+                RealEstateService = new RealEstateService(_realEstateRepository, _residenceRepository, _addressRepository, _infrastructureBuildingRepository);
+            }
+            catch (Exception ex)
+            {
                 Console.WriteLine($"Error initializing GameDbContainer: {ex.Message}");
                 Console.WriteLine($"Stack Trace: {ex.StackTrace}");
                 throw new InvalidOperationException("GameDbContainer initialization failed.", ex);
