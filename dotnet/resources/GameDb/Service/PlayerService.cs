@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace GameDb.Service
 {
     public interface IPlayerService {
+        Task<DbQueryResult<PlayerEntity>> GetPlayerByNicknameAsync(string nickname);
         Task<DbQueryResult<PlayerEntity>> RegisterPlayerAsync(PlayerCreateModel playerModel);
         Task<DbQueryResult<PlayerEntity>> DealCashAsync(PlayerEntity player, long amount);
         Task<DbQueryResult<PlayerEntity>> DealCashAsync(long playerId, long amount);
@@ -39,9 +40,19 @@ namespace GameDb.Service
             _socialClubRepository = socialClubRepository;
             _playerRepository = playerRepository;
         }
+        
+        public async Task<DbQueryResult<PlayerEntity>> GetPlayerByNicknameAsync(string nickname) {
+            var result = await _playerRepository.GetByNicknameAsync(nickname);
+            if (result.ResultType != DbResultType.Success || result.ReturnValue == null) {
+                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+            }
+            return result;
+        }
 
-        public async Task<DbQueryResult<PlayerEntity>> RegisterPlayerAsync(PlayerCreateModel playerModel) {
-            var playerEntity = new PlayerEntity {
+        public async Task<DbQueryResult<PlayerEntity>> RegisterPlayerAsync(PlayerCreateModel playerModel)
+        {
+            var playerEntity = new PlayerEntity
+            {
                 // Id is not set, assuming auto-increment by DB
                 Nickname = playerModel.Nickname,
                 Password = playerModel.Password,
@@ -57,12 +68,14 @@ namespace GameDb.Service
             };
 
             var addResult = await _playerRepository.AddAsync(playerEntity);
-            if (addResult.ResultType != DbResultType.Success) {
+            if (addResult.ResultType != DbResultType.Success)
+            {
                 return addResult;
             }
 
             var saved = await _playerRepository.SaveChangesAsync();
-            if (!saved) {
+            if (!saved)
+            {
                 return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to save player to database.");
             }
 
