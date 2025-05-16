@@ -13,6 +13,8 @@ namespace GameDb.Service
         Task<DbQueryResult<PlayerEntity>> DealCashAsync(long playerId, long amount);
         Task<DbQueryResult<PlayerEntity>> DealHPAsync(PlayerEntity player, byte amount);
         Task<DbQueryResult<PlayerEntity>> DealHPAsync(long playerId, byte amount);
+        Task<DbQueryResult<PlayerEntity>> SetHPAsync(PlayerEntity player, byte amount);
+        Task<DbQueryResult<PlayerEntity>> SetHPAsync(long playerId, byte amount);
         Task<DbQueryResult<PlayerEntity>> DealHungerAsync(PlayerEntity player, byte amount);
         Task<DbQueryResult<PlayerEntity>> DealHungerAsync(long playerId, byte amount);
         Task<DbQueryResult<PlayerEntity>> DealThirstAsync(PlayerEntity player, byte amount);
@@ -129,15 +131,42 @@ namespace GameDb.Service
             var player = searchResult.ReturnValue;
             return await DealHPAsync(player, amount);
         }
-
-        public async Task<DbQueryResult<PlayerEntity>> DealHungerAsync(PlayerEntity player, byte amount) {
+        
+        public async Task<DbQueryResult<PlayerEntity>> SetHPAsync(PlayerEntity player, byte amount) {
             if (player == null) {
+                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+            }
+
+            player.HP = amount;
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult) {
+                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to update player HP.");
+            }
+
+            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player HP updated successfully.", player);
+        }
+
+        public async Task<DbQueryResult<PlayerEntity>> SetHPAsync(long playerId, byte amount) {
+            var searchResult = await _playerRepository.GetByIdAsync(playerId);
+            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
+                return searchResult;
+            }
+
+            var player = searchResult.ReturnValue;
+            return await SetHPAsync(player, amount);
+        }
+
+        public async Task<DbQueryResult<PlayerEntity>> DealHungerAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
                 return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
             }
 
             player.Hunger += amount;
             var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult) {
+            if (!updateResult)
+            {
                 return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to update player hunger.");
             }
 
