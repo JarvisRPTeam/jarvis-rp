@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GameDb.Domain.Entities;
 using GameDb.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GameDb.Repository {
     public interface IInventoryRepository: IGameDbRepository<InventoryEntity> {
@@ -42,7 +43,7 @@ namespace GameDb.Repository {
         }
         public async Task<DbQueryResult<List<InventoryCellModel>>> GetAllCellsAsync(PlayerEntity player) => await GetAllCellsAsync(player.Id);
 
-        private ItemEntity? GetItemEntity(long itemId) => _context.Items.FirstOrDefault(i => i.Id == itemId);
+        private async Task<ItemEntity?> GetItemEntityAsync(long itemId) => await _context.Items.FirstOrDefaultAsync(i => i.Id == itemId);
 
         public static List<List<List<InventoryCellModel>>> GetAllRotations(List<List<InventoryCellModel>> cells) {
             var rotations = new List<List<List<InventoryCellModel>>>();
@@ -152,7 +153,7 @@ namespace GameDb.Repository {
                 return new DbQueryResult<InventoryItemModel>(DbResultType.Error, "Inventory not found.");
             }
             var inventory = searchResult.ReturnValue;
-            var itemEntity = GetItemEntity(item.ItemId);
+            var itemEntity = await GetItemEntityAsync(item.ItemId);
             if (itemEntity == null) return new DbQueryResult<InventoryItemModel>(DbResultType.Error, "Item entity not found.");
             var itemCells = itemEntity.DefaultCells;
             var placement = FindPlacement(inventory.Cells, itemCells, tryRotate);
@@ -216,7 +217,7 @@ namespace GameDb.Repository {
             }
             var item = inventory.Cells[oldX][oldY].InventoryItem;
             if (item == null) return new DbQueryResult<InventoryItemModel>(DbResultType.Warning, "No item in specified cell.");
-            var itemEntity = GetItemEntity(item.ItemId);
+            var itemEntity = await GetItemEntityAsync(item.ItemId);
             if (itemEntity == null) return new DbQueryResult<InventoryItemModel>(DbResultType.Error, "Item entity not found.");
             var itemCells = itemEntity.DefaultCells;
             RemoveItemFromGrid(inventory.Cells, item);

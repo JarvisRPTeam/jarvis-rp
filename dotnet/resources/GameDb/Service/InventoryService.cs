@@ -24,7 +24,8 @@ namespace GameDb.Service {
     }
 
     public class InventoryService : IInventoryService {
-        public static readonly (int, int) GridSize = (5, 10);
+        public static readonly int DefaultRowCount = 5;
+        public static readonly int DefaultColumnCount = 10;
 
         private readonly IInventoryRepository _inventoryRepository;
 
