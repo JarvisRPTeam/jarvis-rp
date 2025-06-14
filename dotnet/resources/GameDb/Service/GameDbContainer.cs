@@ -10,7 +10,7 @@ namespace GameDb.Service {
         private static readonly ISocialClubRepository _socialClubRepository;
         private static readonly IRealEstateRepository _realEstateRepository;
         private static readonly IItemRepository _itemRepository;
-        private static readonly IGameDbRepository<InventoryEntity> _inventoryRepository;
+        private static readonly IInventoryRepository _inventoryRepository;
         private static readonly IAddressRepository _addressRepository;
         private static readonly IInfrastructureBuildingRepository _infrastructureBuildingRepository;
         private static readonly IResidenceRepository _residenceRepository;
@@ -31,14 +31,14 @@ namespace GameDb.Service {
                 _vehicleRepository = new VehicleRepository(_context);
                 _realEstateRepository = new RealEstateRepository(_context);
                 _itemRepository = new ItemRepository(_context);
-                _inventoryRepository = new GameDbRepository<InventoryEntity>(_context);
+                _inventoryRepository = new InventoryRepository(_context);
                 _addressRepository = new AddressRepository(_context);
                 _infrastructureBuildingRepository = new InfrastructureBuildingRepository(_context);
                 _residenceRepository = new ResidenceRepository(_context);
 
                 PlayerService = new PlayerService(_playerRepository, _socialClubRepository);
                 VehicleService = new VehicleService(_vehicleRepository, _context);
-                InventoryService = new InventoryService(_inventoryRepository, _context);
+                InventoryService = new InventoryService(_inventoryRepository);
                 RealEstateService = new RealEstateService(_realEstateRepository, _residenceRepository, _addressRepository, _infrastructureBuildingRepository);
             }
             catch (Exception ex)
