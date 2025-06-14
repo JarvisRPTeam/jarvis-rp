@@ -1,4 +1,5 @@
 #nullable enable
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -54,6 +55,10 @@ namespace GameDb.Repository {
         }
 
         public static List<List<InventoryCellModel>> RotateItem(List<List<InventoryCellModel>> cells) {
+            if (cells.Count == 0 || cells[0].Count == 0)
+            {
+                throw new ArgumentException("Item cells cannot be empty.");
+            }
             int rows = cells.Count, cols = cells[0].Count;
             var rotated = new List<List<InventoryCellModel>>();
             for (int y = 0; y < cols; y++) {
@@ -73,6 +78,14 @@ namespace GameDb.Repository {
         }
 
         public static bool CanPlace(List<List<InventoryCellModel>> grid, List<List<InventoryCellModel>> itemCells, int startX, int startY) {
+            if (itemCells.Count == 0 || itemCells[0].Count == 0)
+            {
+                throw new ArgumentException("Item cells cannot be empty.");
+            }
+            if (grid.Count == 0 || grid[0].Count == 0)
+            {
+                throw new ArgumentException("Grid cannot be empty.");
+            }
             int itemRows = itemCells.Count;
             int itemCols = itemCells[0].Count;
             int gridRows = grid.Count;
@@ -88,6 +101,14 @@ namespace GameDb.Repository {
         }
 
         public static void PlaceItem(List<List<InventoryCellModel>> grid, List<List<InventoryCellModel>> itemCells, InventoryItemModel item, int startX, int startY) {
+            if (itemCells.Count == 0 || itemCells[0].Count == 0)
+            {
+                throw new ArgumentException("Item cells cannot be empty.");
+            }
+            if (grid.Count == 0 || grid[0].Count == 0)
+            {
+                throw new ArgumentException("Grid cannot be empty.");
+            }
             int itemRows = itemCells.Count;
             int itemCols = itemCells[0].Count;
             for (int x = 0; x < itemRows; x++) {
@@ -108,6 +129,10 @@ namespace GameDb.Repository {
         }
 
         public static (int, int, List<List<InventoryCellModel>>)? FindPlacement(List<List<InventoryCellModel>> grid, List<List<InventoryCellModel>> itemCells, bool tryRotate) {
+            if (grid.Count == 0 || grid[0].Count == 0)
+            {
+                throw new ArgumentException("Grid cannot be empty.");
+            }
             var rotations = tryRotate ? GetAllRotations(itemCells) : new List<List<List<InventoryCellModel>>> { itemCells };
             foreach (var shape in rotations) {
                 int rows = grid.Count, cols = grid[0].Count;
