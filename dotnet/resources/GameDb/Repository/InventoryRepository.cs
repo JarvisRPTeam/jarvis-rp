@@ -93,7 +93,7 @@ namespace GameDb.Repository {
             if (startX + itemRows > gridRows || startY + itemCols > gridCols) return false;
             for (int x = 0; x < itemRows; x++) {
                 for (int y = 0; y < itemCols; y++) {
-                    if (itemCells[x][y].InventoryItem != null) continue; // skip empty cell
+                    if (itemCells[x][y].InventoryItem == null) continue; // skip empty cell
                     if (grid[startX + x][startY + y].InventoryItem != null) return false;
                 }
             }
