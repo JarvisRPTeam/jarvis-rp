@@ -1,0 +1,1971 @@
+
+==================[5/15/2025 10:30:08 PM]==================
+System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'C:\RAGEMP\server-files\dotnet\runtime\appsettings.json'.
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[5/15/2025 10:30:08 PM]==================
+System.InvalidOperationException: GameDbContainer initialization failed.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'C:\RAGEMP\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(ExceptionDispatchInfo info)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at new GameDb.Repository.GameDbContext() in C:/RAGEMP/server-files/dotnet/resources/GameDb/Repository/GameDbContext.cs:line 22
+   at static GameDb.Service.GameDbContainer() in C:/RAGEMP/server-files/dotnet/resources/GameDb/Service/GameDbContainer.cs:line 27
+   --- End of inner exception stack trace ---
+   at static GameDb.Service.GameDbContainer() in C:/RAGEMP/server-files/dotnet/resources/GameDb/Service/GameDbContainer.cs:line 48
+=========================================================
+
+==================[5/15/2025 10:30:08 PM]==================
+System.TypeInitializationException: The type initializer for 'GameDb.Service.GameDbContainer' threw an exception.
+ ---> System.InvalidOperationException: GameDbContainer initialization failed.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'C:\RAGEMP\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(ExceptionDispatchInfo info)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load()
+   at new Microsoft.Extensions.Configuration.ConfigurationRoot(IList<IConfigurationProvider> providers)
+   at IConfigurationRoot Microsoft.Extensions.Configuration.ConfigurationBuilder.Build()
+   at new GameDb.Repository.GameDbContext() in C:/RAGEMP/server-files/dotnet/resources/GameDb/Repository/GameDbContext.cs:line 22
+   at static GameDb.Service.GameDbContainer() in C:/RAGEMP/server-files/dotnet/resources/GameDb/Service/GameDbContainer.cs:line 27
+   --- End of inner exception stack trace ---
+   at static GameDb.Service.GameDbContainer() in C:/RAGEMP/server-files/dotnet/resources/GameDb/Service/GameDbContainer.cs:line 48
+   --- End of inner exception stack trace ---
+   at bool GameDb.Service.GameDbContainer.IsReady() in C:/RAGEMP/server-files/dotnet/resources/GameDb/Service/GameDbContainer.cs:line 52
+=========================================================
+
+==================[5/15/2025 10:30:08 PM]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.TypeInitializationException: The type initializer for 'GameDb.Service.GameDbContainer' threw an exception.
+ ---> System.InvalidOperationException: GameDbContainer initialization failed.
+ ---> System.IO.FileNotFoundException: The configuration file 'appsettings.json' was not found and is not optional. The physical path is 'C:\RAGEMP\server-files\dotnet\runtime\appsettings.json'.
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.HandleException(ExceptionDispatchInfo info)
+   at void Microsoft.Extensions.Configuration.FileConfigurationProvider.Load(bool reload
+==================[6/9/2025 8:29:16 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:29:21 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:29:26 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:29:31 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:29:36 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:29:41 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:29:46 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:29:51 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:29:56 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:01 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:06 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:11 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:16 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:21 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:26 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:31 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:36 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:41 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:46 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:51 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:30:56 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:01 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:06 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:11 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:16 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:21 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:26 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:31 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:36 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:41 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:46 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:51 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:31:56 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:01 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:06 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:11 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:16 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:21 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:26 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:31 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:36 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:41 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:46 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:51 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:32:56 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:01 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:06 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:11 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:16 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:21 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:26 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:31 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:36 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:41 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:46 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:51 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:33:56 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:01 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:06 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:11 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:16 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:21 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:26 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:31 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:36 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:41 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:46 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:51 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:34:56 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:01 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:06 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:11 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:16 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:21 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:26 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:31 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:36 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:41 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:46 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:51 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:35:56 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:01 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:06 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:11 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:16 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:21 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:26 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:31 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:36 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:41 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:46 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:51 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:36:56 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+==================[6/9/2025 8:38:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:38:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:38:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:38:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:38:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:38:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:39:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:40:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:41:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:42:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:43:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:44:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:45:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:46:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:47:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:49 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:48:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:49:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:50:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:51:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:00 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:05 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:10 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:15 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:20 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:25 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:30 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:35 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:40 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:45 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:50 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/9/2025 8:52:55 PM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+================
+==================[6/13/2025 2:19:26 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:26 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:26 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:26 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:19:28 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+========================
+==================[6/13/2025 2:20:30 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:30 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:30 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:30 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/13/2025 2:20:32 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+========================
+==================[6/16/2025 11:36:18 AM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/16/2025 11:36:18 AM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/16/2025 11:36:18 AM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/16/2025 11:36:18 AM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/16/2025 11:36:19 AM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+==================[6/16/2025 11:36:19 AM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+   at Vector3 GTANetworkMethods.Entity.GetEntityRotation(NetHandle entity)
+   at Vector3 GTANetworkAPI.Entity.get_Rotation()
+   at float GTANetworkAPI.Player.get_Heading()
+   at async Task<Vehicle> GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 39
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/16/2025 11:36:19 AM]==================
+System.Exception: Non-thread-safe API has been invoked out of main thread. Check NAPI.Task.Run. To ignore this, set "api-threading-debugging" to false in conf.json.
+   at void Bootstrapper.EventInternalClass.OnThreadingException()
+=========================================================
+
+===========
