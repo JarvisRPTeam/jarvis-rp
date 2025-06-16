@@ -76,5 +76,63 @@ namespace GameMechanics.PlayerMechanics
             Console.WriteLine($"Error retrieving player data: {result.Message}");
             return false;
         }
+
+        public static void InitializeStats(Player player)
+        {
+            player.SetSharedData("Hunger", 100);
+            player.SetSharedData("Thirst", 100);
+        }
+
+        public static void AdjustStats(Player player, string type)
+        {
+            int hunger = player.HasSharedData("Hunger") ? player.GetSharedData<int>("Hunger") : 100;
+            int thirst = player.HasSharedData("Thirst") ? player.GetSharedData<int>("Thirst") : 100;
+
+            if (type == "food")
+            {
+                hunger = Math.Min(100, hunger + 20);
+            }
+            else if (type == "drink")
+            {
+                thirst = Math.Min(100, thirst + 20);
+            }
+
+            player.SetSharedData("Hunger", hunger);
+            player.SetSharedData("Thirst", thirst);
+
+            player.TriggerEvent("Player:UpdateStats", hunger, thirst);
+        }
+
+        public static void Consume(Player player, string type)
+        {
+            AdjustStats(player, type);
+            player.SendChatMessage($"~g~You consumed {type}!");
+        }
+
+        public static void ReduceStats(Player player, int hungerLoss = 1, int thirstLoss = 1)
+        {
+            int hunger = player.HasSharedData("Hunger") ? player.GetSharedData<int>("Hunger") : 100;
+            int thirst = player.HasSharedData("Thirst") ? player.GetSharedData<int>("Thirst") : 100;
+
+            hunger = Math.Max(0, hunger - hungerLoss);
+            thirst = Math.Max(0, thirst - thirstLoss);
+
+            player.SetSharedData("Hunger", hunger);
+            player.SetSharedData("Thirst", thirst);
+
+            player.TriggerEvent("Player:UpdateStats", hunger, thirst);
+        }
+
+        public static void CheckSurvival(Player player)
+        {
+            int hunger = player.HasSharedData("Hunger") ? player.GetSharedData<int>("Hunger") : 100;
+            int thirst = player.HasSharedData("Thirst") ? player.GetSharedData<int>("Thirst") : 100;
+
+            if (hunger == 0 || thirst == 0)
+            {
+                player.Health = Math.Max(1, player.Health - 5);
+                player.SendChatMessage("~r~You're starving or dehydrated!");
+            }
+        }
     }
 }

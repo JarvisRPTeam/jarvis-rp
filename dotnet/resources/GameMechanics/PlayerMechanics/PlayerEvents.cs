@@ -7,7 +7,7 @@ using GTANetworkAPI;
 
 namespace GameMechanics.PlayerMechanics
 {
-    public class PlayerManager : Script
+    public class PlayerEvents : Script
     {
         [ServerEvent(Event.PlayerConnected)]
         public async Task OnPlayerConnected(Player player)
@@ -17,6 +17,8 @@ namespace GameMechanics.PlayerMechanics
             {
                 Console.WriteLine($"Error loading player {player.Name} data");
             }
+            PlayerMechanics.InitializeStats(player);
+
         }
 
         [ServerEvent(Event.PlayerDisconnected)]
@@ -27,6 +29,12 @@ namespace GameMechanics.PlayerMechanics
             {
                 Console.WriteLine($"Error saving player {player.Name} data");
             }
+        }
+
+        [ServerEvent(Event.PlayerSpawn)]
+        public void OnPlayerSpawn(Player player)
+        {
+            PlayerMechanics.CheckSurvival(player);
         }
     }
 }
