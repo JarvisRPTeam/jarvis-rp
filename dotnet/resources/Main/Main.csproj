@@ -19,6 +19,7 @@
 
   <ItemGroup> 
     <ProjectReference Include="..\GameDb\Service\GameDb.Service.csproj" />
+
   </ItemGroup>
 
   <ItemGroup>
