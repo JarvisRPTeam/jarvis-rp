@@ -8,7 +8,8 @@ namespace GameDb.Service {
         private static readonly IPlayerRepository _playerRepository;
         private static readonly IVehicleRepository _vehicleRepository;
         private static readonly ISocialClubRepository _socialClubRepository;
-        private static readonly IRealEstateRepository _realEstateRepository;
+        private static readonly IPropertyRepository<RealEstateEntity> _realEstateRepository;
+        private static readonly IPropertyRepository<GarageEntity> _garageRepository;
         private static readonly IItemRepository _itemRepository;
         private static readonly IInventoryRepository _inventoryRepository;
         private static readonly IAddressRepository _addressRepository;
@@ -18,7 +19,7 @@ namespace GameDb.Service {
         public static IPlayerService PlayerService { get; }
         public static IVehicleService VehicleService { get; }
         public static IInventoryService InventoryService { get; }
-        public static IRealEstateService RealEstateService { get; }
+        public static IPropertyService PropertyService { get; }
 
         static GameDbContainer()
         {
@@ -30,16 +31,17 @@ namespace GameDb.Service {
                 _playerRepository = new PlayerRepository(_context);
                 _vehicleRepository = new VehicleRepository(_context);
                 _realEstateRepository = new RealEstateRepository(_context);
+                _garageRepository = new GarageRepository(_context);
                 _itemRepository = new ItemRepository(_context);
                 _inventoryRepository = new InventoryRepository(_context);
                 _addressRepository = new AddressRepository(_context);
                 _infrastructureBuildingRepository = new InfrastructureBuildingRepository(_context);
                 _residenceRepository = new ResidenceRepository(_context);
 
-                PlayerService = new PlayerService(_playerRepository, _socialClubRepository);
+                PlayerService = new PlayerService(_playerRepository, _socialClubRepository, _inventoryRepository, _context);
                 VehicleService = new VehicleService(_vehicleRepository, _context);
-                InventoryService = new InventoryService(_inventoryRepository);
-                RealEstateService = new RealEstateService(_realEstateRepository, _residenceRepository, _addressRepository, _infrastructureBuildingRepository);
+                InventoryService = new InventoryService(_inventoryRepository, _itemRepository, _context);
+                PropertyService = new PropertyService(_realEstateRepository, _garageRepository, _residenceRepository, _addressRepository, _infrastructureBuildingRepository);
             }
             catch (Exception ex)
             {
@@ -51,7 +53,7 @@ namespace GameDb.Service {
 
         public static bool IsReady() {
             return _context != null && _playerRepository != null && _vehicleRepository != null &&
-                   _socialClubRepository != null && _realEstateRepository != null &&
+                   _socialClubRepository != null && _realEstateRepository != null && _garageRepository != null &&
                    _itemRepository != null && _inventoryRepository != null &&
                    _addressRepository != null && _infrastructureBuildingRepository != null &&
                    _residenceRepository != null;

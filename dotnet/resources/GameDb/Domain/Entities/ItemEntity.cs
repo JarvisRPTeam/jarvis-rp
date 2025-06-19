@@ -10,7 +10,8 @@ namespace GameDb.Domain.Entities {
         public ItemType Type { get; set; }
         public string ImageUrl { get; set; } // TODO
         public byte MaxStackSize { get; set; }
-        public bool IsUsable { get; set; }
+        public ItemUsageModel Usage { get; set; } // JSONB usage data
+        public bool HasDurability { get; set; }
         public List<List<InventoryCellModel>> DefaultCells { get; set; } // JSONB default item representation in inventory
     }
 

@@ -17,6 +17,9 @@ namespace GameDb.Repository
         public DbSet<ResidenceEntity> Residences { get; set; }
         public DbSet<InfrastructureBuildingEntity> InfrastructureBuildings { get; set; }
         public DbSet<SocialClubEntity> SocialClubs { get; set; }
+        public DbSet<GarageEntity> Garages { get; set; }
+        public DbSet<PunishmentEntity> Punishments { get; set; }
+        public DbSet<RoleEntity> Roles { get; set; }
 
         public GameDbContext() {
             IConfiguration configuration = new ConfigurationBuilder()
@@ -35,27 +38,28 @@ namespace GameDb.Repository
             optionsBuilder.UseNpgsql(_connectionString);
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
             base.OnModelCreating(modelBuilder);
 
             // Player -> Vehicle 1-Many
             modelBuilder.Entity<PlayerEntity>()
-                .HasMany<VehicleEntity>()
-                .WithOne(p => p.Owner)
+                .HasMany(p => p.Vehicles)
+                .WithOne(v => v.Owner)
                 .HasForeignKey(v => v.OwnerId)
                 .IsRequired(false);
 
             // Player -> RealEstate 1-Many
             modelBuilder.Entity<PlayerEntity>()
-                .HasMany<RealEstateEntity>()
-                .WithOne(p => p.Owner)
+                .HasMany(p => p.RealEstates)
+                .WithOne(re => re.Owner)
                 .HasForeignKey(re => re.OwnerId)
                 .IsRequired(false);
 
             // Address -> RealEstate 1-Many
             modelBuilder.Entity<AddressEntity>()
-                .HasMany<RealEstateEntity>()
-                .WithOne(a => a.Address)
+                .HasMany(a => a.RealEstates)
+                .WithOne(re => re.Address)
                 .HasForeignKey(re => re.AddressId)
                 .IsRequired();
 
@@ -67,54 +71,81 @@ namespace GameDb.Repository
             modelBuilder.Entity<InventoryEntity>()
                 .Property(i => i.Items)
                 .HasColumnType("jsonb");
+            modelBuilder.Entity<InventoryEntity>()
+                .Property(i => i.Cells)
+                .HasColumnType("jsonb");
 
             // Player -> Inventory 1-1
             modelBuilder.Entity<PlayerEntity>()
-                .HasOne<InventoryEntity>()
-                .WithOne(p => p.Player)
+                .HasOne(p => p.Inventory)
+                .WithOne(i => i.Player)
                 .HasForeignKey<InventoryEntity>(i => i.PlayerId)
                 .IsRequired();
 
             // Player -> Residence 1-1
             modelBuilder.Entity<PlayerEntity>()
-                .HasOne<ResidenceEntity>()
-                .WithOne(p => p.Player)
+                .HasOne(p => p.Residence)
+                .WithOne(r => r.Player)
                 .HasForeignKey<ResidenceEntity>(r => r.PlayerId)
                 .IsRequired();
 
             // RealEstate -> Residence 1-Many
             modelBuilder.Entity<RealEstateEntity>()
-                .HasMany<ResidenceEntity>()
+                .HasMany(re => re.Residences)
                 .WithOne(r => r.RealEstate)
                 .HasForeignKey(r => r.RealEstateId)
                 .IsRequired();
 
             // SocialClub -> Player 1-Many
             modelBuilder.Entity<SocialClubEntity>()
-                .HasMany<PlayerEntity>()
+                .HasMany(s => s.Players)
                 .WithOne(p => p.SocialClub)
                 .HasForeignKey(p => p.SocialClubId)
                 .IsRequired(false);
 
             // SocialClub -> InfrastructureBuilding 1-Many
             modelBuilder.Entity<SocialClubEntity>()
-                .HasMany<InfrastructureBuildingEntity>()
+                .HasMany(s => s.InfrastructureBuildings)
                 .WithOne(b => b.SocialClub)
                 .HasForeignKey(b => b.SocialClubId)
                 .IsRequired(false);
 
             // Address -> InfrastructureBuilding 1-1
             modelBuilder.Entity<AddressEntity>()
-                .HasOne<InfrastructureBuildingEntity>()
-                .WithOne(a => a.Address)
+                .HasOne(a => a.InfrastructureBuilding)
+                .WithOne(b => b.Address)
                 .HasForeignKey<InfrastructureBuildingEntity>(b => b.AddressId)
                 .IsRequired();
+
+            // Role -> Player 1-Many
+            modelBuilder.Entity<RoleEntity>()
+                .HasMany(r => r.Players)
+                .WithOne(p => p.Role)
+                .HasForeignKey(p => p.RoleId)
+                .IsRequired();
+
+            // Player -> Punishment 1-Many
+            modelBuilder.Entity<PlayerEntity>()
+                .HasMany(p => p.Punishments)
+                .WithOne(pu => pu.Player)
+                .HasForeignKey(pu => pu.PlayerId)
+                .IsRequired();
+
+            // Player -> Garage 1-Many
+            modelBuilder.Entity<PlayerEntity>()
+                .HasMany(p => p.Garages)
+                .WithOne(g => g.Owner)
+                .HasForeignKey(g => g.OwnerId)
+                .IsRequired(false);
 
             // Explicit primary keys for safety
             modelBuilder.Entity<PlayerEntity>().HasKey(p => p.Id);
             modelBuilder.Entity<PlayerEntity>()
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<PlayerEntity>()
+                .HasIndex(p => p.Nickname)
+                .IsUnique();
             modelBuilder.Entity<VehicleEntity>().HasKey(v => v.Id);
             modelBuilder.Entity<VehicleEntity>()
                 .Property(v => v.Id)
@@ -122,6 +153,10 @@ namespace GameDb.Repository
             modelBuilder.Entity<RealEstateEntity>().HasKey(re => re.Id);
             modelBuilder.Entity<RealEstateEntity>()
                 .Property(re => re.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<GarageEntity>().HasKey(g => g.Id);
+            modelBuilder.Entity<GarageEntity>()
+                .Property(g => g.Id)
                 .ValueGeneratedOnAdd();
             modelBuilder.Entity<AddressEntity>().HasKey(a => a.Id);
             modelBuilder.Entity<AddressEntity>()
@@ -141,6 +176,31 @@ namespace GameDb.Repository
             modelBuilder.Entity<SocialClubEntity>()
                 .Property(s => s.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<GarageEntity>().HasKey(g => g.Id);
+            modelBuilder.Entity<GarageEntity>()
+                .Property(g => g.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<GarageEntity>()
+                .Property(g => g.VehicleSpawnPoints)
+                .HasColumnType("jsonb");
+            modelBuilder.Entity<RoleEntity>().HasKey(r => r.Id);
+            modelBuilder.Entity<RoleEntity>()
+                .Property(r => r.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<RoleEntity>()
+                .Property(r => r.Permissions)
+                .HasColumnType("jsonb");
+            modelBuilder.Entity<ItemEntity>()
+                .Property(i => i.DefaultCells)
+                .HasColumnType("jsonb");
+            modelBuilder.Entity<ItemEntity>()
+                .Property(i => i.Usage)
+                .HasColumnType("jsonb");
+            modelBuilder.Entity<PunishmentEntity>().HasKey(pu => pu.Id);
+            modelBuilder.Entity<PunishmentEntity>()
+                .Property(pu => pu.Id)
+                .ValueGeneratedOnAdd();
+            
         }
     }
 }
