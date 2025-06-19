@@ -17,6 +17,9 @@ namespace GameDb.Repository
         public DbSet<ResidenceEntity> Residences { get; set; }
         public DbSet<InfrastructureBuildingEntity> InfrastructureBuildings { get; set; }
         public DbSet<SocialClubEntity> SocialClubs { get; set; }
+        public DbSet<GarageEntity> Garages { get; set; }
+        public DbSet<PunishmentEntity> Punishments { get; set; }
+        public DbSet<RoleEntity> Roles { get; set; }
 
         public GameDbContext() {
             IConfiguration configuration = new ConfigurationBuilder()
@@ -110,11 +113,35 @@ namespace GameDb.Repository
                 .HasForeignKey<InfrastructureBuildingEntity>(b => b.AddressId)
                 .IsRequired();
 
+            // Role -> Player 1-Many
+            modelBuilder.Entity<RoleEntity>()
+                .HasMany<PlayerEntity>()
+                .WithOne(p => p.Role)
+                .HasForeignKey(p => p.RoleId)
+                .IsRequired();
+
+            // Player -> Punishment 1-Many
+            modelBuilder.Entity<PlayerEntity>()
+                .HasMany<PunishmentEntity>()
+                .WithOne()
+                .HasForeignKey(pu => pu.PlayerId)
+                .IsRequired();
+
+            // Player -> Garage 1-Many
+            modelBuilder.Entity<PlayerEntity>()
+                .HasMany<GarageEntity>()
+                .WithOne(g => g.Owner)
+                .HasForeignKey(g => g.OwnerId)
+                .IsRequired(false);
+
             // Explicit primary keys for safety
             modelBuilder.Entity<PlayerEntity>().HasKey(p => p.Id);
             modelBuilder.Entity<PlayerEntity>()
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<PlayerEntity>()
+                .HasIndex(p => p.Nickname)
+                .IsUnique();
             modelBuilder.Entity<VehicleEntity>().HasKey(v => v.Id);
             modelBuilder.Entity<VehicleEntity>()
                 .Property(v => v.Id)
@@ -141,6 +168,15 @@ namespace GameDb.Repository
             modelBuilder.Entity<SocialClubEntity>()
                 .Property(s => s.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<GarageEntity>().HasKey(g => g.Id);
+            modelBuilder.Entity<GarageEntity>()
+                .Property(g => g.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<RoleEntity>().HasKey(r => r.Id);
+            modelBuilder.Entity<RoleEntity>()
+                .Property(r => r.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<PunishmentEntity>().HasKey(pu => pu.Id);
         }
     }
 }
