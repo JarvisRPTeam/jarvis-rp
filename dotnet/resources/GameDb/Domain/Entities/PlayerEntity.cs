@@ -1,3 +1,5 @@
+using System;
+
 namespace GameDb.Domain.Entities
 {
     public class PlayerEntity
@@ -5,17 +7,39 @@ namespace GameDb.Domain.Entities
         public long Id { get; set; }
         public string Nickname { get; set; }
         public string Password { get; set; }
+        public long? SocialClubId { get; set; } // Foreign key to SocialClub
+        public long RoleId { get; set; } // Foreign key to Role
+        public long? SpawnPlaceId { get; set; } // Foreign key to RealEstate
         public long Cash { get; set; }
+        public long BankBalance { get; set; }
+        public long BankCardNumber { get; set; }
+        public long BankCardPIN { get; set; }
+        public long JarvisBalance { get; set; }
         public byte HP { get; set; }
         public byte Hunger { get; set; }
         public byte Thirst { get; set; }
         public byte Stamina { get; set; }
-        public long? SocialClubId { get; set; } // Foreign key to SocialClub
+        public byte Breath { get; set; }
         public float PositionX { get; set; }
-        public float PositionY { get; set; } 
-        public float PositionZ { get; set; } 
+        public float PositionY { get; set; }
+        public float PositionZ { get; set; }
+        public float Heading { get; set; }
+        public byte Strength { get; set; }
+        public byte Endurance { get; set; }
+        public byte Stealth { get; set; }
+        public byte DrivingSkill { get; set; }
+        public byte ShootingSkill { get; set; }
+        public byte FishingSkill { get; set; }
+        public byte HuntingSkill { get; set; }
+        public byte FlyingSkill { get; set; }
+        public byte BreathHoldingSkill { get; set; }
+        public TimeSpan PlayedToday { get; set; }
+        public TimeSpan PlayedTotal { get; set; }
 
         // Navigation properties
         public virtual SocialClubEntity SocialClub { get; set; }
+        public virtual RoleEntity Role { get; set; }
+        public virtual RealEstateEntity SpawnPlace { get; set; }
+        public virtual InventoryEntity Inventory { get; set; }
     }
 }
