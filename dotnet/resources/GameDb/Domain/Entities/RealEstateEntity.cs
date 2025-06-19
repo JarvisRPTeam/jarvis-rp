@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace GameDb.Domain.Entities
 {
     public class RealEstateEntity
@@ -15,6 +17,7 @@ namespace GameDb.Domain.Entities
         // Navigation properties
         public virtual PlayerEntity Owner { get; set; } 
         public virtual AddressEntity Address { get; set; }
+        public virtual ICollection<ResidenceEntity> Residences { get; set; }
     }
 
     public enum RealEstateType

@@ -10,20 +10,14 @@ namespace GameDb.Service {
     public interface IPropertyService {
         // RealEstate
         Task<RealEstateEntity?> GetRealEstateByIdAsync(long id);
-        Task<IEnumerable<RealEstateEntity>> GetRealEstatesByOwnerAsync(PlayerEntity owner);
-        Task<RealEstateEntity?> GetRealEstateByAddressAsync(AddressEntity address);
         Task<bool> SetRealEstateOwnershipAsync(RealEstateEntity realEstate, long? newOwnerId);
 
         // Garage 
         Task<GarageEntity?> GetGarageByIdAsync(long id);
-        Task<IEnumerable<GarageEntity>> GetGaragesByOwnerAsync(PlayerEntity owner);
-        Task<GarageEntity?> GetGarageByAddressAsync(AddressEntity address);
         Task<bool> SetGarageOwnershipAsync(GarageEntity garage, long? newOwnerId);
 
         // Residence
         Task<ResidenceEntity?> RegisterResidenceAsync(PlayerEntity player, RealEstateEntity realEstate);
-        Task<IEnumerable<ResidenceEntity>> GetResidencesByPlayerAsync(PlayerEntity player);
-        Task<IEnumerable<ResidenceEntity>> GetResidencesByRealEstateAsync(RealEstateEntity realEstate);
         Task<bool> RemoveResidenceAsync(PlayerEntity player, RealEstateEntity realEstate);
         Task<bool> RemoveResidenceAsync(ResidenceEntity residence);
 
@@ -33,8 +27,6 @@ namespace GameDb.Service {
 
         // InfrastructureBuilding
         Task<InfrastructureBuildingEntity?> GetInfrastructureBuildingByIdAsync(long id);
-        Task<IEnumerable<InfrastructureBuildingEntity>> GetInfrastructureBuildingsBySocialClubAsync(SocialClubEntity socialClub);
-        Task<InfrastructureBuildingEntity?> GetInfrastructureBuildingByAddressAsync(AddressEntity address);
         Task<IEnumerable<InfrastructureBuildingEntity>> GetInfrastructureBuildingsByNameAsync(string name);
     }
 
@@ -71,38 +63,6 @@ namespace GameDb.Service {
             return result.ReturnValue;
         }
 
-        public async Task<IEnumerable<RealEstateEntity>> GetRealEstatesByOwnerAsync(PlayerEntity owner)
-        {
-            if (owner == null)
-            {
-                Console.WriteLine("Owner cannot be null.");
-                return new List<RealEstateEntity>();
-            }
-            var result = await _realEstateRepository.GetByOwnerIdAsync(owner.Id);
-            if (result.ResultType != DbResultType.Success)
-            {
-                Console.WriteLine($"Error retrieving real estates by owner '{owner.Nickname}': {result.Message}");
-                return new List<RealEstateEntity>();
-            }
-            return result.ReturnValue ?? new List<RealEstateEntity>();
-        }
-
-        public async Task<RealEstateEntity?> GetRealEstateByAddressAsync(AddressEntity address)
-        {
-            if (address == null)
-            {
-                Console.WriteLine("Address cannot be null.");
-                return null;
-            }
-            var result = await _realEstateRepository.GetByAddressIdAsync(address.Id);
-            if (result.ResultType != DbResultType.Success || result.ReturnValue == null)
-            {
-                Console.WriteLine($"Error retrieving real estate by address '{address.AddressName}': {result.Message}");
-                return null;
-            }
-            return result.ReturnValue;
-        }
-
         public async Task<bool> SetRealEstateOwnershipAsync(RealEstateEntity realEstate, long? newOwnerId) {
             if (realEstate == null)
             {
@@ -131,38 +91,6 @@ namespace GameDb.Service {
             if (result.ResultType != DbResultType.Success || result.ReturnValue == null)
             {
                 Console.WriteLine($"Error retrieving garage by ID '{id}': {result.Message}");
-                return null;
-            }
-            return result.ReturnValue;
-        }
-
-        public async Task<IEnumerable<GarageEntity>> GetGaragesByOwnerAsync(PlayerEntity owner)
-        {
-            if (owner == null)
-            {
-                Console.WriteLine("Owner cannot be null.");
-                return new List<GarageEntity>();
-            }
-            var result = await _garageRepository.GetByOwnerIdAsync(owner.Id);
-            if (result.ResultType != DbResultType.Success)
-            {
-                Console.WriteLine($"Error retrieving garages by owner '{owner.Nickname}': {result.Message}");
-                return new List<GarageEntity>();
-            }
-            return result.ReturnValue ?? new List<GarageEntity>();
-        }
-
-        public async Task<GarageEntity?> GetGarageByAddressAsync(AddressEntity address)
-        {
-            if (address == null)
-            {
-                Console.WriteLine("Address cannot be null.");
-                return null;
-            }
-            var result = await _garageRepository.GetByAddressIdAsync(address.Id);
-            if (result.ResultType != DbResultType.Success || result.ReturnValue == null)
-            {
-                Console.WriteLine($"Error retrieving garage by address '{address.AddressName}': {result.Message}");
                 return null;
             }
             return result.ReturnValue;
@@ -220,38 +148,6 @@ namespace GameDb.Service {
                 return null;
             }
             return result.ReturnValue;
-        }
-
-        public async Task<IEnumerable<ResidenceEntity>> GetResidencesByPlayerAsync(PlayerEntity player)
-        {
-            if (player == null)
-            {
-                Console.WriteLine("Player cannot be null.");
-                return new List<ResidenceEntity>();
-            }
-            var result = await _residenceRepository.GetByPlayerIdAsync(player.Id);
-            if (result.ResultType != DbResultType.Success)
-            {
-                Console.WriteLine($"Error retrieving residences by player '{player.Nickname}': {result.Message}");
-                return new List<ResidenceEntity>();
-            }
-            return result.ReturnValue ?? new List<ResidenceEntity>();
-        }
-
-        public async Task<IEnumerable<ResidenceEntity>> GetResidencesByRealEstateAsync(RealEstateEntity realEstate)
-        {
-            if (realEstate == null)
-            {
-                Console.WriteLine("Real estate cannot be null.");
-                return new List<ResidenceEntity>();
-            }
-            var result = await _residenceRepository.GetByRealEstateIdAsync(realEstate.Id);
-            if (result.ResultType != DbResultType.Success)
-            {
-                Console.WriteLine($"Error retrieving residences by real estate: {result.Message}");
-                return new List<ResidenceEntity>();
-            }
-            return result.ReturnValue ?? new List<ResidenceEntity>();
         }
 
         public async Task<bool> RemoveResidenceAsync(PlayerEntity player, RealEstateEntity realEstate) {
@@ -347,38 +243,6 @@ namespace GameDb.Service {
             if (result.ResultType != DbResultType.Success || result.ReturnValue == null)
             {
                 Console.WriteLine($"Error retrieving infrastructure building by ID '{id}': {result.Message}");
-                return null;
-            }
-            return result.ReturnValue;
-        }
-
-        public async Task<IEnumerable<InfrastructureBuildingEntity>> GetInfrastructureBuildingsBySocialClubAsync(SocialClubEntity socialClub)
-        {
-            if (socialClub == null)
-            {
-                Console.WriteLine("Social club cannot be null.");
-                return new List<InfrastructureBuildingEntity>();
-            }
-            var result = await _infrastructureBuildingRepository.GetBySocialClubIdAsync(socialClub.Id);
-            if (result.ResultType != DbResultType.Success)
-            {
-                Console.WriteLine($"Error retrieving infrastructure buildings by social club '{socialClub.Name}': {result.Message}");
-                return new List<InfrastructureBuildingEntity>();
-            }
-            return result.ReturnValue ?? new List<InfrastructureBuildingEntity>();
-        }
-
-        public async Task<InfrastructureBuildingEntity?> GetInfrastructureBuildingByAddressAsync(AddressEntity address)
-        {
-            if (address == null)
-            {
-                Console.WriteLine("Address cannot be null.");
-                return null;
-            }
-            var result = await _infrastructureBuildingRepository.GetByAddressIdAsync(address.Id);
-            if (result.ResultType != DbResultType.Success || result.ReturnValue == null)
-            {
-                Console.WriteLine($"Error retrieving infrastructure building by address '{address.AddressName}': {result.Message}");
                 return null;
             }
             return result.ReturnValue;

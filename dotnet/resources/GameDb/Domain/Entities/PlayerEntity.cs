@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace GameDb.Domain.Entities
 {
@@ -41,5 +42,10 @@ namespace GameDb.Domain.Entities
         public virtual RoleEntity Role { get; set; }
         public virtual RealEstateEntity SpawnPlace { get; set; }
         public virtual InventoryEntity Inventory { get; set; }
+        public virtual ResidenceEntity Residence { get; set; }
+        public virtual ICollection<VehicleEntity> Vehicles { get; set; }
+        public virtual ICollection<RealEstateEntity> RealEstates { get; set; }
+        public virtual ICollection<PunishmentEntity> Punishments { get; set; }
+        public virtual ICollection<GarageEntity> Garages { get; set; }
     }
 }
