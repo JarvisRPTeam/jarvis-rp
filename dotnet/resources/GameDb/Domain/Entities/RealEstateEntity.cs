@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using GameDb.Domain.Models;
 
 namespace GameDb.Domain.Entities
 {
@@ -9,10 +10,7 @@ namespace GameDb.Domain.Entities
         public long? OwnerId { get; set; } // Foreign key to Player
         public long AddressId { get; set; } // Foreign key to Address
         public byte MaxResidentCount { get; set; }
-        public float SpawnPointX { get; set; }
-        public float SpawnPointY { get; set; }
-        public float SpawnPointZ { get; set; }
-        public float SpawnPointHeading { get; set; }
+        public PositionModel SpawnPoint { get; set; } // JSONB
 
         // Navigation properties
         public virtual PlayerEntity Owner { get; set; } 

@@ -146,18 +146,33 @@ namespace GameDb.Repository
             modelBuilder.Entity<PlayerEntity>()
                 .HasIndex(p => p.Nickname)
                 .IsUnique();
+            modelBuilder.Entity<PlayerEntity>()
+                .Property(p => p.Position)
+                .HasColumnType("jsonb");
+            modelBuilder.Entity<PlayerEntity>()
+                .Property(p => p.RoleId)
+                .IsRequired();
             modelBuilder.Entity<VehicleEntity>().HasKey(v => v.Id);
             modelBuilder.Entity<VehicleEntity>()
                 .Property(v => v.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<VehicleEntity>()
+                .Property(v => v.Position)
+                .HasColumnType("jsonb");
             modelBuilder.Entity<RealEstateEntity>().HasKey(re => re.Id);
             modelBuilder.Entity<RealEstateEntity>()
                 .Property(re => re.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<RealEstateEntity>()
+                .Property(re => re.SpawnPoint)
+                .HasColumnType("jsonb");
             modelBuilder.Entity<GarageEntity>().HasKey(g => g.Id);
             modelBuilder.Entity<GarageEntity>()
                 .Property(g => g.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<GarageEntity>()
+                .Property(g => g.VehicleSpawnPoints)
+                .HasColumnType("jsonb");
             modelBuilder.Entity<AddressEntity>().HasKey(a => a.Id);
             modelBuilder.Entity<AddressEntity>()
                 .Property(a => a.Id)
