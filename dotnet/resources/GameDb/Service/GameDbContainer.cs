@@ -58,22 +58,31 @@ namespace GameDb.Service {
 
         public static async Task<bool> IsReady()
         {
-            var initialized = _context != null && _playerRepository != null && _vehicleRepository != null &&
+            try
+            {
+                var initialized = _context != null && _playerRepository != null && _vehicleRepository != null &&
                    _socialClubRepository != null && _realEstateRepository != null && _garageRepository != null &&
                    _itemRepository != null && _inventoryRepository != null &&
                    _addressRepository != null && _infrastructureBuildingRepository != null &&
                    _residenceRepository != null && _roleRepository != null && _punishmentRepository != null;
 
-            if (!initialized)
-            {
-                return false;
+                if (!initialized)
+                {
+                    return false;
+                }
+
+                var rolesExist = await PlayerService.GetRoleByNameAsync("Player") != null &&
+                                await PlayerService.GetRoleByNameAsync("Admin") != null &&
+                                await PlayerService.GetRoleByNameAsync("ServerOwner") != null;
+
+                return rolesExist;
             }
-
-            var rolesExist = await PlayerService.GetRoleByNameAsync("Player") != null &&
-                             await PlayerService.GetRoleByNameAsync("Admin") != null &&
-                             await PlayerService.GetRoleByNameAsync("ServerOwner") != null;
-
-            return rolesExist;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error checking GameDbContainer readiness: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}");
+                return false;
+            }            
         }
     }
 }

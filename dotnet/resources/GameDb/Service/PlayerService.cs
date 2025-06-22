@@ -71,6 +71,7 @@ namespace GameDb.Service
                 if (role == null)
                 {
                     Console.WriteLine("Role 'Player' not found.");
+                    await transaction.RollbackAsync();
                     return null;
                 }
                 var playerEntity = new PlayerEntity
@@ -419,6 +420,13 @@ namespace GameDb.Service
                     }
                 }
 
+                var saved = await _punishmentRepository.SaveChangesAsync();
+                if (!saved)
+                {
+                    Console.WriteLine("Failed to save changes after clearing punishments.");
+                    await transaction.RollbackAsync();
+                    return false;
+                }
                 await transaction.CommitAsync();
                 return true;
             }
