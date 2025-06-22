@@ -148,6 +148,13 @@ namespace GameDb.Service {
                     await transaction.RollbackAsync();
                     return false;
                 }
+                var saveResult = await _inventoryRepository.SaveChangesAsync();
+                if (!saveResult)
+                {
+                    Console.WriteLine("Failed to save inventory after adding item.");
+                    await transaction.RollbackAsync();
+                    return false;
+                }
                 await transaction.CommitAsync();
                 return true;
             }
@@ -171,6 +178,13 @@ namespace GameDb.Service {
                         await transaction.RollbackAsync();
                         return false;
                     }
+                }
+                var saveResult = await _inventoryRepository.SaveChangesAsync();
+                if (!saveResult)
+                {
+                    Console.WriteLine("Failed to save inventory after adding items.");
+                    await transaction.RollbackAsync();
+                    return false;
                 }
                 await transaction.CommitAsync();
                 return true;

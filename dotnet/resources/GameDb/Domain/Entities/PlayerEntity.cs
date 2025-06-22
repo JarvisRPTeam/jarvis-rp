@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using GameDb.Domain.Models;
 
 namespace GameDb.Domain.Entities
 {
@@ -12,19 +13,16 @@ namespace GameDb.Domain.Entities
         public long RoleId { get; set; } // Foreign key to Role
         public long? SpawnPlaceId { get; set; } // Foreign key to RealEstate
         public long Cash { get; set; }
-        public long BankBalance { get; set; }
-        public long BankCardNumber { get; set; }
-        public long BankCardPIN { get; set; }
+        public long? BankBalance { get; set; }
+        public long? BankCardNumber { get; set; }
+        public long? BankCardPIN { get; set; }
         public long JarvisBalance { get; set; }
         public byte HP { get; set; }
         public byte Hunger { get; set; }
         public byte Thirst { get; set; }
         public byte Stamina { get; set; }
         public byte Breath { get; set; }
-        public float PositionX { get; set; }
-        public float PositionY { get; set; }
-        public float PositionZ { get; set; }
-        public float Heading { get; set; }
+        public PositionModel Position { get; set; } // JSONB
         public byte Strength { get; set; }
         public byte Endurance { get; set; }
         public byte Stealth { get; set; }
