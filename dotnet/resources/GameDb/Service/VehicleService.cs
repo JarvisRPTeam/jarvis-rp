@@ -55,13 +55,12 @@ namespace GameDb.Service {
                 // Generate plate based on ID if not provided
                 if (vehicleEntity.NumberPlate == null) {
                     vehicleEntity.NumberPlate = GenerateNumberPlate(vehicleEntity.Id);
-
-                    saved = await _vehicleRepository.SaveChangesAsync();
-                    if (!saved) {
-                        await transaction.RollbackAsync();
-                        Console.WriteLine("Failed to save vehicle with generated number plate.");
-                        return null;
-                    }
+                }
+                saved = await _vehicleRepository.SaveChangesAsync();
+                if (!saved) {
+                    await transaction.RollbackAsync();
+                    Console.WriteLine("Failed to save vehicle with generated number plate.");
+                    return null;
                 }
 
                 await transaction.CommitAsync();

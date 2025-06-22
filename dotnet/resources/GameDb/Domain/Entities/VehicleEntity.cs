@@ -1,3 +1,5 @@
+using GameDb.Domain.Models;
+
 namespace GameDb.Domain.Entities
 {
     public class VehicleEntity {
@@ -9,10 +11,7 @@ namespace GameDb.Domain.Entities
         public float TankCapacity { get; set; } 
         public float FuelConsumption { get; set; } // l/km
         public float Mileage { get; set; } 
-        public float PositionX { get; set; }
-        public float PositionY { get; set; }
-        public float PositionZ { get; set; }
-        public float Heading { get; set; } 
+        public PositionModel Position { get; set; } // JSONB
 
         // Navigation properties
         public virtual PlayerEntity Owner { get; set; }
