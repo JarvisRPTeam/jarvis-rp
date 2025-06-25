@@ -1,7 +1,0 @@
-<resource>
-    <name>GameMechanics</name>
-    <type>csharp</type>
-    <main>GameMechanics.PlayerMechanics.PlayerCommands</main>
-    <script>GameMechanics.PlayerMechanics.PlayerEvents</script>
-    <script>GameMechanics.PlayerMechanics.PlayerMechanics</script>
-</resource>

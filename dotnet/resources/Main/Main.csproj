@@ -4,7 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>cec00c77-a677-457e-a00a-10522b2fdb5a</UserSecretsId>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateUserSecretsAttribute>false</GenerateUserSecretsAttribute> <!-- 👈 Add this -->
   </PropertyGroup>
+
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
@@ -26,5 +29,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.32" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.32" />
   </ItemGroup>
+
+  
 
 </Project>
