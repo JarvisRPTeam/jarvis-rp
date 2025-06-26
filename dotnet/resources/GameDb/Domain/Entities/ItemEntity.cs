@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using GameDb.Domain.Models;
+
 namespace GameDb.Domain.Entities {
     public class ItemEntity {
         public long Id { get; set; }
@@ -7,8 +10,9 @@ namespace GameDb.Domain.Entities {
         public ItemType Type { get; set; }
         public string ImageUrl { get; set; } // TODO
         public byte MaxStackSize { get; set; }
-        public bool IsUsable { get; set; }
-        public byte? OnlySlot { get; set; } // If not null, the item can only be used in this slot
+        public ItemUsageModel Usage { get; set; } // JSONB usage data
+        public bool HasDurability { get; set; }
+        public List<List<InventoryCellModel>> DefaultCells { get; set; } // JSONB default item representation in inventory
     }
 
     public enum ItemType {

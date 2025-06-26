@@ -8,7 +8,7 @@ namespace Main
     {
         public Main()
         {
-            if (GameDbContainer.IsReady()) {
+            if (GameDbContainer.IsReady().GetAwaiter().GetResult()) {
                 NAPI.Util.ConsoleOutput("GameDbContainer initialized.");
             } else {
                 throw new InvalidOperationException("GameDbContainer initialization failed. Halting execution.");
