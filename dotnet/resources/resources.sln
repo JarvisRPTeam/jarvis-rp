@@ -12,8 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDb.Repository", "GameDb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDb.Service", "GameDb\Service\GameDb.Service.csproj", "{FE3EDA4C-C197-4AE2-9AD4-27C195848079}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMechanics", "GameMechanics\GameMechanics.csproj", "{9D1889FE-61FA-4CFB-A220-C678B3E85E26}"
-EndProject
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

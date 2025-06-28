@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GameDb.Domain.Entities;
+using GameDb.Domain.Models;
 using GameDb.Repository;
 using GameDb.Service;
 using GTANetworkAPI;
@@ -35,101 +36,91 @@ namespace GameMechanics.PlayerMechanics
         }
         public static bool SavePlayerData(Player player)
         {
-            var result = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
-            if (result.ResultType == DbResultType.Success)
+            var playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
+
+            if (playerEntity == null)
             {
-                if (result.ReturnValue == null)
-                {
-                    Console.WriteLine($"FATAL: Player {player.Name} not found in database.");
-                    throw new Exception($"Player {player.Name} not found in database.");
-                }
-                PlayerEntity playerEntity = result.ReturnValue;
-                Vector3 position = player.Position;
-                int hunger = player.HasSharedData("Hunger") ? player.GetSharedData<int>("Hunger") : MaxStat;
-                int thirst = player.HasSharedData("Thirst") ? player.GetSharedData<int>("Thirst") : MaxStat;
-
-                var sPosResult = GameDbContainer.PlayerService.SetPositionAsync(playerEntity, position.X, position.Y, position.Z).GetAwaiter().GetResult();
-                var sHPResult = GameDbContainer.PlayerService.SetHPAsync(playerEntity, (byte)player.Health).GetAwaiter().GetResult();
-                var sHungerResult = GameDbContainer.PlayerService.DealHungerAsync(playerEntity.Id, (byte)hunger).GetAwaiter().GetResult();
-                var sThirstResult = GameDbContainer.PlayerService.DealThirstAsync(playerEntity.Id, (byte)thirst).GetAwaiter().GetResult();
-                var sMoneyResult = GameDbContainer.PlayerService.DealCashAsync(playerEntity.Id, (long)GetMoney(player)).GetAwaiter().GetResult();
-
-
-                if (sPosResult.ResultType == DbResultType.Error)
-                {
-                    Console.WriteLine($"Error setting position: {sPosResult.Message}");
-                    return false;
-                }
-
-                if (sHPResult.ResultType == DbResultType.Error)
-                {
-                    Console.WriteLine($"Error setting HP: {sHPResult.Message}");
-                    return false;
-                }
-
-                if (sHungerResult.ResultType == DbResultType.Error)
-                {
-                    Console.WriteLine($"Error setting hunger: {sHungerResult.Message}");
-                    return false;
-                }
-
-                if (sThirstResult.ResultType == DbResultType.Error)
-                {
-                    Console.WriteLine($"Error setting thirst: {sThirstResult.Message}");
-                    return false;
-                }
-                if (sMoneyResult.ResultType == DbResultType.Error)
-                {
-                    Console.WriteLine($"Error setting money: {sMoneyResult.Message}");
-                    return false;
-                }
-                
-
-                return true;
+                Console.WriteLine($"FATAL: Player {player.Name} not found in database.");
+                throw new Exception($"Player {player.Name} not found in database.");
             }
 
-            Console.WriteLine($"Error retrieving player data: {result.Message}");
-            return false;
+            Vector3 position = player.Position;
+            PositionModel playerPosition = new PositionModel
+            {
+                X = position.X,
+                Y = position.Y,
+                Z = position.Z,
+                Heading = player.Heading
+            };
+
+            bool sPosResult = GameDbContainer.PlayerService.SetPositionAsync(playerEntity, playerPosition).GetAwaiter().GetResult();
+            bool sHPResult = GameDbContainer.PlayerService.SetHPAsync(playerEntity, (byte)player.Health).GetAwaiter().GetResult();
+            bool sHungerResult = GameDbContainer.PlayerService.SetHungerAsync(playerEntity, (byte)GetHunger(player)).GetAwaiter().GetResult();
+            bool sThirstResult = GameDbContainer.PlayerService.SetThirstAsync(playerEntity, (byte)GetThirst(player)).GetAwaiter().GetResult();
+            bool sMoneyResult = GameDbContainer.PlayerService.SetCashAsync(playerEntity, GetMoney(player)).GetAwaiter().GetResult();
+
+
+            if (!sPosResult)
+            {
+                Console.WriteLine($"Error setting position!");
+                return false;
+            }
+
+            if (!sHPResult)
+            {
+                Console.WriteLine($"Error setting HP!");
+                return false;
+            }
+
+            if (!sHungerResult)
+            {
+                Console.WriteLine($"Error setting Hunger!");
+                return false;
+            }
+
+            if (!sThirstResult)
+            {
+                Console.WriteLine($"Error setting thirst!");
+                return false;
+            }
+            if (!sMoneyResult)
+            {
+                Console.WriteLine($"Error setting money!");
+                return false;
+            }
+            return true;
         }
+        
         public static bool LoadPlayerData(Player player)
         {
-            var result = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
-            if (result.ResultType != DbResultType.Error)
+            var playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
+
+            if (playerEntity == null)
             {
-                if (result.ReturnValue == null)
-                {
-                    Console.WriteLine($"FATAL: Player {player.Name} not found in database.");
-                    return false;
-                }
-
-                PlayerEntity playerEntity = result.ReturnValue;
-
-                Vector3 position = new Vector3(playerEntity.PositionX, playerEntity.PositionY, playerEntity.PositionZ);
-                TeleportPlayer(player, position);
-
-                player.Health = playerEntity.HP;
-
-                // ✅ Load & set money
-                long money = playerEntity.Cash;
-                SetMoney(player, money); // uses sharedData["Money"] and triggers client update
-
-                // ✅ Load hunger and thirst
-                int hunger = playerEntity.Hunger > 0 ? playerEntity.Hunger : MaxStat;
-                int thirst = playerEntity.Thirst > 0 ? playerEntity.Thirst : MaxStat;
-                player.SetSharedData("Hunger", hunger);
-                player.SetSharedData("Thirst", thirst);
-                player.TriggerEvent("Player:UpdateStats", hunger, thirst);
-
-                return true;
+                Console.WriteLine($"FATAL: Player not found in database.");
+                return false;
             }
+            
+            Vector3 position = new Vector3(playerEntity.Position.X, playerEntity.Position.Y, playerEntity.Position.Z);
 
-            Console.WriteLine($"Error retrieving player data: {result.Message}");
-            return false;
+            TeleportPlayer(player, position);
+
+            player.Health = playerEntity.HP;
+
+            long money = playerEntity.Cash;
+            player.SetSharedData("Money", money);
+            UpdateClientMoney(player);
+            
+
+            int hunger = GetHunger(player);
+            int thirst = GetThirst(player);
+            
+            player.SetSharedData("Hunger", hunger);
+            player.SetSharedData("Thirst", thirst);
+            player.TriggerEvent("Player:UpdateStats", hunger, thirst);
+
+            return true;
         }
-
-
-
-
         public static void InitializeStats(Player player)
         {
             player.SetSharedData("Hunger", MaxStat);
@@ -139,8 +130,8 @@ namespace GameMechanics.PlayerMechanics
 
         public static void AdjustStats(Player player, string type, int value)
         {
-            int hunger = player.HasSharedData("Hunger") ? player.GetSharedData<int>("Hunger") : MaxStat;
-            int thirst = player.HasSharedData("Thirst") ? player.GetSharedData<int>("Thirst") : MaxStat;
+            int hunger = GetHunger(player);
+            int thirst = GetThirst(player);
 
             if (type == "food")
                 hunger = Math.Min(MaxStat, hunger + value);
@@ -176,8 +167,8 @@ namespace GameMechanics.PlayerMechanics
 
         public static void ReduceStats(Player player, int hungerLoss = 1, int thirstLoss = 1)
         {
-            int hunger = player.HasSharedData("Hunger") ? player.GetSharedData<int>("Hunger") : MaxStat;
-            int thirst = player.HasSharedData("Thirst") ? player.GetSharedData<int>("Thirst") : MaxStat;
+            int hunger = GetHunger(player);
+            int thirst = GetThirst(player);
 
             hunger = Math.Max(0, hunger - hungerLoss);
             thirst = Math.Max(0, thirst - thirstLoss);
@@ -189,8 +180,8 @@ namespace GameMechanics.PlayerMechanics
 
         public static void CheckSurvival(Player player)
         {
-            int hunger = player.HasSharedData("Hunger") ? player.GetSharedData<int>("Hunger") : MaxStat;
-            int thirst = player.HasSharedData("Thirst") ? player.GetSharedData<int>("Thirst") : MaxStat;
+            int hunger = GetHunger(player);
+            int thirst = GetThirst(player);
 
             if (hunger <= WarningThreshold || thirst <= WarningThreshold)
                 player.SendChatMessage("~y~You're feeling weak...");
@@ -211,53 +202,16 @@ namespace GameMechanics.PlayerMechanics
         public static void UpdateClientStats(Player player)
         {
             if (!player.Exists) return;
-
-            int hunger = player.HasSharedData("Hunger") ? player.GetSharedData<int>("Hunger") : MaxStat;
-            int thirst = player.HasSharedData("Thirst") ? player.GetSharedData<int>("Thirst") : MaxStat;
-
-            player.TriggerEvent("client:updateStats", hunger, thirst); // You must handle this event on the client-side
+            player.TriggerEvent("client:updateStats", GetHunger(player), GetThirst(player)); // You must handle this event on the client-side
         }
 
-        private const string MoneyKey = "PlayerMoney";
-
-        public static void InitializeMoney(Player player)
-        {
-            if (!player.HasSharedData(MoneyKey))
-            {
-                player.SetSharedData(MoneyKey, 2000);
-                UpdateClientMoney(player);
-            }
-        }
 
         public static void AddMoney(Player player, long amount)
         {
             long currentMoney = GetMoney(player);
-            long newMoney = currentMoney + amount; // ✅ Proper addition
+            long newMoney = currentMoney + amount;
             SetMoney(player, newMoney);
         }
-
-
-
-        public static void SetMoney(Player player, long amount)
-        {
-            player.SetSharedData("Money", amount);
-            UpdateClientMoney(player);
-        }
-
-
-        public static long GetMoney(Player player)
-        {
-            return player.HasSharedData("Money") ? player.GetSharedData<long>("Money") : 0;
-        }
-
-
-
-        public static void UpdateClientMoney(Player player)
-        {
-            long money = GetMoney(player);
-            player.TriggerEvent("UpdateMoneyUI", money); // Klientā jāsaņem long/int atkarībā no implementācijas
-        }
-
         public static void RemoveMoney(Player player, long amount)
         {
             long currentMoney = GetMoney(player);
@@ -265,5 +219,51 @@ namespace GameMechanics.PlayerMechanics
             SetMoney(player, newMoney);
         }
 
+        public static void SetMoney(Player player, long amount)
+        {
+            PlayerEntity playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
+            bool setMoneyResult = GameDbContainer.PlayerService.SetCashAsync(playerEntity, amount).GetAwaiter().GetResult();
+
+            if (!setMoneyResult)
+            {
+                Console.WriteLine($"Error setting money for player {player.Name}");
+                return;
+            }
+            player.SetSharedData("Money", amount);
+            UpdateClientMoney(player);
+        }
+
+        public static long GetMoney(Player player)
+        {
+            if (player.HasSharedData("Money"))
+            {
+                return player.GetSharedData<long>("Money");
+            }
+            throw new Exception($"Player {player.Name} does not have Money data set.");
+        }
+
+        public static void UpdateClientMoney(Player player)
+        {
+            long money = GetMoney(player);
+            player.TriggerEvent("UpdateMoneyUI", money); // Klientā jāsaņem long/int atkarībā no implementācijas
+        }
+
+        public static int GetHunger(Player player)
+        {
+            if (player.HasSharedData("Hunger"))
+            {
+                return player.GetSharedData<int>("Hunger");
+            }
+            return MaxStat; // Default value if not set
+        }
+
+        public static int GetThirst(Player player)
+        {
+            if (player.HasSharedData("Thirst"))
+            {
+                return player.GetSharedData<int>("Thirst");
+            }
+            return MaxStat; // Default value if not set
+        }
     }
 }

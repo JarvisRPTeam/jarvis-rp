@@ -2965,3 +2965,781 @@ Npgsql.NpgsqlException (0x80004005): Exception while writing to stream
    at void System.Net.Sockets.NetworkStream.Write(byte[] buffer, int offset, int size)
    --- End of inner exception stack trace ---
    at void System.Net.Sockets.NetworkStream.Write(byte[] b
+==================[6/28/2025 2:52:13 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 2:52:13 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 2:52:13 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 2:52:13 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 2:59:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 2:59:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 2:59:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellation
+==================[6/28/2025 3:17:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 3:17:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 3:17:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 3:17:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 3:23:44 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 3:23:44 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 3:23:44 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellation
+==================[6/28/2025 4:11:01 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:11:01 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:11:01 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:11:01 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:14:11 PM]==================
+System.Exception: Player does not have Money data set.
+   at long GameMechanics.PlayerMechanics.PlayerMechanics.GetMoney(Player player) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/PlayerMechanics/PlayerMechanics.cs:line 261
+=========================================================
+
+==================[6/28/2025 4:14:11 PM]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.Exception: Player does not have Money data set.
+   at long GameMechanics.PlayerMechanics.PlayerMechanics.GetMoney(Player player) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/PlayerMechanics/PlayerMechanics.cs:line 261
+   at void GameMechanics.PlayerMechanics.PlayerCommands.MoneyCommand(Player player) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/PlayerMechanics/PlayerCommands.cs:line 57
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+=========================================================
+
+==================[6/28/2025 4:14:16 PM]==================
+System.Exception: Player does not have Money data set.
+   at long GameMechanics.PlayerMechanics.PlayerMechanics.GetMoney(Player player) in C:/RA
+==================[6/28/2025 4:21:54 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:21:54 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:21:54 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:21:54 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:29:02 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:29:02 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:29:02 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellation
+==================[6/28/2025 4:44:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(DbContext _, bool result, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(DbContext _, bool result, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(DbContext _, bool result, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(DbContext _, bool result, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(DbContext _, bool result, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, bool errorsExpected)
+   at async Task<RelationalDataReader> Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at async Task<bool> Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable<T>+AsyncEnumerator.InitializeReaderAsync(DbContext _, bool result, CancellationToken cancellationToken)
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at async Task<TResult> Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync<TState, TResult>(TState state, Func<DbContext, TState, CancellationToken, Task<TResult>> operation, Func<DbContext, TState, CancellationToken, Task<ExecutionResult<TResult>>> verifySucceeded, CancellationToken cancellationToken)
+   at async ValueTask<bool> Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable<T>+AsyncEnumerator.MoveNextAsync()
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at async Task<TSource> Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<TSource>(IAsyncEnumerable<TSource> asyncEnumerable, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 4:44:11 PM]==================
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure.
+ ---> Npgsql.NpgsqlException (0x80004005): Exception while connecting
+ ---> System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. 127.0.0.1:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.RawOpen(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async Task Npgsql.NpgsqlConnector.Open(NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at async ValueTask<NpgsqlConnector> Npgsql.ConnectorPool.AllocateLong(NpgsqlConnection conn, NpgsqlTimeout timeout, bool async, CancellationToken cancellationToken)
+   at TResult System.Runtime.CompilerServices.ValueTaskAwaiter<TResult>.GetResult()
+   at void Npgsql.NpgsqlConnection+<>c__DisplayClass32_0+<<Open>g__OpenLong|0>d.MoveNext()
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+   at async Task Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnectionAsync(bool errorsExpected, CancellationToken cancellationToken)
+ 
+==================[6/28/2025 5:20:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:20:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:20:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:20:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:52:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:52:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:52:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellation
+==================[6/28/2025 5:53:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:53:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:53:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:53:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:59:45 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:59:45 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[6/28/2025 5:59:45 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellation

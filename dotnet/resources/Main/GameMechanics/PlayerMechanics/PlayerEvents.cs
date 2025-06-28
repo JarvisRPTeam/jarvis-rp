@@ -33,7 +33,6 @@ namespace GameMechanics.PlayerMechanics
 
                 // Only if player is new:
                 PlayerMechanics.InitializeStats(player);
-                PlayerMechanics.InitializeMoney(player); // 🟢 Give default money
             }
 
             // Hunger/thirst/money is already loaded and shown if result == true

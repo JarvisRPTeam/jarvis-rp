@@ -4,18 +4,25 @@ using GameDb.Domain.Entities;
 using GameDb.Domain.Models;
 using System.Threading.Tasks;
 using System;
+using System.Collections.Generic;
 
 namespace GameDb.Service
 {
     public interface IPlayerService
     {
         Task<PlayerEntity?> GetPlayerByNicknameAsync(string nickname);
+        Task<IEnumerable<PlayerEntity>> GetAllPlayersAsync();
         Task<PlayerEntity?> RegisterPlayerAsync(PlayerCreateModel playerModel);
         Task<bool> DealCashAsync(PlayerEntity player, long amount);
+        Task<bool> SetCashAsync(PlayerEntity player, long amount);
         Task<bool> DealHPAsync(PlayerEntity player, byte amount);
+        Task<bool> SetHPAsync(PlayerEntity player, byte amount);
         Task<bool> DealHungerAsync(PlayerEntity player, byte amount);
+        Task<bool> SetHungerAsync(PlayerEntity player, byte amount);
         Task<bool> DealThirstAsync(PlayerEntity player, byte amount);
+        Task<bool> SetThirstAsync(PlayerEntity player, byte amount);
         Task<bool> DealStaminaAsync(PlayerEntity player, byte amount);
+        Task<bool> SetStaminaAsync(PlayerEntity player, byte amount);
         Task<bool> AssignSocialClubAsync(PlayerEntity player, SocialClubEntity? socialClub);
         Task<bool> SetPositionAsync(PlayerEntity player, PositionModel position);
         Task<RoleEntity?> GetRoleByNameAsync(string roleName);
@@ -24,6 +31,7 @@ namespace GameDb.Service
         Task<bool> RemovePunishmentAsync(PunishmentEntity punishment);
         Task<bool> ClearAllPunishmentsAsync(PlayerEntity player);
     }
+
 
     public class PlayerService : IPlayerService
     {
@@ -58,6 +66,17 @@ namespace GameDb.Service
             {
                 Console.WriteLine($"Error retrieving player by nickname '{nickname}': {result.Message}");
                 return null;
+            }
+            return result.ReturnValue;
+        }
+
+        public async Task<IEnumerable<PlayerEntity>> GetAllPlayersAsync()
+        {
+            var result = await _playerRepository.GetAllAsync();
+            if (result.ResultType != DbResultType.Success || result.ReturnValue == null)
+            {
+                Console.WriteLine($"Error retrieving all players: {result.Message}");
+                return new List<PlayerEntity>();
             }
             return result.ReturnValue;
         }
@@ -165,47 +184,87 @@ namespace GameDb.Service
                 return false;
             }
 
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player cash updated successfully.", player);
+            return true;
         }
+        public async Task<bool> SetCashAsync(PlayerEntity player, long amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
+            }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealCashAsync(long playerId, long amount) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
+            player.Cash = amount;
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player cash.");
+                return false;
+            }
+
+            return true;
+        }
+        public async Task<bool> SetHPAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
+            }
+
+            player.HP = amount;
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player HP.");
+                return false;
+            }
+
+            return true;
+        }
+        public async Task<bool> DealHPAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
+            }
+
+            player.HP += amount;
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player HP.");
+                return false;
             }
 
             return true;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealHungerAsync(PlayerEntity player, byte amount) {
-            if (player == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
-            }
-
-            player.HP = amount;
-            var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to update player HP.");
-            }
-
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player HP updated successfully.", player);
-        }
-
-        public async Task<DbQueryResult<PlayerEntity>> SetHPAsync(long playerId, byte amount) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
-            }
-
-            var player = searchResult.ReturnValue;
-            return await SetHPAsync(player, amount);
-        }
-
-        public async Task<DbQueryResult<PlayerEntity>> DealHungerAsync(PlayerEntity player, byte amount)
+        public async Task<bool> SetHungerAsync(PlayerEntity player, byte amount)
         {
             if (player == null)
             {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+                Console.WriteLine("Player not found.");
+                return false;
+            }
+
+            player.Hunger = amount;
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player hunger.");
+                return false;
+            }
+
+            return true;
+        }
+        public async Task<bool> DealHungerAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
             }
 
             player.Hunger += amount;
@@ -218,6 +277,8 @@ namespace GameDb.Service
 
             return true;
         }
+
+
         public async Task<bool> DealThirstAsync(PlayerEntity player, byte amount)
         {
             if (player == null)
@@ -227,6 +288,24 @@ namespace GameDb.Service
             }
 
             player.Thirst += amount;
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player thirst.");
+                return false;
+            }
+
+            return true;
+        }
+        public async Task<bool> SetThirstAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
+            }
+
+            player.Thirst = amount;
             var updateResult = await _playerRepository.SaveChangesAsync();
             if (!updateResult)
             {
@@ -255,6 +334,25 @@ namespace GameDb.Service
 
             return true;
         }
+        public async Task<bool> SetStaminaAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
+            }
+
+            player.Stamina = amount;
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player stamina.");
+                return false;
+            }
+
+            return true;
+        }
+
 
         public async Task<bool> AssignSocialClubAsync(PlayerEntity player, SocialClubEntity? socialClub)
         {
@@ -449,6 +547,7 @@ namespace GameDb.Service
                 await transaction.RollbackAsync();
                 return false;
             }
-        }            
+        }
+
     }
 }
