@@ -14,7 +14,7 @@ namespace GameMechanics.PlayerMechanics
             //     Nickname = "WeirdNewbie",
             //     Password = "123",
             // }).GetAwaiter().GetResult();
-            
+
             // var result = PlayerMechanics.LoadPlayerData(player);
             // if (!result)
             // {
@@ -30,15 +30,22 @@ namespace GameMechanics.PlayerMechanics
             if (!result)
             {
                 Console.WriteLine($"Error loading player {player.Name} data");
-
-                // Only if player is new:
-                PlayerMechanics.InitializeStats(player);
             }
 
-            // Hunger/thirst/money is already loaded and shown if result == true
             PlayerMechanics.CheckSurvival(player);
         }
 
+        [ServerEvent(Event.PlayerDeath)]
+        public void OnPlayerDeath(Player player, Player killer, uint reason)
+        {
+            // Handle player death logic here
+            // For example, you might want to reset stats or notify other players
+            Console.WriteLine($"Player {player.Name} has died.");
+
+            // Optionally, you can reset stats or perform other actions
+            PlayerMechanics.ResetStats(player);
+            PlayerMechanics.UpdateClientStats(player);
+        }
 
 
         [ServerEvent(Event.PlayerDisconnected)]
@@ -53,17 +60,27 @@ namespace GameMechanics.PlayerMechanics
             Console.WriteLine($"Player {player.Name} disconnected. Reason: {reason}, Type: {type}");
         }
 
-        
+
 
         // This event fires every frame for each player, so we use it to do periodic stat reduction & checks
         [RemoteEvent("Player:UpdateStats")]
         public void OnPlayerUpdateStats(Player player)
         {
-            PlayerMechanics.ReduceStats(player);
             PlayerMechanics.CheckSurvival(player);
             PlayerMechanics.UpdateClientStats(player);
         }
 
+        [RemoteEvent("Player:DrainHunger")]
+        public void OnPlayerDrainHunger(Player player)
+        {
+            PlayerMechanics.DrainHunger(player);
+        }
+        
+        [RemoteEvent("Player:DrainThirst")]
+        public void OnPlayerDrainThirst(Player player)
+        {
+           PlayerMechanics.DrainThirst(player);
+        }
 
     }
 }

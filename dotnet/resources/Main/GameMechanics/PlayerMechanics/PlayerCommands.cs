@@ -4,27 +4,54 @@ namespace GameMechanics.PlayerMechanics
 {
     public class PlayerCommands : Script
     {
-        [Command("eat")]
-        public void EatCommand(Player player)
+        [Command("info")]
+        public void GetPlayerInfoCommand(Player player)
         {
-            PlayerMechanics.Consume(player, "food");
-            PlayerMechanics.UpdateClientStats(player); // Update UI after eating
-        }
-
-        [Command("drink")]
-        public void DrinkCommand(Player player)
-        {
-            PlayerMechanics.Consume(player, "drink");
-            PlayerMechanics.UpdateClientStats(player); // Update UI after drinking
+            PlayerMechanics.GetPlayerInfo(player);
         }
 
         [Command("status")]
         public void StatusCommand(Player player)
         {
-            int hunger = player.HasSharedData("Hunger") ? player.GetSharedData<int>("Hunger") : 100;
-            int thirst = player.HasSharedData("Thirst") ? player.GetSharedData<int>("Thirst") : 100;
-            player.SendChatMessage($"~y~Hunger: {hunger} | Thirst: {thirst}");
+            PlayerMechanics.PlayerStatus(player);
         }
+
+        [Command("revive")]
+        public void RecoverHealthCommand(Player player)
+        {
+            PlayerMechanics.RecoverFullHealth(player);
+            player.SendChatMessage("~g~Your health has been fully restored.");
+        }
+
+        [Command("tp")]
+        public void TeleportToCoordinates(Player player, float x, float y, float z)
+        {
+            if (player == null || !player.Exists)
+            {
+                player.SendChatMessage("~r~Player does not exist.");
+                return;
+            }
+
+            Vector3 targetPosition = new Vector3(x, y, z);
+            PlayerMechanics.TeleportPlayer(player, targetPosition);
+            player.SendChatMessage($"~g~Teleported to: {x}, {y}, {z}");
+        }
+
+
+
+        [Command("eat")]
+        public void EatCommand(Player player,int amount)
+        {
+            PlayerMechanics.EatFood(player,amount);
+        }
+
+        [Command("drink")]
+        public void DrinkCommand(Player player,int amount)
+        {
+            PlayerMechanics.DrinkWater(player, amount);
+        }
+
+       
 
         [Command("addmoney")]
         public void AddMoneyCommand(Player player, int amount)
@@ -37,7 +64,7 @@ namespace GameMechanics.PlayerMechanics
             PlayerMechanics.AddMoney(player, amount);
             player.SendChatMessage($"~g~Added ${amount} to your balance.");
         }
-        
+
         [Command("removemoney")]
         public void CMD_RemoveMoney(Player player, int amount)
         {
@@ -54,8 +81,9 @@ namespace GameMechanics.PlayerMechanics
         [Command("money")]
         public void MoneyCommand(Player player)
         {
-            long  money = PlayerMechanics.GetMoney(player);
+            long money = PlayerMechanics.GetMoney(player);
             player.SendChatMessage($"~y~Your balance: ${money}");
         }
+
     }
 }

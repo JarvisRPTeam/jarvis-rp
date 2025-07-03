@@ -1,0 +1,64 @@
+<!-- hud.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    #hud {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-family: Arial, sans-serif;
+    }
+
+    .bar-container {
+      width: 200px;
+      height: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 5px #000;
+    }
+
+    .bar-fill {
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    .hunger {
+      background: #ff8c00;
+    }
+
+    .thirst {
+      background: #1e90ff;
+    }
+  </style>
+</head>
+<body>
+  <div id="hud">
+    <div class="bar-container">
+      <div class="bar-fill hunger" id="hungerBar" style="width: 100%;"></div>
+    </div>
+    <div class="bar-container">
+      <div class="bar-fill thirst" id="thirstBar" style="width: 100%;"></div>
+    </div>
+  </div>
+
+  <script>
+    mp.events.add("client:updateStats", (hunger, thirst) => {
+      document.getElementById("hungerBar").style.width = `${hunger}%`;
+      document.getElementById("thirstBar").style.width = `${thirst}%`;
+    });
+  </script>
+</body>
+</html>

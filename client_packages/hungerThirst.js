@@ -1,19 +1,18 @@
-// Client-side script (client_packages or similar)
-let hunger = 100;
-let thirst = 100;
+let hudBrowser = null;
 
-function updateStatsUI(h, t) {
-    hunger = h;
-    thirst = t;
-    // Update your UI bars here
-}
-
-// Receive server stats update
-mp.events.add('Player:UpdateStats', (h, t) => {
-    updateStatsUI(h, t);
+mp.events.add('playerReady', () => {
+  if (!hudBrowser) {
+    hudBrowser = mp.browsers.new('package://ui/hud.html');
+  }
 });
 
-// Send update event every 60 seconds
-setInterval(() => {
-    mp.events.callRemote('Player:UpdateStats');
-}, 60000);
+// mp.events.add('client:updateStats', (hunger, thirst) => {
+//   if (hudBrowser) {
+//     hudBrowser.execute(`mp.events.call('client:updateStats', ${hunger}, ${thirst});`);
+//   }
+// });
+
+let myTimer = setInterval(() => {
+    mp.events.callRemote('Player:DrainThirst'); 
+    mp.events.callRemote('Player:DrainHunger');
+}, 300000);

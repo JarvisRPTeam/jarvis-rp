@@ -18,22 +18,9 @@ namespace GameMechanics.PlayerMechanics
         private const int ModerateDamage = 2;
         private const int WarningThreshold = 20;
         private const int CriticalThreshold = 10;
-        private const int ConsumeCooldownSeconds = 5;
-
-        private static Dictionary<Player, DateTime> LastConsumeTime = new Dictionary<Player, DateTime>();
 
 
-        public static void TeleportPlayer(Player player, Vector3 position)
-        {
-            if (player == null || !player.Exists)
-            {
-                Console.WriteLine("Player does not exist.");
-                return;
-            }
 
-            player.Position = position;
-            Console.WriteLine($"Player {player.Name} position set to {position}.");
-        }
         public static bool SavePlayerData(Player player)
         {
             var playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
@@ -90,7 +77,7 @@ namespace GameMechanics.PlayerMechanics
             }
             return true;
         }
-        
+
         public static bool LoadPlayerData(Player player)
         {
             var playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
@@ -100,7 +87,7 @@ namespace GameMechanics.PlayerMechanics
                 Console.WriteLine($"FATAL: Player not found in database.");
                 return false;
             }
-            
+
             Vector3 position = new Vector3(playerEntity.Position.X, playerEntity.Position.Y, playerEntity.Position.Z);
 
             TeleportPlayer(player, position);
@@ -110,24 +97,16 @@ namespace GameMechanics.PlayerMechanics
             long money = playerEntity.Cash;
             player.SetSharedData("Money", money);
             UpdateClientMoney(player);
-            
 
-            int hunger = GetHunger(player);
-            int thirst = GetThirst(player);
-            
+            int hunger = playerEntity.Hunger;
+            int thirst = playerEntity.Thirst;
             player.SetSharedData("Hunger", hunger);
             player.SetSharedData("Thirst", thirst);
             player.TriggerEvent("Player:UpdateStats", hunger, thirst);
 
             return true;
         }
-        public static void InitializeStats(Player player)
-        {
-            player.SetSharedData("Hunger", MaxStat);
-            player.SetSharedData("Thirst", MaxStat);
-            player.TriggerEvent("Player:UpdateStats", MaxStat, MaxStat);
-        }
-
+        
         public static void AdjustStats(Player player, string type, int value)
         {
             int hunger = GetHunger(player);
@@ -143,40 +122,28 @@ namespace GameMechanics.PlayerMechanics
             player.TriggerEvent("Player:UpdateStats", hunger, thirst);
         }
 
-        public static void Consume(Player player, string type)
+        public static void ResetStats(Player player)
         {
-            if (LastConsumeTime.TryGetValue(player, out var lastTime) && DateTime.Now < lastTime.AddSeconds(ConsumeCooldownSeconds))
+            if (player == null || !player.Exists)
             {
-                player.SendChatMessage("~r~You must wait before consuming again.");
+                Console.WriteLine("Player does not exist.");
                 return;
             }
 
-            if (type == "food")
-                AdjustStats(player, type, HungerIncreaseFood);
-            else if (type == "drink")
-                AdjustStats(player, type, ThirstIncreaseDrink);
-            else
-            {
-                player.SendChatMessage("~r~Unknown item.");
-                return;
-            }
-
-            LastConsumeTime[player] = DateTime.Now;
-            player.SendChatMessage($"~g~You consumed {type}!");
+            SetHunger(player, 50);
+            SetThirst(player, 50);
+            player.Health = 100; // Reset health to full
+            UpdateClientStats(player);
         }
 
-        public static void ReduceStats(Player player, int hungerLoss = 1, int thirstLoss = 1)
+        public static void UpdateClientStats(Player player)
         {
-            int hunger = GetHunger(player);
-            int thirst = GetThirst(player);
-
-            hunger = Math.Max(0, hunger - hungerLoss);
-            thirst = Math.Max(0, thirst - thirstLoss);
-
-            player.SetSharedData("Hunger", hunger);
-            player.SetSharedData("Thirst", thirst);
-            player.TriggerEvent("Player:UpdateStats", hunger, thirst);
+            if (!player.Exists) return;
+            player.TriggerEvent("client:updateStats", GetHunger(player), GetThirst(player)); 
         }
+
+
+
 
         public static void CheckSurvival(Player player)
         {
@@ -199,11 +166,47 @@ namespace GameMechanics.PlayerMechanics
             }
         }
 
-        public static void UpdateClientStats(Player player)
+        public static void PlayerStatus(Player player)
         {
-            if (!player.Exists) return;
-            player.TriggerEvent("client:updateStats", GetHunger(player), GetThirst(player)); // You must handle this event on the client-side
+            player.SendChatMessage($"~o~Hunger: {GetHunger(player)}");
+            player.SendChatMessage($"~b~Thirst: {GetThirst(player)}");
+            player.SendChatMessage($"~r~Health: {player.Health}");
         }
+
+        public static void RecoverFullHealth(Player player)
+        {
+            if (player == null || !player.Exists)
+            {
+                Console.WriteLine("Player does not exist.");
+                return;
+            }
+
+            player.Health = 100;
+            player.SendChatMessage("~g~You have fully recovered your health.");
+        }
+
+        public static void TeleportPlayer(Player player, Vector3 position)
+        {
+            if (player == null || !player.Exists)
+            {
+                Console.WriteLine("Player does not exist.");
+                return;
+            }
+
+            player.Position = position;
+            Console.WriteLine($"Player {player.Name} position set to {position}.");
+        }
+
+        public static void GetPlayerInfo(Player player)
+        {
+            player.SendChatMessage("~y~Player Info:");
+            player.SendChatMessage($"~w~Name: {player.Name}");
+            player.SendChatMessage($"~g~Money: ${GetMoney(player)}");
+            player.SendChatMessage($"~o~Hunger: {GetHunger(player)}");
+            player.SendChatMessage($"~b~Thirst: {GetThirst(player)}");
+            player.SendChatMessage($"~r~Health: {player.Health}");
+        }
+
 
 
         public static void AddMoney(Player player, long amount)
@@ -212,10 +215,11 @@ namespace GameMechanics.PlayerMechanics
             long newMoney = currentMoney + amount;
             SetMoney(player, newMoney);
         }
+
         public static void RemoveMoney(Player player, long amount)
         {
             long currentMoney = GetMoney(player);
-            long newMoney = Math.Max(0, currentMoney - amount); // prevent negative
+            long newMoney = Math.Max(0, currentMoney - amount);
             SetMoney(player, newMoney);
         }
 
@@ -248,22 +252,96 @@ namespace GameMechanics.PlayerMechanics
             player.TriggerEvent("UpdateMoneyUI", money); // Klientā jāsaņem long/int atkarībā no implementācijas
         }
 
+
+
         public static int GetHunger(Player player)
         {
-            if (player.HasSharedData("Hunger"))
+            PlayerEntity playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
+            int hunger = playerEntity.Hunger;
+            return hunger;
+        }
+
+        public static void SetHunger(Player player, byte amount)
+        {
+            PlayerEntity playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
+            bool setHungerResult = GameDbContainer.PlayerService.SetHungerAsync(playerEntity, amount).GetAwaiter().GetResult();
+
+            if (!setHungerResult)
             {
-                return player.GetSharedData<int>("Hunger");
+                Console.WriteLine($"Error setting money for player {player.Name}");
+                return;
             }
-            return MaxStat; // Default value if not set
+            UpdateClientStats(player);
+        }
+
+        public static void DrainHunger(Player player)
+        {
+            if (player == null || !player.Exists)
+            {
+                Console.WriteLine("Player does not exist.");
+                return;
+            }
+
+            int hunger = GetHunger(player);
+            hunger = Math.Max(0, hunger - 1);
+            SetHunger(player, (byte)hunger);
+            UpdateClientStats(player);
+        }
+
+        public static void EatFood(Player player, int foodValue)
+        {
+            int hunger = GetHunger(player);
+            hunger = Math.Min(MaxStat, hunger + foodValue);
+            SetHunger(player, (byte)hunger);
+            UpdateClientStats(player);
+            player.SendChatMessage($"~o~{player.Name} ate food and restored {foodValue} hunger points. Current hunger: {hunger}.");
+        }
+
+
+
+
+        public static void SetThirst(Player player, byte amount)
+        {
+            PlayerEntity playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
+            bool setThirstResult = GameDbContainer.PlayerService.SetThirstAsync(playerEntity, amount).GetAwaiter().GetResult();
+
+            if (!setThirstResult)
+            {
+                Console.WriteLine($"Error setting Thirst data for player {player.Name}");
+                return;
+            }
+
+            UpdateClientStats(player);
         }
 
         public static int GetThirst(Player player)
         {
-            if (player.HasSharedData("Thirst"))
+            PlayerEntity playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
+            int thirst = playerEntity.Thirst;
+            return thirst;
+        }
+
+        public static void DrainThirst(Player player)
+        {
+            if (player == null || !player.Exists)
             {
-                return player.GetSharedData<int>("Thirst");
+                Console.WriteLine("Player does not exist.");
+                return;
             }
-            return MaxStat; // Default value if not set
+
+            int thirst = GetThirst(player);
+            thirst = Math.Max(0, thirst - 1);
+            SetThirst(player, (byte)thirst);
+            UpdateClientStats(player);
+        }
+
+        public static void DrinkWater(Player player, int drinkValue)
+        {
+            int thirst = GetThirst(player);
+            thirst = Math.Min(MaxStat, thirst + drinkValue);
+            SetThirst(player, (byte)thirst);
+            UpdateClientStats(player);
+            player.SendChatMessage($"~b~{player.Name} drank water and restored {drinkValue} thirst points. Current thirst: {thirst}.");
         }
     }
 }
