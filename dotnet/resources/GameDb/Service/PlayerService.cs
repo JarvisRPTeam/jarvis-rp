@@ -3,307 +3,439 @@ using GameDb.Repository;
 using GameDb.Domain.Entities;
 using GameDb.Domain.Models;
 using System.Threading.Tasks;
+using System;
 
 namespace GameDb.Service
 {
-    public interface IPlayerService {
-        Task<DbQueryResult<PlayerEntity>> GetPlayerByNicknameAsync(string nickname);
-        Task<DbQueryResult<PlayerEntity>> RegisterPlayerAsync(PlayerCreateModel playerModel);
-        Task<DbQueryResult<PlayerEntity>> DealCashAsync(PlayerEntity player, long amount);
-        Task<DbQueryResult<PlayerEntity>> DealCashAsync(long playerId, long amount);
-        Task<DbQueryResult<PlayerEntity>> DealHPAsync(PlayerEntity player, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealHPAsync(long playerId, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealHungerAsync(PlayerEntity player, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealHungerAsync(long playerId, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealThirstAsync(PlayerEntity player, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealThirstAsync(long playerId, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealStaminaAsync(PlayerEntity player, byte amount);
-        Task<DbQueryResult<PlayerEntity>> DealStaminaAsync(long playerId, byte amount);
-        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(PlayerEntity player, SocialClubEntity? socialClub);
-        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(long playerId, long socialClubId);
-        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(long playerId, SocialClubEntity? socialClub);
-        Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(PlayerEntity player, long socialClubId);
-        Task<DbQueryResult<PlayerEntity>> SetPositionAsync(PlayerEntity player, float x, float y, float z);
-        Task<DbQueryResult<PlayerEntity>> SetPositionAsync(long playerId, float x, float y, float z);
-        Task<DbQueryResult<PlayerEntity>> SetPositionAsync(long playerId, PositionModel position);
-        Task<DbQueryResult<PositionModel>> GetPositionAsync(PlayerEntity player);
-        Task<DbQueryResult<PositionModel>> GetPositionAsync(long playerId);
+    public interface IPlayerService
+    {
+        Task<PlayerEntity?> GetPlayerByNicknameAsync(string nickname);
+        Task<PlayerEntity?> RegisterPlayerAsync(PlayerCreateModel playerModel);
+        Task<bool> DealCashAsync(PlayerEntity player, long amount);
+        Task<bool> DealHPAsync(PlayerEntity player, byte amount);
+        Task<bool> DealHungerAsync(PlayerEntity player, byte amount);
+        Task<bool> DealThirstAsync(PlayerEntity player, byte amount);
+        Task<bool> DealStaminaAsync(PlayerEntity player, byte amount);
+        Task<bool> AssignSocialClubAsync(PlayerEntity player, SocialClubEntity? socialClub);
+        Task<bool> SetPositionAsync(PlayerEntity player, PositionModel position);
+        Task<RoleEntity?> GetRoleByNameAsync(string roleName);
+        Task<bool> GrantRoleToPlayerAsync(PlayerEntity player, RoleEntity role);
+        Task<PunishmentEntity?> CreatePunishmentAsync(PunishmentCreateModel punishmentModel);
+        Task<bool> RemovePunishmentAsync(PunishmentEntity punishment);
+        Task<bool> ClearAllPunishmentsAsync(PlayerEntity player);
     }
-    
-    public class PlayerService: IPlayerService {
+
+    public class PlayerService : IPlayerService
+    {
         private readonly IPlayerRepository _playerRepository;
         private readonly ISocialClubRepository _socialClubRepository;
-        
+        private readonly IInventoryRepository _inventoryRepository;
+        private readonly IRoleRepository _roleRepository;
+        private readonly IPunishmentRepository _punishmentRepository;
+        private readonly GameDbContext _context;
+
         public PlayerService(
-            IPlayerRepository playerRepository, 
-            ISocialClubRepository socialClubRepository) {
+            IPlayerRepository playerRepository,
+            ISocialClubRepository socialClubRepository,
+            IInventoryRepository inventoryRepository,
+            IRoleRepository roleRepository,
+            IPunishmentRepository punishmentRepository,
+            GameDbContext context
+        )
+        {
             _socialClubRepository = socialClubRepository;
             _playerRepository = playerRepository;
-        }
-        
-        public async Task<DbQueryResult<PlayerEntity>> GetPlayerByNicknameAsync(string nickname) {
-            var result = await _playerRepository.GetByNicknameAsync(nickname);
-            if (result.ResultType != DbResultType.Success || result.ReturnValue == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Warning, "Player not found.");
-            }
-            return result;
+            _inventoryRepository = inventoryRepository;
+            _roleRepository = roleRepository;
+            _punishmentRepository = punishmentRepository;
+            _context = context;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> RegisterPlayerAsync(PlayerCreateModel playerModel)
+        public async Task<PlayerEntity?> GetPlayerByNicknameAsync(string nickname)
         {
-            var playerEntity = new PlayerEntity
+            var result = await _playerRepository.GetByNicknameAsync(nickname);
+            if (result.ResultType != DbResultType.Success || result.ReturnValue == null)
             {
-                // Id is not set, assuming auto-increment by DB
-                Nickname = playerModel.Nickname,
-                Password = playerModel.Password,
-                Cash = 2000,
-                HP = 100,
-                Hunger = 100,
-                Thirst = 100,
-                Stamina = 100,
-                SocialClubId = null,
-                PositionX = 0,
-                PositionY = 0,
-                PositionZ = 0
-            };
-
-            var addResult = await _playerRepository.AddAsync(playerEntity);
-            if (addResult.ResultType != DbResultType.Success)
-            {
-                return addResult;
+                Console.WriteLine($"Error retrieving player by nickname '{nickname}': {result.Message}");
+                return null;
             }
-
-            var saved = await _playerRepository.SaveChangesAsync();
-            if (!saved)
-            {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to save player to database.");
-            }
-
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player created successfully.", playerEntity);
+            return result.ReturnValue;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealCashAsync(PlayerEntity player, long amount) {
-            if (player == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+        public async Task<PlayerEntity?> RegisterPlayerAsync(PlayerCreateModel playerModel)
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                RoleEntity? role = await GetRoleByNameAsync("Player");
+                if (role == null)
+                {
+                    Console.WriteLine("Role 'Player' not found.");
+                    await transaction.RollbackAsync();
+                    return null;
+                }
+                var playerEntity = new PlayerEntity
+                {
+                    Nickname = playerModel.Nickname,
+                    Password = playerModel.Password,
+                    Cash = 2000,
+                    HP = 100,
+                    Hunger = 100,
+                    Thirst = 100,
+                    Stamina = 100,
+                    Breath = 100,
+                    Strength = 0,
+                    Endurance = 0,
+                    Stealth = 0,
+                    DrivingSkill = 0,
+                    ShootingSkill = 0,
+                    FishingSkill = 0,
+                    HuntingSkill = 0,
+                    FlyingSkill = 0,
+                    BreathHoldingSkill = 0,
+                    SocialClubId = null,
+                    Position = new PositionModel
+                    {
+                        X = 0,
+                        Y = 0,
+                        Z = 0,
+                        Heading = 0
+                    },
+                    RoleId = role.Id,
+                    PlayedToday = TimeSpan.Zero,
+                    PlayedTotal = TimeSpan.Zero,
+                    BankBalance = null,
+                    BankCardNumber = null,
+                    BankCardPIN = null,
+                    SpawnPlaceId = null,
+                    JarvisBalance = 0,
+                };
+
+                var addResult = await _playerRepository.AddAsync(playerEntity);
+                if (addResult.ResultType != DbResultType.Success)
+                {
+                    Console.WriteLine($"Error adding player: {addResult.Message}");
+                    await transaction.RollbackAsync();
+                    return null;
+                }
+
+                var inventory = await GameDbContainer.InventoryService.CreateInventoryAsync(playerEntity);
+
+                if (inventory == null)
+                {
+                    Console.WriteLine("Failed to create inventory for player.");
+                    await transaction.RollbackAsync();
+                    return null;
+                }
+
+                playerEntity.Inventory = inventory;
+
+                var saved = await _playerRepository.SaveChangesAsync();
+                if (!saved)
+                {
+                    Console.WriteLine("Failed to save player to database.");
+                    await transaction.RollbackAsync();
+                    return null;
+                }
+
+                await transaction.CommitAsync();
+                return playerEntity;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception during player registration: {ex.Message}");
+                await transaction.RollbackAsync();
+                return null;
+            }
+        }
+
+        public async Task<bool> DealCashAsync(PlayerEntity player, long amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
             }
 
             player.Cash += amount;
             var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to update player cash.");
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player cash.");
+                return false;
             }
 
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player cash updated successfully.", player);
+            return true;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealCashAsync(long playerId, long amount) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
-            }
-
-            var player = searchResult.ReturnValue;
-            return await DealCashAsync(player, amount);
-        }
-
-        public async Task<DbQueryResult<PlayerEntity>> DealHPAsync(PlayerEntity player, byte amount) {
-            if (player == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+        public async Task<bool> DealHPAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
             }
 
             player.HP += amount;
             var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to update player HP.");
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player HP.");
+                return false;
             }
 
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player HP updated successfully.", player);
+            return true;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealHPAsync(long playerId, byte amount) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
-            }
-
-            var player = searchResult.ReturnValue;
-            return await DealHPAsync(player, amount);
-        }
-
-        public async Task<DbQueryResult<PlayerEntity>> DealHungerAsync(PlayerEntity player, byte amount) {
-            if (player == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+        public async Task<bool> DealHungerAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
             }
 
             player.Hunger += amount;
             var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to update player hunger.");
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player hunger.");
+                return false;
             }
 
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player hunger updated successfully.", player);
+            return true;
         }
-
-        public async Task<DbQueryResult<PlayerEntity>> DealHungerAsync(long playerId, byte amount) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
-            }
-
-            var player = searchResult.ReturnValue;
-            return await DealHungerAsync(player, amount);
-        }
-
-        public async Task<DbQueryResult<PlayerEntity>> DealThirstAsync(PlayerEntity player, byte amount) {
-            if (player == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+        public async Task<bool> DealThirstAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
             }
 
             player.Thirst += amount;
             var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to update player thirst.");
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player thirst.");
+                return false;
             }
 
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player thirst updated successfully.", player);
+            return true;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealThirstAsync(long playerId, byte amount) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
-            }
-
-            var player = searchResult.ReturnValue;
-            return await DealThirstAsync(player, amount);
-        }
-
-        public async Task<DbQueryResult<PlayerEntity>> DealStaminaAsync(PlayerEntity player, byte amount) {
-            if (player == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+        public async Task<bool> DealStaminaAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
             }
 
             player.Stamina += amount;
             var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to update player stamina.");
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player stamina.");
+                return false;
             }
 
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player stamina updated successfully.", player);
+            return true;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> DealStaminaAsync(long playerId, byte amount) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
-            }
-
-            var player = searchResult.ReturnValue;
-            return await DealStaminaAsync(player, amount);
-        }
-        
-        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(PlayerEntity player, SocialClubEntity? socialClub) {
-            if (player == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
+        public async Task<bool> AssignSocialClubAsync(PlayerEntity player, SocialClubEntity? socialClub)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
             }
 
             player.SocialClub = socialClub;
+            player.SocialClubId = socialClub?.Id;
             var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to assign social club to player.");
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to assign social club to player.");
+                return false;
             }
 
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Social club assigned successfully.", player);
+            return true;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(long playerId, long socialClubId) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
+        public async Task<bool> SetPositionAsync(PlayerEntity player, PositionModel position)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
             }
 
-            var player = searchResult.ReturnValue;
-            var socialClubResult = await _socialClubRepository.GetByIdAsync(socialClubId);
-            if (socialClubResult.ResultType != DbResultType.Success || socialClubResult.ReturnValue == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Social club not found.");
+            if (position == null)
+            {
+                Console.WriteLine("Position cannot be null.");
+                return false;
             }
 
-            var socialClub = socialClubResult.ReturnValue;
-            return await AssignSocialClubAsync(player, socialClub);
-        }
+            player.Position = position;
 
-        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(long playerId, SocialClubEntity? socialClub) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
-            }
-
-            var player = searchResult.ReturnValue;
-            return await AssignSocialClubAsync(player, socialClub);
-        }
-
-        public async Task<DbQueryResult<PlayerEntity>> AssignSocialClubAsync(PlayerEntity player, long socialClubId) {
-            var socialClubResult = await _socialClubRepository.GetByIdAsync(socialClubId);
-            if (socialClubResult.ResultType != DbResultType.Success || socialClubResult.ReturnValue == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Social club not found.");
-            }
-
-            var socialClub = socialClubResult.ReturnValue;
-            return await AssignSocialClubAsync(player, socialClub);
-        }
-
-        public async Task<DbQueryResult<PlayerEntity>> SetPositionAsync(PlayerEntity player, float x, float y, float z) {
-            if (player == null) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Player not found.");
-            }
-
-            player.PositionX = x;
-            player.PositionY = y;
-            player.PositionZ = z;
             var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult) {
-                return new DbQueryResult<PlayerEntity>(DbResultType.Error, "Failed to update player position.");
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player position.");
+                return false;
             }
 
-            return new DbQueryResult<PlayerEntity>(DbResultType.Success, "Player position updated successfully.", player);
+            return true;
         }
 
-        public async Task<DbQueryResult<PlayerEntity>> SetPositionAsync(long playerId, float x, float y, float z) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return searchResult;
+        public async Task<RoleEntity?> GetRoleByNameAsync(string roleName)
+        {
+            var result = await _roleRepository.GetByNameAsync(roleName);
+            if (result.ResultType != DbResultType.Success || result.ReturnValue == null)
+            {
+                Console.WriteLine($"Error retrieving role by name '{roleName}': {result.Message}");
+                return null;
+            }
+            return result.ReturnValue;
+        }
+
+        public async Task<bool> GrantRoleToPlayerAsync(PlayerEntity player, RoleEntity role)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player cannot be null.");
+                return false;
             }
 
-            var player = searchResult.ReturnValue;
-            return await SetPositionAsync(player, x, y, z);
-        }
-
-        public async Task<DbQueryResult<PlayerEntity>> SetPositionAsync(long playerId, PositionModel position) {
-            return await SetPositionAsync(playerId, position.X, position.Y, position.Z);
-        }
-
-        public Task<DbQueryResult<PositionModel>> GetPositionAsync(PlayerEntity player) {
-            if (player == null) {
-                return Task.FromResult(new DbQueryResult<PositionModel>(DbResultType.Error, "Player not found."));
+            if (role == null)
+            {
+                Console.WriteLine("Role cannot be null.");
+                return false;
             }
 
-            var positionModel = new PositionModel {
-                X = player.PositionX,
-                Y = player.PositionY,
-                Z = player.PositionZ
+            player.RoleId = role.Id;
+
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to grant role to player.");
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task<PunishmentEntity?> CreatePunishmentAsync(PunishmentCreateModel punishmentModel)
+        {
+            if (punishmentModel == null)
+            {
+                Console.WriteLine("Punishment model cannot be null.");
+                return null;
+            }
+
+            if (punishmentModel.PlayerId <= 0)
+            {
+                Console.WriteLine("Invalid player ID.");
+                return null;
+            }
+
+            var timeOut = DateTime.UtcNow.AddSeconds(punishmentModel.Duration.TotalSeconds);
+            var punishmentEntity = new PunishmentEntity
+            {
+                PlayerId = punishmentModel.PlayerId,
+                Type = punishmentModel.Type,
+                Reason = punishmentModel.Reason,
+                Timeout = timeOut,
+                AdminId = punishmentModel.AdminId
             };
 
-            return Task.FromResult(new DbQueryResult<PositionModel>(DbResultType.Success, "Player position retrieved successfully.", positionModel));
+            var addResult = await _punishmentRepository.AddAsync(punishmentEntity);
+            if (addResult.ResultType != DbResultType.Success)
+            {
+                Console.WriteLine($"Error creating punishment: {addResult.Message}");
+                return null;
+            }
+            var saved = await _punishmentRepository.SaveChangesAsync();
+            if (!saved)
+            {
+                Console.WriteLine("Failed to save punishment to database.");
+                return null;
+            }
+            return punishmentEntity;
         }
 
-        public async Task<DbQueryResult<PositionModel>> GetPositionAsync(long playerId) {
-            var searchResult = await _playerRepository.GetByIdAsync(playerId);
-            if (searchResult.ResultType != DbResultType.Success || searchResult.ReturnValue == null) {
-                return new DbQueryResult<PositionModel>(DbResultType.Error, "Player not found.");
+        public async Task<bool> RemovePunishmentAsync(PunishmentEntity punishment)
+        {
+            if (punishment == null)
+            {
+                Console.WriteLine("Punishment cannot be null.");
+                return false;
             }
 
-            var player = searchResult.ReturnValue;
-            return await GetPositionAsync(player);
+            var deleteResult = await _punishmentRepository.DeleteByIdAsync(punishment.Id);
+            if (deleteResult.ResultType != DbResultType.Success)
+            {
+                Console.WriteLine($"Error removing punishment: {deleteResult.Message}");
+                return false;
+            }
+
+            var saved = await _punishmentRepository.SaveChangesAsync();
+            if (!saved)
+            {
+                Console.WriteLine("Failed to save changes after removing punishment.");
+                return false;
+            }
+
+            return true;
         }
+
+        public async Task<bool> ClearAllPunishmentsAsync(PlayerEntity player)
+        {
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                if (player == null)
+                {
+                    Console.WriteLine("Player cannot be null.");
+                    return false;
+                }
+
+                var punishments = player.Punishments;
+                if (punishments == null || punishments.Count == 0)
+                {
+                    Console.WriteLine("No punishments to clear for player.");
+                    await transaction.CommitAsync();
+                    return true;
+                }
+
+                foreach (var punishment in punishments)
+                {
+                    var deleteResult = await _punishmentRepository.DeleteByIdAsync(punishment.Id);
+                    if (deleteResult.ResultType != DbResultType.Success)
+                    {
+                        Console.WriteLine($"Error removing punishment with ID {punishment.Id}: {deleteResult.Message}");
+                        await transaction.RollbackAsync();
+                        return false;
+                    }
+                }
+
+                var saved = await _punishmentRepository.SaveChangesAsync();
+                if (!saved)
+                {
+                    Console.WriteLine("Failed to save changes after clearing punishments.");
+                    await transaction.RollbackAsync();
+                    return false;
+                }
+                await transaction.CommitAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception during clearing punishments: {ex.Message}");
+                await transaction.RollbackAsync();
+                return false;
+            }
+        }            
     }
 }

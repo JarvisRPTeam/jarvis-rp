@@ -5,15 +5,17 @@ using GameDb.Domain.Models;
 using GameDb.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace GameDb.Repository.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    partial class GameDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250619161310_AdvancedMechanics")]
+    partial class AdvancedMechanics
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,7 +54,7 @@ namespace GameDb.Repository.Migrations
                     b.Property<long?>("OwnerId")
                         .HasColumnType("bigint");
 
-                    b.Property<PositionModel[]>("VehicleSpawnPoints")
+                    b.Property<float[,]>("VehicleSpawnPoints")
                         .HasColumnType("jsonb");
 
                     b.HasKey("Id");
@@ -158,13 +160,13 @@ namespace GameDb.Repository.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<long?>("BankBalance")
+                    b.Property<long>("BankBalance")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("BankCardNumber")
+                    b.Property<long>("BankCardNumber")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("BankCardPIN")
+                    b.Property<long>("BankCardPIN")
                         .HasColumnType("bigint");
 
                     b.Property<byte>("Breath")
@@ -191,6 +193,9 @@ namespace GameDb.Repository.Migrations
                     b.Property<byte>("HP")
                         .HasColumnType("smallint");
 
+                    b.Property<float>("Heading")
+                        .HasColumnType("real");
+
                     b.Property<byte>("Hunger")
                         .HasColumnType("smallint");
 
@@ -212,8 +217,14 @@ namespace GameDb.Repository.Migrations
                     b.Property<TimeSpan>("PlayedTotal")
                         .HasColumnType("interval");
 
-                    b.Property<PositionModel>("Position")
-                        .HasColumnType("jsonb");
+                    b.Property<float>("PositionX")
+                        .HasColumnType("real");
+
+                    b.Property<float>("PositionY")
+                        .HasColumnType("real");
+
+                    b.Property<float>("PositionZ")
+                        .HasColumnType("real");
 
                     b.Property<long>("RoleId")
                         .HasColumnType("bigint");
@@ -260,9 +271,6 @@ namespace GameDb.Repository.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<long>("AdminId")
-                        .HasColumnType("bigint");
-
                     b.Property<long>("PlayerId")
                         .HasColumnType("bigint");
 
@@ -276,8 +284,6 @@ namespace GameDb.Repository.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AdminId");
 
                     b.HasIndex("PlayerId");
 
@@ -300,8 +306,17 @@ namespace GameDb.Repository.Migrations
                     b.Property<long?>("OwnerId")
                         .HasColumnType("bigint");
 
-                    b.Property<PositionModel>("SpawnPoint")
-                        .HasColumnType("jsonb");
+                    b.Property<float>("SpawnPointHeading")
+                        .HasColumnType("real");
+
+                    b.Property<float>("SpawnPointX")
+                        .HasColumnType("real");
+
+                    b.Property<float>("SpawnPointY")
+                        .HasColumnType("real");
+
+                    b.Property<float>("SpawnPointZ")
+                        .HasColumnType("real");
 
                     b.Property<int>("Type")
                         .HasColumnType("integer");
@@ -380,6 +395,9 @@ namespace GameDb.Repository.Migrations
                     b.Property<float>("FuelConsumption")
                         .HasColumnType("real");
 
+                    b.Property<float>("Heading")
+                        .HasColumnType("real");
+
                     b.Property<float>("Mileage")
                         .HasColumnType("real");
 
@@ -392,8 +410,14 @@ namespace GameDb.Repository.Migrations
                     b.Property<long?>("OwnerId")
                         .HasColumnType("bigint");
 
-                    b.Property<PositionModel>("Position")
-                        .HasColumnType("jsonb");
+                    b.Property<float>("PositionX")
+                        .HasColumnType("real");
+
+                    b.Property<float>("PositionY")
+                        .HasColumnType("real");
+
+                    b.Property<float>("PositionZ")
+                        .HasColumnType("real");
 
                     b.Property<float>("TankCapacity")
                         .HasColumnType("real");
@@ -459,12 +483,6 @@ namespace GameDb.Repository.Migrations
 
             modelBuilder.Entity("GameDb.Domain.Entities.PunishmentEntity", b =>
                 {
-                    b.HasOne("GameDb.Domain.Entities.PlayerEntity", "Admin")
-                        .WithMany()
-                        .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("GameDb.Domain.Entities.PlayerEntity", "Player")
                         .WithMany("Punishments")
                         .HasForeignKey("PlayerId")
