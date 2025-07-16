@@ -5,15 +5,17 @@ using GameDb.Domain.Models;
 using GameDb.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace GameDb.Repository.Migrations
 {
     [DbContext(typeof(GameDbContext))]
-    partial class GameDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250628123436_InventoryFix2")]
+    partial class InventoryFix2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -271,13 +273,6 @@ namespace GameDb.Repository.Migrations
                     b.Property<long>("AdminId")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("CancelledById")
-                        .IsRequired()
-                        .HasColumnType("bigint");
-
-                    b.Property<bool>("IsCancelled")
-                        .HasColumnType("boolean");
-
                     b.Property<long>("PlayerId")
                         .HasColumnType("bigint");
 
@@ -293,8 +288,6 @@ namespace GameDb.Repository.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AdminId");
-
-                    b.HasIndex("CancelledById");
 
                     b.HasIndex("PlayerId");
 
@@ -391,9 +384,6 @@ namespace GameDb.Repository.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<VehicleColorModel>("Color")
-                        .HasColumnType("jsonb");
-
                     b.Property<float?>("CurrentFuel")
                         .HasColumnType("real");
 
@@ -479,12 +469,6 @@ namespace GameDb.Repository.Migrations
                     b.HasOne("GameDb.Domain.Entities.PlayerEntity", "Admin")
                         .WithMany()
                         .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GameDb.Domain.Entities.PlayerEntity", "CancelledBy")
-                        .WithMany()
-                        .HasForeignKey("CancelledById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
