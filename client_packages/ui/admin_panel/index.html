@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            background: rgba(30, 30, 30, 0.95);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .panel {
+            width: 800px;
+            margin: 80px auto;
+            padding: 30px 20px;
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000a;
+            text-align: center;
+        }
+        .panel h1 {
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        .panel button {
+            width: 500px;
+            margin: 5px;
+            padding: 15px 0;
+            font-size: 1em;
+            border: none;
+            border-radius: 6px;
+            background: #444;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .panel button:hover {
+            background: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h1>Admin Panel</h1>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+            <li><button id="vehiclesBtn">Vehicles</button></li>
+            <li><button id="itemsBtn">Items</button></li>
+            <li><button id="playersBtn">Players</button></li>
+        </ul>
+    </div>
+    <script>
+        document.getElementById('vehiclesBtn').onclick = function() {
+            // TODO: Add vehicles tab
+        };
+        document.getElementById('itemsBtn').onclick = function() {
+            // TODO: Add items tab
+        };
+        document.getElementById('playersBtn').onclick = function() {
+            mp.trigger('adminPanel:showPlayers');
+        };
+    </script>
+</body>
+</html>
