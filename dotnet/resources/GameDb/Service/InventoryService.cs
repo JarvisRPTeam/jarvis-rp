@@ -10,7 +10,6 @@ namespace GameDb.Service {
     public interface IInventoryService
     {
         Task<InventoryEntity> CreateInventoryAsync(
-            PlayerEntity player,
             int rowCount = InventoryService.DefaultRowCount,
             int columnCount = InventoryService.DefaultColumnCount,
             byte maxWeight = InventoryService.DefaultMaxWeight
@@ -68,25 +67,11 @@ namespace GameDb.Service {
 
         // Inventory
         public async Task<InventoryEntity> CreateInventoryAsync(
-            PlayerEntity player,
             int rowCount = DefaultRowCount,
             int columnCount = DefaultColumnCount,
             byte maxWeight = DefaultMaxWeight
         )
         {
-            if (player == null)
-            {
-                Console.WriteLine("Player is null.");
-                return null;
-            }
-
-            var existingInventory = player.Inventory;
-            if (existingInventory != null)
-            {
-                Console.WriteLine("Inventory already exists for this player.");
-                return existingInventory;
-            }
-
             List<List<InventoryCellModel>> cells = new List<List<InventoryCellModel>>();
             for (int i = 0; i < rowCount; i++)
             {
@@ -100,7 +85,6 @@ namespace GameDb.Service {
 
             var inventory = new InventoryEntity
             {
-                PlayerId = player.Id,
                 Cells = cells,
                 MaxWeight = maxWeight,
                 TotalWeight = 0

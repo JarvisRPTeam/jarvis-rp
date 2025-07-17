@@ -12,6 +12,7 @@ namespace GameDb.Domain.Entities
         public float FuelConsumption { get; set; } // l/km
         public float Mileage { get; set; } 
         public PositionModel Position { get; set; } // JSONB
+        public VehicleColorModel Color { get; set; } // JSONB
 
         // Navigation properties
         public virtual PlayerEntity Owner { get; set; }
