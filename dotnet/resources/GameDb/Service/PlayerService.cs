@@ -34,7 +34,6 @@ namespace GameDb.Service
         Task<bool> SetAllPlayersOfflineAsync();
     }
 
-
     public class PlayerService : IPlayerService
     {
         private readonly IPlayerRepository _playerRepository;
@@ -283,8 +282,6 @@ namespace GameDb.Service
 
             return true;
         }
-
-
         public async Task<bool> DealThirstAsync(PlayerEntity player, byte amount)
         {
             if (player == null)
@@ -304,6 +301,25 @@ namespace GameDb.Service
             return true;
         }
 
+        public async Task<bool> SetThirstAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
+            }
+
+            player.Thirst = amount;
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player thirst.");
+                return false;
+            }
+
+            return true;
+        }
+
         public async Task<bool> DealStaminaAsync(PlayerEntity player, byte amount)
         {
             if (player == null)
@@ -313,6 +329,25 @@ namespace GameDb.Service
             }
 
             player.Stamina += amount;
+            var updateResult = await _playerRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to update player stamina.");
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task<bool> SetStaminaAsync(PlayerEntity player, byte amount)
+        {
+            if (player == null)
+            {
+                Console.WriteLine("Player not found.");
+                return false;
+            }
+
+            player.Stamina = amount;
             var updateResult = await _playerRepository.SaveChangesAsync();
             if (!updateResult)
             {
@@ -543,6 +578,32 @@ namespace GameDb.Service
                 await transaction.RollbackAsync();
                 return false;
             }
-        }            
+        }    
+
+        public async Task<bool> SetAllPlayersOfflineAsync()
+        {
+            try
+            {
+                var result = await _playerRepository.GetAllAsync();
+                if (result.ResultType != DbResultType.Success || result.ReturnValue == null)
+                {
+                    Console.WriteLine($"Error retrieving all players: {result.Message}");
+                    return false;
+                }
+                foreach (var player in result.ReturnValue)
+                {
+                    if (player.IsOnline)
+                    {
+                        player.IsOnline = false;
+                    }
+                }
+                return await _playerRepository.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error setting all players offline: {ex.Message}");
+                return false;
+            }
+        }
     }
 }
