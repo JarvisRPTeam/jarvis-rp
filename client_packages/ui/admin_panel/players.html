@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Players List</title>
+    <style>
+        body {
+            background: rgba(30, 30, 30, 0.95);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent window scrolling */
+        }
+        .panel {
+            width: 800px;
+            margin: 80px auto;
+            padding: 30px 20px;
+            background: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000a;
+            text-align: center;
+            position: relative;
+            max-height: 60vh; /* Limit panel height */
+            overflow-y: auto; /* Make panel scrollable */
+        }
+        .panel h1 {
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        #backBtn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            border: none;
+            background: #444;
+            color: #fff;
+            cursor: pointer;
+            z-index: 2;
+        }
+        table {
+            max-width: 700px;
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            background: #222;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 10px;
+        }
+        th {
+            background: #333;
+        }
+        .collapse-btn {
+            float: left;
+            margin-right: 10px;
+            font-size: 1.2em;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: #444;
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .table-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .collapsible-table {
+            transition: max-height 0.2s ease;
+            overflow: hidden;
+        }
+        .collapsed {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <button id="backBtn">Back</button>
+        <h1>Players</h1>
+        <div id="playersPanel">
+            <!-- Tables will be injected here -->
+        </div>
+    </div>
+    <script>
+        document.getElementById('backBtn').onclick = function() {
+            if (typeof mp !== 'undefined' && mp.trigger) {
+                mp.trigger('adminPanel:closePlayers');
+            }
+        };
+
+        function createTable(title, players, idx) {
+            // idx is used to uniquely identify each table
+            let html = `
+                <div>
+                    <div class="table-header">
+                        <button class="collapse-btn" id="collapseBtn${idx}" data-table="${idx}">-</button>
+                        <h2 style="margin:0;">${title}</h2>
+                    </div>
+                    <div class="collapsible-table" id="tableDiv${idx}">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nickname</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>`;
+            players.forEach(player => {
+                html += `<tr>
+                    <td>${player.Id}</td>
+                    <td>${player.Nickname}</td>
+                    <td>${player.Role}</td>
+                </tr>`;
+            });
+            html += `       </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            return html;
+        }
+
+        function showPlayersPanel(panelModel) {
+            // If called from C#, panelModel is an object. If called from JS, it may be a string.
+            if (typeof panelModel === "string") {
+                panelModel = JSON.parse(panelModel);
+            }
+            const panelDiv = document.getElementById('playersPanel');
+            panelDiv.innerHTML = '';
+            let idx = 0;
+            panelDiv.innerHTML += createTable('Online Server Owners', panelModel.OnlineServerOwners || [], idx++);
+            panelDiv.innerHTML += createTable('Offline Server Owners', panelModel.OfflineServerOwners || [], idx++);
+            panelDiv.innerHTML += createTable('Online Admins', panelModel.OnlineAdmins || [], idx++);
+            panelDiv.innerHTML += createTable('Offline Admins', panelModel.OfflineAdmins || [], idx++);
+            panelDiv.innerHTML += createTable('Online Players', panelModel.OnlinePlayers || [], idx++);
+            panelDiv.innerHTML += createTable('Offline Players', panelModel.OfflinePlayers || [], idx++);
+            panelDiv.innerHTML += createTable('Banned Players', panelModel.BannedPlayers || [], idx++);
+            panelDiv.innerHTML += createTable('Banned Admins', panelModel.BannedAdmins || [], idx++);
+
+            // Add collapse/expand functionality
+            for (let i = 0; i < idx; i++) {
+                const btn = document.getElementById(`collapseBtn${i}`);
+                const tableDiv = document.getElementById(`tableDiv${i}`);
+                btn.onclick = function() {
+                    if (tableDiv.classList.contains('collapsed')) {
+                        tableDiv.classList.remove('collapsed');
+                        btn.textContent = '-';
+                    } else {
+                        tableDiv.classList.add('collapsed');
+                        btn.textContent = '+';
+                    }
+                };
+            }
+        }
+    </script>
+</body>
+</html>

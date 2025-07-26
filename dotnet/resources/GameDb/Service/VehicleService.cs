@@ -16,6 +16,12 @@ namespace GameDb.Service {
         Task<IEnumerable<VehicleEntity>> GetVehiclesByOwnerIdAsync(long ownerId);
         Task<IEnumerable<VehicleEntity>> GetVehiclesByModelAsync(string model);
         Task<IEnumerable<VehicleEntity>> GetVehiclesByNumberPlateAsync(string numberPlate);
+        Task<bool> SetPositionAsync(VehicleEntity vehicleEntity, PositionModel position);
+        Task<bool> SetFuelAsync(VehicleEntity vehicleEntity, float fuel);
+        Task<bool> SetTankCapacityAsync(VehicleEntity vehicleEntity, float tankCapacity);
+        Task<bool> SetFuelConsumptionAsync(VehicleEntity vehicleEntity, float fuelConsumption);
+        Task<bool> SetMileageAsync(VehicleEntity vehicleEntity, float mileage);
+        Task<bool> SetColorAsync(VehicleEntity vehicleEntity, VehicleColorModel color);
     }
     
     public class VehicleService: IVehicleService {
@@ -31,10 +37,16 @@ namespace GameDb.Service {
             using var transaction = await _context.Database.BeginTransactionAsync();
             
             try {
-                var vehicleEntity = new VehicleEntity {
+                var vehicleEntity = new VehicleEntity
+                {
                     Model = vehicleModel.Model,
                     NumberPlate = vehicleModel.NumberPlate,
-                    OwnerId = playerId
+                    OwnerId = playerId,
+                    TankCapacity = vehicleModel.TankCapacity,
+                    CurrentFuel = vehicleModel.TankCapacity, 
+                    FuelConsumption = vehicleModel.FuelConsumption,
+                    Position = vehicleModel.Position,
+                    Color = vehicleModel.Color
                 };
 
                 var addResult = await _vehicleRepository.AddAsync(vehicleEntity);
@@ -53,9 +65,7 @@ namespace GameDb.Service {
                 }
 
                 // Generate plate based on ID if not provided
-                if (vehicleEntity.NumberPlate == null) {
-                    vehicleEntity.NumberPlate = GenerateNumberPlate(vehicleEntity.Id);
-                }
+                vehicleEntity.NumberPlate ??= GenerateNumberPlate(vehicleEntity.Id);
                 saved = await _vehicleRepository.SaveChangesAsync();
                 if (!saved) {
                     await transaction.RollbackAsync();
@@ -164,6 +174,66 @@ namespace GameDb.Service {
                 Console.WriteLine(result.Message);
             }
             return result.ReturnValue;
+        }
+
+        public async Task<bool> SetPositionAsync(VehicleEntity vehicleEntity, PositionModel position) {
+            vehicleEntity.Position = position;
+            var updateResult = await _vehicleRepository.SaveChangesAsync();
+            if (!updateResult) {
+                Console.WriteLine("Failed to update vehicle position.");
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> SetFuelAsync(VehicleEntity vehicleEntity, float fuel) {
+            vehicleEntity.CurrentFuel = fuel;
+            var updateResult = await _vehicleRepository.SaveChangesAsync();
+            if (!updateResult) {
+                Console.WriteLine("Failed to update vehicle fuel.");
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> SetColorAsync(VehicleEntity vehicleEntity, VehicleColorModel color) {
+            vehicleEntity.Color = color;
+            var updateResult = await _vehicleRepository.SaveChangesAsync();
+            if (!updateResult) {
+                Console.WriteLine("Failed to update vehicle color.");
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> SetTankCapacityAsync(VehicleEntity vehicleEntity, float tankCapacity) {
+            vehicleEntity.TankCapacity = tankCapacity;
+            var updateResult = await _vehicleRepository.SaveChangesAsync();
+            if (!updateResult) {
+                Console.WriteLine("Failed to update vehicle tank capacity.");
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> SetFuelConsumptionAsync(VehicleEntity vehicleEntity, float fuelConsumption) {
+            vehicleEntity.FuelConsumption = fuelConsumption;
+            var updateResult = await _vehicleRepository.SaveChangesAsync();
+            if (!updateResult) {
+                Console.WriteLine("Failed to update vehicle fuel consumption.");
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> SetMileageAsync(VehicleEntity vehicleEntity, float mileage) {
+            vehicleEntity.Mileage = mileage;
+            var updateResult = await _vehicleRepository.SaveChangesAsync();
+            if (!updateResult) {
+                Console.WriteLine("Failed to update vehicle mileage.");
+                return false;
+            }
+            return true;
         }
 
         private string GenerateNumberPlate(long id)

@@ -1,3 +1,4 @@
+require('./ui/admin_panel/admin_panel.js');
 require("./hungerThirst.js");
 
 // client_money.js

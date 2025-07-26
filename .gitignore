@@ -6,3 +6,5 @@ client_packages/.listcache
 *.exe
 *.tar.gz
 **/appsettings.json
+dotnet/server_exceptions.txt
+dotnet/server_logs.txt

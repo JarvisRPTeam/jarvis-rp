@@ -29,7 +29,9 @@ namespace GameDb.Service
         Task<bool> GrantRoleToPlayerAsync(PlayerEntity player, RoleEntity role);
         Task<PunishmentEntity?> CreatePunishmentAsync(PunishmentCreateModel punishmentModel);
         Task<bool> RemovePunishmentAsync(PunishmentEntity punishment);
+        Task<bool> CancelPunishmentAsync(PunishmentEntity punishment, PlayerEntity admin);
         Task<bool> ClearAllPunishmentsAsync(PlayerEntity player);
+        Task<bool> SetAllPlayersOfflineAsync();
     }
 
 
@@ -93,6 +95,16 @@ namespace GameDb.Service
                     await transaction.RollbackAsync();
                     return null;
                 }
+
+                var inventory = await GameDbContainer.InventoryService.CreateInventoryAsync();
+
+                if (inventory == null)
+                {
+                    Console.WriteLine("Failed to create inventory for player.");
+                    await transaction.RollbackAsync();
+                    return null;
+                }
+
                 var playerEntity = new PlayerEntity
                 {
                     Nickname = playerModel.Nickname,
@@ -121,6 +133,7 @@ namespace GameDb.Service
                         Heading = 0
                     },
                     RoleId = role.Id,
+                    InventoryId = inventory.Id,
                     PlayedToday = TimeSpan.Zero,
                     PlayedTotal = TimeSpan.Zero,
                     BankBalance = null,
@@ -137,17 +150,6 @@ namespace GameDb.Service
                     await transaction.RollbackAsync();
                     return null;
                 }
-
-                var inventory = await GameDbContainer.InventoryService.CreateInventoryAsync(playerEntity);
-
-                if (inventory == null)
-                {
-                    Console.WriteLine("Failed to create inventory for player.");
-                    await transaction.RollbackAsync();
-                    return null;
-                }
-
-                playerEntity.Inventory = inventory;
 
                 var saved = await _playerRepository.SaveChangesAsync();
                 if (!saved)
@@ -186,6 +188,7 @@ namespace GameDb.Service
 
             return true;
         }
+
         public async Task<bool> SetCashAsync(PlayerEntity player, long amount)
         {
             if (player == null)
@@ -204,6 +207,7 @@ namespace GameDb.Service
 
             return true;
         }
+
         public async Task<bool> SetHPAsync(PlayerEntity player, byte amount)
         {
             if (player == null)
@@ -222,6 +226,7 @@ namespace GameDb.Service
 
             return true;
         }
+
         public async Task<bool> DealHPAsync(PlayerEntity player, byte amount)
         {
             if (player == null)
@@ -259,6 +264,7 @@ namespace GameDb.Service
 
             return true;
         }
+
         public async Task<bool> DealHungerAsync(PlayerEntity player, byte amount)
         {
             if (player == null)
@@ -297,24 +303,6 @@ namespace GameDb.Service
 
             return true;
         }
-        public async Task<bool> SetThirstAsync(PlayerEntity player, byte amount)
-        {
-            if (player == null)
-            {
-                Console.WriteLine("Player not found.");
-                return false;
-            }
-
-            player.Thirst = amount;
-            var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult)
-            {
-                Console.WriteLine("Failed to update player thirst.");
-                return false;
-            }
-
-            return true;
-        }
 
         public async Task<bool> DealStaminaAsync(PlayerEntity player, byte amount)
         {
@@ -334,25 +322,6 @@ namespace GameDb.Service
 
             return true;
         }
-        public async Task<bool> SetStaminaAsync(PlayerEntity player, byte amount)
-        {
-            if (player == null)
-            {
-                Console.WriteLine("Player not found.");
-                return false;
-            }
-
-            player.Stamina = amount;
-            var updateResult = await _playerRepository.SaveChangesAsync();
-            if (!updateResult)
-            {
-                Console.WriteLine("Failed to update player stamina.");
-                return false;
-            }
-
-            return true;
-        }
-
 
         public async Task<bool> AssignSocialClubAsync(PlayerEntity player, SocialClubEntity? socialClub)
         {
@@ -501,6 +470,33 @@ namespace GameDb.Service
             return true;
         }
 
+        public async Task<bool> CancelPunishmentAsync(PunishmentEntity punishment, PlayerEntity admin)
+        {
+            if (punishment == null)
+            {
+                Console.WriteLine("Punishment cannot be null.");
+                return false;
+            }
+
+            if (admin == null)
+            {
+                Console.WriteLine("Admin cannot be null.");
+                return false;
+            }
+
+            punishment.IsCancelled = true;
+            punishment.CancelledById = admin.Id;
+
+            var updateResult = await _punishmentRepository.SaveChangesAsync();
+            if (!updateResult)
+            {
+                Console.WriteLine("Failed to cancel punishment.");
+                return false;
+            }
+
+            return true;
+        }
+
         public async Task<bool> ClearAllPunishmentsAsync(PlayerEntity player)
         {
             using var transaction = await _context.Database.BeginTransactionAsync();
@@ -547,7 +543,6 @@ namespace GameDb.Service
                 await transaction.RollbackAsync();
                 return false;
             }
-        }
-
+        }            
     }
 }

@@ -76,10 +76,10 @@ namespace GameDb.Repository
                 .HasColumnType("jsonb");
 
             // Player -> Inventory 1-1
-            modelBuilder.Entity<PlayerEntity>()
-                .HasOne(p => p.Inventory)
-                .WithOne(i => i.Player)
-                .HasForeignKey<InventoryEntity>(i => i.PlayerId)
+            modelBuilder.Entity<InventoryEntity>()
+                .HasOne(p => p.Player)
+                .WithOne(i => i.Inventory)
+                .HasForeignKey<PlayerEntity>(i => i.InventoryId)
                 .IsRequired();
 
             // Player -> Residence 1-1
@@ -131,6 +131,20 @@ namespace GameDb.Repository
                 .HasForeignKey(pu => pu.PlayerId)
                 .IsRequired();
 
+            // Punishment -> Admin (Player) Many-to-One
+            modelBuilder.Entity<PunishmentEntity>()
+                .HasOne(pu => pu.Admin)
+                .WithMany()
+                .HasForeignKey(pu => pu.AdminId)
+                .IsRequired();
+
+            // Punishment -> CancelledBy (Player) Many-to-One
+            modelBuilder.Entity<PunishmentEntity>()
+                .HasOne(pu => pu.CancelledBy)
+                .WithMany()
+                .HasForeignKey(pu => pu.CancelledById)
+                .IsRequired();
+
             // Player -> Garage 1-Many
             modelBuilder.Entity<PlayerEntity>()
                 .HasMany(p => p.Garages)
@@ -159,6 +173,9 @@ namespace GameDb.Repository
             modelBuilder.Entity<VehicleEntity>()
                 .Property(v => v.Position)
                 .HasColumnType("jsonb");
+            modelBuilder.Entity<VehicleEntity>()
+                .Property(v => v.Color)
+                .HasColumnType("jsonb");
             modelBuilder.Entity<RealEstateEntity>().HasKey(re => re.Id);
             modelBuilder.Entity<RealEstateEntity>()
                 .Property(re => re.Id)
@@ -181,7 +198,7 @@ namespace GameDb.Repository
             modelBuilder.Entity<ItemEntity>()
                 .Property(i => i.Id)
                 .ValueGeneratedOnAdd();
-            modelBuilder.Entity<InventoryEntity>().HasKey(i => i.PlayerId);
+            modelBuilder.Entity<PlayerEntity>().HasKey(i => i.InventoryId);
             modelBuilder.Entity<ResidenceEntity>().HasKey(r => new { r.PlayerId, r.RealEstateId });
             modelBuilder.Entity<InfrastructureBuildingEntity>().HasKey(b => b.Id);
             modelBuilder.Entity<InfrastructureBuildingEntity>()
@@ -215,7 +232,10 @@ namespace GameDb.Repository
             modelBuilder.Entity<PunishmentEntity>()
                 .Property(pu => pu.Id)
                 .ValueGeneratedOnAdd();
-            
+            modelBuilder.Entity<InventoryEntity>().HasKey(i => i.Id);
+            modelBuilder.Entity<InventoryEntity>()
+                .Property(i => i.Id)
+                .ValueGeneratedOnAdd();
         }
     }
 }
