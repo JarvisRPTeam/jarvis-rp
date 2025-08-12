@@ -1,6 +1,6 @@
 using GTANetworkAPI;
 
-namespace GameMechanics.PlayerMechanics
+namespace Main.GameMechanics.PlayerMechanics
 {
     public class PlayerCommands : Script
     {
@@ -33,11 +33,9 @@ namespace GameMechanics.PlayerMechanics
             }
 
             Vector3 targetPosition = new Vector3(x, y, z);
-            PlayerMechanics.TeleportPlayer(player, targetPosition);
+            PlayerMechanics.TeleportPlayer(player, targetPosition, player.Heading);
             player.SendChatMessage($"~g~Teleported to: {x}, {y}, {z}");
         }
-
-
 
         [Command("eat")]
         public void EatCommand(Player player,int amount)
@@ -51,31 +49,11 @@ namespace GameMechanics.PlayerMechanics
             PlayerMechanics.DrinkWater(player, amount);
         }
 
-       
-
         [Command("addmoney")]
         public void AddMoneyCommand(Player player, int amount)
         {
-            if (amount <= 0)
-            {
-                player.SendChatMessage("~r~Amount must be positive.");
-                return;
-            }
             PlayerMechanics.AddMoney(player, amount);
             player.SendChatMessage($"~g~Added ${amount} to your balance.");
-        }
-
-        [Command("removemoney")]
-        public void CMD_RemoveMoney(Player player, int amount)
-        {
-            if (amount <= 0)
-            {
-                player.SendChatMessage("~r~Invalid amount.");
-                return;
-            }
-
-            PlayerMechanics.RemoveMoney(player, amount);
-            player.SendChatMessage($"~y~Removed {amount}$ from your balance.");
         }
 
         [Command("money")]

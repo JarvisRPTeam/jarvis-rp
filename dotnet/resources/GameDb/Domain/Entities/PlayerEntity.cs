@@ -6,6 +6,13 @@ namespace GameDb.Domain.Entities
 {
     public class PlayerEntity
     {
+        public PlayerEntity()
+        {
+            Vehicles = new HashSet<VehicleEntity>();
+            RealEstates = new HashSet<RealEstateEntity>();
+            Punishments = new HashSet<PunishmentEntity>();
+            Garages = new HashSet<GarageEntity>();
+        }
         public long Id { get; set; }
         public string Nickname { get; set; }
         public string Password { get; set; }

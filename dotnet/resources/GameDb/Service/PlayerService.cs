@@ -128,7 +128,7 @@ namespace GameDb.Service
                     {
                         X = 0,
                         Y = 0,
-                        Z = 0,
+                        Z = 72,
                         Heading = 0
                     },
                     RoleId = role.Id,

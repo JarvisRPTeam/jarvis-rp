@@ -143,7 +143,7 @@ namespace GameDb.Repository
                 .HasOne(pu => pu.CancelledBy)
                 .WithMany()
                 .HasForeignKey(pu => pu.CancelledById)
-                .IsRequired();
+                .IsRequired(false);
 
             // Player -> Garage 1-Many
             modelBuilder.Entity<PlayerEntity>()
@@ -198,7 +198,6 @@ namespace GameDb.Repository
             modelBuilder.Entity<ItemEntity>()
                 .Property(i => i.Id)
                 .ValueGeneratedOnAdd();
-            modelBuilder.Entity<PlayerEntity>().HasKey(i => i.InventoryId);
             modelBuilder.Entity<ResidenceEntity>().HasKey(r => new { r.PlayerId, r.RealEstateId });
             modelBuilder.Entity<InfrastructureBuildingEntity>().HasKey(b => b.Id);
             modelBuilder.Entity<InfrastructureBuildingEntity>()

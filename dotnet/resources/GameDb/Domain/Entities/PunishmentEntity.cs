@@ -20,6 +20,7 @@ namespace GameDb.Domain.Entities
 
     public enum PunishmentType
     {
+        None,
         Ban,
         Mute,
         Warning

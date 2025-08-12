@@ -1,6 +1,7 @@
 ﻿using GTANetworkAPI;
 using GameDb.Service;
 using System;
+using GameDb.Domain.Models;
 
 namespace Main
 {
@@ -22,6 +23,8 @@ namespace Main
             {
                 throw new InvalidOperationException("GameDbContainer initialization failed");
             }
+            NAPI.Server.SetAutoSpawnOnConnect(false);
+            NAPI.Server.SetGlobalServerChat(false);
 
             NAPI.Util.ConsoleOutput("Main started.");
         }
