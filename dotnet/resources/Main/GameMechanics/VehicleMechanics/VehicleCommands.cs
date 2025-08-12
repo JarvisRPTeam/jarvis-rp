@@ -183,13 +183,122 @@ namespace GameMechanics
             player.SendChatMessage("~g~Vehicle fully repaired.");
         }
 
-       
 
+        [Command("deletevehicle")]
+        public void CmdDeleteVehicle(Player player, string numberPlate = null)
+        {
+            if (string.IsNullOrEmpty(numberPlate))
+            {
+                // No plate provided, try to remove current vehicle
+                if (!player.IsInVehicle)
+                {
+                    player.SendChatMessage("~r~You are not in a vehicle and no plate was specified.");
+                    return;
+                }
+
+                Vehicle vehicle = player.Vehicle;
+                if (vehicle == null || !vehicle.Exists)
+                {
+                    player.SendChatMessage("~r~No valid vehicle found.");
+                    return;
+                }
+
+                if (VehicleMechanics.RemoveVehicle(vehicle.NumberPlate))
+                {
+                    player.SendChatMessage("~g~Vehicle deleted successfully.");
+                }
+                else
+                {
+                    player.SendChatMessage("~r~Failed to delete vehicle.");
+                }
+            }
+            else
+            {
+                // Plate provided
+                if (VehicleMechanics.RemoveVehicle(numberPlate))
+                {
+                    player.SendChatMessage($"~g~Vehicle with plate ~y~{numberPlate} ~g~deleted successfully.");
+                }
+                else
+                {
+                    player.SendChatMessage($"~r~Failed to delete vehicle with plate ~y~{numberPlate}.");
+                }
+            }
+        }
+
+
+        [Command("vstats")]
+        public void CmdVehicleStats(Player player)
+        {
+            Vehicle vehicle = player.Vehicle;
+
+            if (vehicle == null || !vehicle.Exists)
+            {
+                player.SendChatMessage("~r~You are not in a valid vehicle.");
+                return;
+            }
+
+            string plate = vehicle.NumberPlate;
+            string model = NAPI.Vehicle.GetVehicleDisplayName(vehicle.Model);
+            int primaryColor = vehicle.PrimaryColor;
+            int secondaryColor = vehicle.SecondaryColor;
+            float health = vehicle.Health;
+            float fuel = VehicleMechanics.GetFuel(vehicle);
+            float heading = vehicle.Rotation.Z;
+            // float mileage = vehicle.HasData("mileage") ? vehicle.GetData<float>("mileage") : 0f;
+            bool engine = vehicle.EngineStatus;
+            bool locked = vehicle.Locked;
+
+            player.SendChatMessage("~g~--- Vehicle Stats ---");
+            player.SendChatMessage($"~y~Model:~w~ {model}");
+            player.SendChatMessage($"~y~Plate:~w~ {plate}");
+            player.SendChatMessage($"~y~Primary Color:~w~ {primaryColor}");
+            player.SendChatMessage($"~y~Secondary Color:~w~ {secondaryColor}");
+            player.SendChatMessage($"~y~Health:~w~ {health}/1000");
+            player.SendChatMessage($"~y~Fuel Level:~w~ {fuel:0.0}%");
+            player.SendChatMessage($"~y~Heading:~w~ {heading:0.0}°");
+            // player.SendChatMessage($"~y~Mileage:~w~ {mileage:0.0} km");
+            player.SendChatMessage($"~y~Engine Status:~w~ {(engine ? "On" : "Off")}");
+            player.SendChatMessage($"~y~Locked:~w~ {(locked ? "Yes" : "No")}");
+        }
 
         [RemoteEvent("sendSpeedToServer")]
         public void OnSpeedEvent(Player player, int speed)
         {
             NAPI.Util.ConsoleOutput($"[Speed] {player.Name}: {speed} km/h");
+        }
+
+
+       [RemoteEvent("adminPanel:spawnVehicle")]
+        public void SpawnVehicleHandler(Player player, string modelName)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(modelName))
+                {
+                    player.SendChatMessage("~r~Vehicle model name cannot be empty.");
+                    return;
+                }
+
+                Vehicle vehicle = VehicleMechanics.SpawnVehicleForPlayer(player, modelName);
+
+                if (vehicle == null)
+                {
+                    player.SendChatMessage("~r~Failed to spawn vehicle.");
+                    return;
+                }
+
+                player.SendChatMessage($"~g~Vehicle {modelName} spawned successfully.");
+            }
+            catch (ArgumentException ex)
+            {
+                player.SendChatMessage($"~r~{ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                player.SendChatMessage("~r~An error occurred while spawning the vehicle.");
+                Console.WriteLine($"Error in SpawnVehicleHandler: {ex}");
+            }
         }
 
     }

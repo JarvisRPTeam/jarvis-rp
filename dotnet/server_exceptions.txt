@@ -1,0 +1,818 @@
+
+==================[7/17/2025 10:44:27 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:44:27 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:44:27 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:44:27 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:44:48 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 10:46:20 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 10:50:11 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:50:11 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:50:12 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:50:12 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:50:12 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 10:50:51 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 10:51:04 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 10:52:24 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 10:54:25 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 10:56:43 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:56:43 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:56:43 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:56:43 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 10:56:43 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 10:58:47 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 10:59:33 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:02:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:02:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:02:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:02:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:02:53 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:03:32 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:06:22 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:06:44 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:07:26 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:08:20 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:08:20 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:08:20 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:08:20 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:08:20 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:10:09 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:11:48 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:15:13 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:15:13 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:15:13 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:15:13 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:15:13 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:16:21 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:16:59 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:17:58 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:21:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:21:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:21:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:21:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:21:09 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:21:33 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:23:08 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:25:26 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:27:27 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:27:27 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:27:27 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:27:27 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:27:27 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:31:53 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:32:08 PM]==================
+System.Exception: Player WeirdNewbie not found in database.
+   at Vehicle GameMechanics.VehicleMechanics.SpawnVehicleForPlayer(Player player, string modelName, string plateText) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 56
+=========================================================
+
+==================[7/17/2025 11:33:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/17/2025 11:33:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Excep
+==================[7/24/2025 5:24:31 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 5:24:31 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 5:24:31 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 5:24:31 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 5:31:45 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 5:31:45 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 5:31:45 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellation
+==================[7/24/2025 8:53:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 8:53:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 8:53:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 8:53:53 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:01:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:01:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:01:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:01:10 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:06:19 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:06:19 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:06:19 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:06:19 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:12:08 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:12:08 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.
+==================[7/24/2025 9:52:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:52:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:52:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:52:09 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:57:11 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:57:11 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/24/2025 9:57:11 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellation
+==================[7/25/2025 12:07:43 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:07:43 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:07:43 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:07:43 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:12:10 PM]==================
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at void System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+=========================================================
+
+==================[7/25/2025 12:12:10 PM]==================
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at void System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at TSource System.Linq.Enumerable.TryGetFirst<TSource>(IEnumerable<TSource> source, out bool found)
+   at TSource System.Linq.Enumerable.FirstOrDefault<TSource>(IEnumerable<TSource> source)
+   at bool GameMechanics.VehicleMechanics.RemoveVehicle(string numberPlate) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleMechanics.cs:line 123
+   at void GameMechanics.VehicleManager.CmdDeleteVehicle(Player player, string numberPlate) in C:/RAGEMP/server-files/dotnet/resources/Main/GameMechanics/VehicleMechanics/VehicleCommands.cs:line 218
+   --- End of inner exception stack trace ---
+   at object RuntimeMethodHandle.InvokeMethod(object target, object[] arguments, Signature sig, bool constructor, bool wrapExceptions)
+   at object System.Reflection.RuntimeMethodInfo.Invoke(object obj, BindingFlags invokeAttr, Binder binder, object[] parameters, CultureInfo culture)
+===========================
+==================[7/25/2025 12:42:25 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:42:25 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:42:25 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:42:25 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:47:52 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:47:52 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[7/25/2025 12:47:52 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cance
+==================[8/11/2025 11:54:18 AM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 11:54:18 AM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 11:54:18 AM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 11:54:18 AM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 12:00:30 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 12:00:30 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 12:00:30 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cance
+==================[8/11/2025 3:28:42 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 3:28:42 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 3:28:42 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 3:28:42 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellationToken)
+   at async Task Npgsql.TaskExtensions.WithTimeout(Task task, NpgsqlTimeout timeout)
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 4:38:31 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 4:38:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+=========================================================
+
+==================[8/11/2025 4:38:32 PM]==================
+System.Net.Internals.SocketExceptionFactory+ExtendedSocketException (10061): No connection could be made because the target machine actively refused it. [::1]:5432
+   at void System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw(Exception source)
+   at void System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   at Task System.Net.Sockets.Socket.ConnectAsync(EndPoint remoteEP)+(IAsyncResult iar) => { }
+   at async Task Npgsql.TaskExtensions.WithCancellation(Task task, CancellationToken cancellation

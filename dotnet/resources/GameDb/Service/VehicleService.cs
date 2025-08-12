@@ -16,6 +16,7 @@ namespace GameDb.Service {
         Task<IEnumerable<VehicleEntity>> GetVehiclesByOwnerIdAsync(long ownerId);
         Task<IEnumerable<VehicleEntity>> GetVehiclesByModelAsync(string model);
         Task<IEnumerable<VehicleEntity>> GetVehiclesByNumberPlateAsync(string numberPlate);
+        Task<IEnumerable<VehicleEntity>> GetAllVehiclesAsync();
         Task<bool> SetPositionAsync(VehicleEntity vehicleEntity, PositionModel position);
         Task<bool> SetFuelAsync(VehicleEntity vehicleEntity, float fuel);
         Task<bool> SetTankCapacityAsync(VehicleEntity vehicleEntity, float tankCapacity);
@@ -175,11 +176,25 @@ namespace GameDb.Service {
             }
             return result.ReturnValue;
         }
+        
+        public async Task<IEnumerable<VehicleEntity>> GetAllVehiclesAsync() {
+            var result = await _vehicleRepository.GetAllAsync();
+            if (result.ResultType == DbResultType.Error) {
+                Console.WriteLine($"Error retrieving all vehicles: {result.Message}");
+                return null;
+            }
+            if (result.ResultType == DbResultType.Warning) {
+                Console.WriteLine(result.Message);
+            }
+            return result.ReturnValue;
+        }
 
-        public async Task<bool> SetPositionAsync(VehicleEntity vehicleEntity, PositionModel position) {
+        public async Task<bool> SetPositionAsync(VehicleEntity vehicleEntity, PositionModel position)
+        {
             vehicleEntity.Position = position;
             var updateResult = await _vehicleRepository.SaveChangesAsync();
-            if (!updateResult) {
+            if (!updateResult)
+            {
                 Console.WriteLine("Failed to update vehicle position.");
                 return false;
             }

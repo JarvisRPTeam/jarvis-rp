@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Vehicles List</title>
+<style>
+    body {
+        background: rgba(30, 30, 30, 0.95);
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    .panel {
+        width: 800px;
+        margin: 80px auto;
+        padding: 30px 20px;
+        background: #222;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #000a;
+        text-align: center;
+        position: relative;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    .panel h1 {
+        margin-bottom: 30px;
+        font-size: 2em;
+    }
+    #backBtn, #closeAllBtn {
+        position: absolute;
+        top: 20px;
+        padding: 8px 16px;
+        border-radius: 5px;
+        border: none;
+        background: #444;
+        color: #fff;
+        cursor: pointer;
+        z-index: 2;
+    }
+    #backBtn {
+        left: 20px;
+    }
+    #closeAllBtn {
+        right: 20px;
+    }
+    table {
+        max-width: 700px;
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+        background: #222;
+    }
+    th, td {
+        border: 1px solid #444;
+        padding: 10px;
+    }
+    th {
+        background: #333;
+    }
+    .collapse-btn {
+        float: left;
+        margin-right: 10px;
+        font-size: 1.2em;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: none;
+        background: #444;
+        color: #fff;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .table-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+    .collapsible-table {
+        transition: max-height 0.2s ease;
+        overflow: hidden;
+    }
+    .collapsed {
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="panel" id="vehiclesPanel">
+        <button id="backBtn">Back</button>
+    <button id="closeAllBtn">Close All</button>
+    <h1>Vehicles</h1>
+    <div id="vehiclesTablesContainer">
+        <!-- Vehicle tables will be injected here -->
+    </div>
+</div>
+
+<script>
+    document.getElementById('backBtn').onclick = function() {
+            if (typeof mp !== 'undefined' && mp.trigger) {
+                mp.trigger('adminPanel:closeVehicles');
+            }
+        };
+    // Example vehicle data - replace with your actual data from server
+    const vehiclesData = {
+        OnlineVehicles: [
+            { Id: 101, Model: 'Infernus', Owner: 'PlayerOne' },
+            { Id: 102, Model: 'Banshee', Owner: 'PlayerTwo' }
+        ],
+        OfflineVehicles: [
+            { Id: 201, Model: 'Comet', Owner: 'PlayerThree' },
+            { Id: 202, Model: 'Bullet', Owner: 'PlayerFour' }
+        ],
+        BannedVehicles: [
+            { Id: 301, Model: 'Tampa', Owner: 'PlayerFive' }
+        ]
+    };
+
+    function createVehicleTable(title, vehicles, idx) {
+        let html = `
+            <div>
+                <div class="table-header">
+                    <button class="collapse-btn" id="collapseVehicleBtn${idx}" data-table="${idx}">-</button>
+                    <h2 style="margin:0;">${title}</h2>
+                </div>
+                <div class="collapsible-table" id="vehicleTableDiv${idx}">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Model</th>
+                                <th>Owner</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+        vehicles.forEach(vehicle => {
+            html += `
+                <tr>
+                    <td>${vehicle.Id}</td>
+                    <td>${vehicle.Model}</td>
+                    <td>${vehicle.Owner}</td>
+                </tr>`;
+        });
+        html += `
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+        return html;
+    }
+
+    function showVehiclesPanel(panelModel) {
+        // If panelModel is a JSON string, parse it
+        if (typeof panelModel === "string") {
+            panelModel = JSON.parse(panelModel);
+        }
+        const container = document.getElementById('vehiclesTablesContainer');
+        container.innerHTML = '';
+        let idx = 0;
+
+        container.innerHTML += createVehicleTable('Online Vehicles', panelModel.OnlineVehicles || [], idx++);
+        container.innerHTML += createVehicleTable('Offline Vehicles', panelModel.OfflineVehicles || [], idx++);
+        container.innerHTML += createVehicleTable('Banned Vehicles', panelModel.BannedVehicles || [], idx++);
+
+        // Add collapse/expand functionality
+        for (let i = 0; i < idx; i++) {
+            const btn = document.getElementById(`collapseVehicleBtn${i}`);
+            const tableDiv = document.getElementById(`vehicleTableDiv${i}`);
+            btn.onclick = function () {
+                if (tableDiv.classList.contains('collapsed')) {
+                    tableDiv.classList.remove('collapsed');
+                    btn.textContent = '-';
+                } else {
+                    tableDiv.classList.add('collapsed');
+                    btn.textContent = '+';
+                }
+            };
+        }
+    }
+
+    
+    document.getElementById('backBtn').onclick = function() {
+            if (typeof mp !== 'undefined' && mp.trigger) {
+                mp.trigger('adminPanel:closePlayers');
+            }
+        };
+
+    // Close All button hides the whole admin panel
+    document.getElementById('closeAllBtn').onclick = function () {
+        document.getElementById('vehiclesPanel').style.display = 'none';
+        // If you have other panels, you could hide them here too.
+    };
+
+    // For demo, show panel with sample data on load
+    showVehiclesPanel(vehiclesData);
+</script>
+</body>
+</html>

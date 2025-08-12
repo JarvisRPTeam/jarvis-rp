@@ -10,7 +10,195 @@ namespace GameMechanics
 {
     public static class VehicleMechanics
     {
-        // Vehicle Spawning (existing)
+
+        public static bool SaveVehicleData(Vehicle vehicle)
+        {
+            try
+            {
+                if (vehicle == null || !vehicle.Exists)
+                {
+                    NAPI.Util.ConsoleOutput("[VehicleMechanics] Cannot save data — vehicle is null or doesn't exist.");
+                    return false;
+                }
+
+                if (string.IsNullOrEmpty(vehicle.NumberPlate))
+                {
+                    NAPI.Util.ConsoleOutput("[VehicleMechanics] Cannot save data — vehicle number plate is null or empty.");
+                    return false;
+                }
+
+                // Get vehicle from DB
+                var vehiclesResult = GameDbContainer.VehicleService
+                    .GetVehiclesByNumberPlateAsync(vehicle.NumberPlate)
+                    .GetAwaiter().GetResult();
+
+                if (vehiclesResult == null || !vehiclesResult.Any())
+                {
+                    NAPI.Util.ConsoleOutput($"[VehicleMechanics] Vehicle with plate {vehicle.NumberPlate} not found in DB.");
+                    return false;
+                }
+
+                var vehicleEntity = vehiclesResult.First();
+                var vehicleId = vehicleEntity.Id; // store ID to use later
+
+                if (vehicle.Position == null)
+                {
+                    NAPI.Util.ConsoleOutput($"[VehicleMechanics] Vehicle {vehicle.NumberPlate} position is invalid.");
+                    return false;
+                }
+
+                // Save Position
+                var position = new PositionModel
+                {
+                    X = vehicle.Position.X,
+                    Y = vehicle.Position.Y,
+                    Z = vehicle.Position.Z,
+                    Heading = vehicle.Rotation.Z
+                };
+
+                bool positionSaved = GameDbContainer.VehicleService
+                    .SetPositionAsync(vehicleEntity, position)
+                    .GetAwaiter().GetResult();
+
+                if (!positionSaved)
+                {
+                    NAPI.Util.ConsoleOutput($"[VehicleMechanics] Failed to save position for vehicle {vehicle.NumberPlate}.");
+                    return false;
+                }
+
+                // Save Color
+                var color = new VehicleColorModel
+                {
+                    PrimaryColor = vehicle.PrimaryColor,
+                    SecondaryColor = vehicle.SecondaryColor
+                };
+
+                bool colorSaved = GameDbContainer.VehicleService
+                    .SetColorAsync(vehicleEntity, color)
+                    .GetAwaiter()
+                    .GetResult();
+
+                if (!colorSaved)
+                {
+                    NAPI.Util.ConsoleOutput($"[VehicleMechanics] Failed to save color for vehicle {vehicle.NumberPlate}.");
+                    return false;
+                }
+
+                // Save Fuel
+                float fuel = GetFuel(vehicle);
+
+                bool fuelSaved = GameDbContainer.VehicleService
+                    .SetFuelAsync(vehicleEntity, fuel)
+                    .GetAwaiter()
+                    .GetResult();
+
+                if (!fuelSaved)
+                {
+                    NAPI.Util.ConsoleOutput($"[VehicleMechanics] Failed to save fuel for vehicle {vehicle.NumberPlate}.");
+                    return false;
+                }
+
+                // Save Mileage (only if changed)
+                float mileage = GetMileage(vehicle);
+                NAPI.Util.ConsoleOutput($"[DEBUG] Saving mileage for {vehicle.NumberPlate}: {mileage} km");
+
+                if (Math.Abs(vehicleEntity.Mileage - mileage) > 0.001f)
+                {
+                    bool mileageSaved = GameDbContainer.VehicleService
+                        .SetMileageAsync(vehicleEntity, mileage)
+                        .GetAwaiter()
+                        .GetResult();
+
+                    if (!mileageSaved)
+                    {
+                        NAPI.Util.ConsoleOutput($"[VehicleMechanics] Mileage save FAILED for {vehicle.NumberPlate}.");
+                        return false;
+                    }
+                }
+                else
+                {
+                    NAPI.Util.ConsoleOutput($"[VehicleMechanics] Mileage unchanged for {vehicle.NumberPlate}, skipping save.");
+                }
+
+                NAPI.Util.ConsoleOutput($"[VehicleMechanics] Successfully saved data for vehicle {vehicle.NumberPlate}.");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                var plateInfo = vehicle != null ? vehicle.NumberPlate : "unknown";
+                NAPI.Util.ConsoleOutput($"[VehicleMechanics] Exception while saving vehicle data (plate: {plateInfo}): {ex.Message}\n{ex.StackTrace}");
+                return false;
+            }
+        }
+
+
+        public static void LoadAllVehicles()
+        {
+            var allVehicles = GameDbContainer.VehicleService.GetAllVehiclesAsync().GetAwaiter().GetResult();
+
+            foreach (var vehicleEntity in allVehicles)
+            {
+                Vehicle vehicle = NAPI.Vehicle.CreateVehicle(
+                    (VehicleHash)NAPI.Util.GetHashKey(vehicleEntity.Model),
+                    new Vector3(vehicleEntity.Position.X, vehicleEntity.Position.Y, vehicleEntity.Position.Z),
+                    vehicleEntity.Position.Heading,
+                    vehicleEntity.Color.PrimaryColor,
+                    vehicleEntity.Color.SecondaryColor
+                );
+
+                vehicle.NumberPlate = vehicleEntity.NumberPlate;
+                vehicle.Locked = false;
+                vehicle.EngineStatus = true;
+
+                // Set mileage on vehicle instance:
+                vehicle.SetData("mileage", vehicleEntity.Mileage);
+
+                NAPI.Util.ConsoleOutput($"[VehicleMechanics] Spawned vehicle {vehicle.NumberPlate} with mileage {vehicleEntity.Mileage} km");
+            }
+        }
+
+
+        public static bool RemoveVehicle(string numberPlate)
+        {
+            if (string.IsNullOrEmpty(numberPlate))
+            {
+                NAPI.Util.ConsoleOutput("[VehicleMechanics] Empty plate provided.");
+                return false;
+            }
+
+            // Get vehicle from database
+            var vehicleEntity = GameDbContainer.VehicleService
+                .GetVehiclesByNumberPlateAsync(numberPlate)
+                .GetAwaiter().GetResult()
+                .FirstOrDefault();
+
+            if (vehicleEntity == null)
+            {
+                NAPI.Util.ConsoleOutput($"[VehicleMechanics] Vehicle with plate {numberPlate} not found in database.");
+                return false;
+            }
+
+            // Try to find and delete in-game vehicle
+            var vehicle = NAPI.Pools.GetAllVehicles().FirstOrDefault(v => v.NumberPlate == numberPlate);
+            if (vehicle != null && vehicle.Exists)
+            {
+                NAPI.Entity.DeleteEntity(vehicle);
+            }
+
+            // Delete from DB
+            var result = GameDbContainer.VehicleService.RemoveVehicleAsync(vehicleEntity).GetAwaiter().GetResult();
+            if (!result)
+            {
+                NAPI.Util.ConsoleOutput($"[VehicleMechanics] Failed to delete vehicle {numberPlate} from database.");
+                return false;
+            }
+
+            NAPI.Util.ConsoleOutput($"[VehicleMechanics] Vehicle {numberPlate} removed successfully.");
+            return true;
+        }
+
+
+
         public static Vehicle SpawnVehicleForPlayer(Player player, string modelName, string plateText = "")
         {
             if (string.IsNullOrWhiteSpace(modelName))
@@ -23,17 +211,34 @@ namespace GameMechanics
             Vector3 spawnPos = CalculateSpawnPosition(player.Position, player.Heading, 5f);
 
 
-            var result = GameDbContainer.VehicleService.CreateVehicleAsync(new VehicleCreateModel
+            // Generate random colors for primary and secondary
+            var rand = new Random();
+            int primaryColor = rand.Next(0, 160); // GTA V supports 0-159 for vehicle colors
+            int secondaryColor = rand.Next(0, 160);
+
+            var vehicleEntity = GameDbContainer.VehicleService.CreateVehicleAsync(new VehicleCreateModel
             {
                 Model = modelName,
+                Position = new PositionModel
+                {
+                    X = spawnPos.X,
+                    Y = spawnPos.Y,
+                    Z = spawnPos.Z,
+                    Heading = player.Heading
+                },
+                Color = new VehicleColorModel
+                {
+                    PrimaryColor = primaryColor,
+                    SecondaryColor = secondaryColor
+                },
             }).GetAwaiter().GetResult();
 
-            if (result.ReturnValue == null)
+            if (vehicleEntity == null)
             {
                 player.SendChatMessage("~r~Failed to create vehicle in database.");
                 return null;
             }
-            string plate = result.ReturnValue.NumberPlate;
+            string plate = vehicleEntity.NumberPlate;
             player.SendChatMessage($"~g~Vehicle created with plate: {plate}");
 
 
@@ -41,23 +246,17 @@ namespace GameMechanics
                 model,
                 spawnPos,
                 player.Heading,
-                0,
-                0,
+                primaryColor,
+                secondaryColor,
                 plate
             );
 
-            var playerResult = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
-            if(playerResult.ReturnValue == null)
+            var playerEntity = GameDbContainer.PlayerService.GetPlayerByNicknameAsync(player.Name).GetAwaiter().GetResult();
+            if (playerEntity == null)
             {
-                player.SendChatMessage("~r~Failed to find player in database.");
-                return null;
+                Console.WriteLine($"FATAL: Player {player.Name} not found in database.");
+                throw new Exception($"Player {player.Name} not found in database.");
             }
-        
-            GameDbContainer.VehicleService.AssignOwnerAsync(
-                result.ReturnValue.Id,
-                playerResult.ReturnValue.Id
-            
-            );
             vehicle.SetData("lightsOn", false);
             return vehicle;
         }
@@ -177,6 +376,20 @@ namespace GameMechanics
             vehicle.Health = 1000;
         }
 
+
+        //VEHICLE MILLAGE SYSTEM
+        public static float GetMileage(Vehicle vehicle)
+        {
+            if (vehicle.HasData("mileage"))
+                return vehicle.GetData<float>("mileage");
+            return 0f;
+        }
+
+
+        public static void SetMileage(Vehicle vehicle, float mileage)
+        {
+            vehicle.SetData("mileage", mileage);
+        }
 
 
 

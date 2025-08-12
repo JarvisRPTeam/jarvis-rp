@@ -90,5 +90,53 @@ namespace Main.AdminPanel
             string json = JsonConvert.SerializeObject(panelModel);
             player.TriggerEvent("adminPanel:receivePlayers", json);
         }
+
+        // [RemoteEvent("adminPanel:requestVehicles")]
+        // public void RequestVehicles(Player player)
+        // {
+        //     // Fetch all vehicles from your DB/service
+        //     var vehicles = GameDbContainer.VehicleService.GetAllVehiclesAsync().GetAwaiter().GetResult();
+
+        //     var onlineVehicles = new List<VehicleInfoModel>();
+        //     var offlineVehicles = new List<VehicleInfoModel>();
+        //     var bannedVehicles = new List<VehicleInfoModel>();
+
+        //     foreach (var v in vehicles)
+        //     {
+        //         var info = new VehicleInfoModel
+        //         {
+        //             Id = (int)v.Id,
+        //             Model = v.Model,
+        //             Owner = v.Owner != null ? v.Owner.Nickname : "Unknown",
+                 
+        //         };
+
+        //         if (info.IsBanned)
+        //         {
+        //             bannedVehicles.Add(info);
+        //         }
+        //         else if (info.IsOnline)
+        //         {
+        //             onlineVehicles.Add(info);
+        //         }
+        //         else
+        //         {
+        //             offlineVehicles.Add(info);
+        //         }
+        //     }
+
+        //     var panelModel = new VehiclePanelModel
+        //     {
+        //         OnlineVehicles = onlineVehicles,
+        //         OfflineVehicles = offlineVehicles,
+        //         BannedVehicles = bannedVehicles
+        //     };
+
+        //     string json = JsonConvert.SerializeObject(panelModel);
+        //     player.TriggerEvent("adminPanel:receiveVehicles", json);
+        // }
+
+
+        
     }
 }
